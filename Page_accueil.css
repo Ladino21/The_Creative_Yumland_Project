@@ -19,9 +19,6 @@ font-weight:bold;
 font-family:Playfair Display,sans-serif;
 font-size:24px;
 }
-#menu:hover{
-color:rgb(204,255,255);
-}
 
 #connexion{
 text-align:top;
@@ -32,7 +29,7 @@ font-family:Playfair Display,sans-serif;
 font-size:24px;
 }
 
-#connexion:hover{
+#menu:hover,#connexion:hover{
 color:rgb(204,255,255);
 }
 
