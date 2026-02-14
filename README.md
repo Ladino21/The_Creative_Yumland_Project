@@ -1,2 +1,2 @@
 # The_Creative_Yumland_Project
-The Svaneti restaurant
+The wonders of Svaneti
