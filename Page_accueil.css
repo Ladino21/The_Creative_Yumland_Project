@@ -1,6 +1,44 @@
-.name_res{
-border:1px solid black;
-text-align:center;
+body{
+margin:0;
+}
+
+#name_res{
+width:15%;
+display:inline-block;
+margin-top:2px;
 font-variant:small-caps;
+text-align:center;
 font-size:32px;
+}
+
+#menu{
+text-align:top;
+margin-left:50px;
+display:inline-block;
+font-weight:bold;
+font-family:Playfair Display,sans-serif;
+font-size:24px;
+}
+#menu:hover{
+color:rgb(204,255,255);
+}
+
+#connexion{
+text-align:top;
+margin-left:50px;
+display:inline-block;
+font-weight:bold;
+font-family:Playfair Display,sans-serif;
+font-size:24px;
+}
+
+#connexion:hover{
+color:rgb(204,255,255);
+}
+
+.header{
+border:1px solid black;
+cursor:pointer;
+padding:30px;
+text-align:center;
 }
