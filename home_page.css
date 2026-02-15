@@ -1,10 +1,8 @@
-*{
-cursor:pointer;
-}
+
 nav{
 align-items:center;
 height:120px;
-background-color:white;
+background-color:rgb(224,224,224);
 display:flex
 }
 
@@ -13,25 +11,60 @@ margin:0;
 }
 
 .left_side,.right_side{
-width:43%;
+cursor:pointer;
+width:42%;
 display:flex;
-font-size:16px;
-font-family:sans-serif;
+font-size:20px;
+font-family:Playfair Display;
 }
 
-.right_side li,.left_side li{
+.right_side li{
 font-weight:bold;
-margin-left:100px;
+margin-left:75px;
+vertical-align:middle;
+display:flex;
+}
+.left_side li{
+font-weight:bold;
+margin-left:120px;
 vertical-align:middle;
 display:flex;
 }
 
+#search_dish{
+border-radius:30px;
+cursor:auto;
+}
+
 #name_res{
+cursor:pointer;
 margin-top:10px;
 font-family:Algerian;
 font-size:28px;
 text-align:center;
 width:10%;
+display:flex;
+}
+
+.left_side li:hover,.right_side li:hover{
+color:rgb(255,102,102);
+}
+
+[type="search"]{
+border-color:black;
+}
+
+[src^="magnifying"]{
+width:12px;
+height:12px;
+}
+
+#loupe{
+background-color:white;
+}
+
+#heart{
+border:1px solid grey;
 display:flex;
 }
 
@@ -44,7 +77,29 @@ height:600px;
 background-image:url("page_accueil.webp");
 }
 
-li:hover{
-color:rgb(255,102,102);
+#title_pres{
+font-family:algerian;
+text-decoration:underline;
+font-style:Italic;
+font-size:30px;
 }
+
+#summary_pres{
+line-height:30px;
+height:200px;
+font-size:24px;
+padding-top:30px;
+font-family:constantia;
+}
+
+
+#summary{
+margin:130px 70px 70px 50px;
+width:40%;
+text-align:left;
+}
+
+
+
+/*border:1px solid black;*/
 
