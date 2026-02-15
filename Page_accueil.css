@@ -1,41 +1,50 @@
+*{
+cursor:pointer;
+}
+nav{
+align-items:center;
+height:120px;
+background-color:white;
+display:flex
+}
+
 body{
 margin:0;
 }
 
+.left_side,.right_side{
+width:43%;
+display:flex;
+font-size:16px;
+font-family:sans-serif;
+}
+
+.right_side li,.left_side li{
+font-weight:bold;
+margin-left:100px;
+vertical-align:middle;
+display:flex;
+}
+
 #name_res{
-width:15%;
-display:inline-block;
-margin-top:2px;
-font-variant:small-caps;
+margin-top:10px;
+font-family:Algerian;
+font-size:28px;
 text-align:center;
-font-size:32px;
+width:10%;
+display:flex;
 }
 
-#menu{
-text-align:top;
-margin-left:50px;
-display:inline-block;
-font-weight:bold;
-font-family:Playfair Display,sans-serif;
-font-size:24px;
+#main_img{
+background-repeat:no-repeat;
+background-position:center;
+background-size:cover;
+width:50%;
+height:600px;
+background-image:url("page_accueil.webp");
 }
 
-#connexion{
-text-align:top;
-margin-left:50px;
-display:inline-block;
-font-weight:bold;
-font-family:Playfair Display,sans-serif;
-font-size:24px;
+li:hover{
+color:rgb(255,102,102);
 }
 
-#menu:hover,#connexion:hover{
-color:rgb(204,255,255);
-}
-
-.header{
-border:1px solid black;
-cursor:pointer;
-padding:30px;
-text-align:center;
-}
