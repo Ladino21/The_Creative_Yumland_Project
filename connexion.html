@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<link rel="stylesheet" href="restaurant.css">
+<title>Formulaire d'inscription</title>
+</head>
+<body>
+<header>
+<nav id="form_entête">
+<div id="form_title"> Formulaire d'inscription </div>
+</nav>
+</header>
+<section id="section_form">
+<div id="div_form">
+<form action="redirection.py" method="post" id="form_inscription"/>
+<table id="tab_inscription" border="1" cellspacing="1" cellpadding="0" width="450">
+<tr>
+	<th colspan="2">Formulaire d'inscription</th>
+</tr>
+<tr>
+	<td><label for="nom1">Nom:</label></td>
+	<td><input type="text" name="nom" id="nom1"/></td>
+</tr>
+<tr>
+	<td><label for="prenom1">Prénom:</label></td>
+	<td><input type="text" name="prenom" id="prenom1"/></td>
+</tr>
+<tr>
+	<td><label for="numero1">Numéro Etudiant:</label></td>
+	<td><input type="text" name="numero" id="numero1"/></td>
+</tr>
+<tr>
+	<td><label for="select1">Groupe</label></td>
+	<td><select name="groupe" id="select1" style="background-color: lightgrey" size="1">
+	<optgroup label="MI">
+		<option value="A">Groupe 1</option>
+		<option value="B">Groupe 2</option>
+		<option value="C">Groupe 3</option>
+		<option value="D">Groupe 4</option>
+	</optgroup>
+	<optgroup label="SUPMECA">
+		<option value="A">Groupe 1</option>
+	</optgroup>
+	</td>
+</tr>
+<tr>
+	<td><label for="Photo1">Photo:</label>
+	<td><input type="file" name="photo" accept="image/*" id="Photo1"/>
+</tr>
+<tr>
+	<td colspan="2" align="center"><button type="submit">
+	S'inscrire
+	<img src="tele.webp" alt="validation" height="15" width="15">
+	</button>
+	</td>
+</tr>
+</table>
+</div>
+</section>
+
+</body>
+</html>
