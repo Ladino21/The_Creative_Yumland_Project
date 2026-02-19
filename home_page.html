@@ -1,42 +1,49 @@
 <!DOCTYPE html>
-<html>
-<head lang="fr">
+<html lang="fr">
+<head>
+
 <title>The wonders of Svaneti | page d'accueil</title>
 <link rel="stylesheet" href="restaurant.css">
+
 </head>
-<body>
+<body id="home_page">
+
 <header>
-<nav id="nav">
-<ul class="left_side">
-	<li class="menu">Nos Menus</li>
-	<li class="moment">Specialité du Moment</li>
-	<li class="extras">Extras</li>
-</ul>
-<div id="name_res">
-The Wonders of Svaneti
-</div>
-<ul class="right_side">
-	<li class="propos">A propos</li>
-	<li class="reservation">Reservation</li>
-	<li class="connexion">Connexion</li>
-	<li class="search">
-		<form name="search" id="search_dish" action="page_accueil.php" method="get">
-		<input type="search" name="search_bar"/>
-		<button type="submit" id="loupe"><img src="magnifying_glass.jpg" alt="photo_magnifying glass"></bottom>
-		</form>
-	</li>
-</ul>
+<nav id="navbar">
+	<ul id="nav-left">
+		<li class="nav-item">Nos Menus</li>
+		<li class="nav-item">Specialité du Moment</li>
+		<li class="nav-item">Extras</li>
+	</ul>
+	<div id="restaurant-name">The Wonders of Svaneti</div>
+	<ul id="nav-right">
+		<li class="nav-item">A propos</li>
+		<li class="nav-item">Reservation</li>
+		<li class="nav-item">
+			<a href="connexion.html">Connexion</a>
+		</li>
+		<li class="nav-item">
+			<form id="search-form" action="#" method="get">
+				<input type="search" placeholder="Rechercher..." name="search_bar"/>
+				<button type="submit" id="search-btn">
+					<img src="magnifying_glass.jpg" alt="loupe">
+				</button>
+			</form>
+		</li>
+	</ul>
 </nav>
 </header>
-<div id="heart">
-<section id="main_img">
+<div id="content-container">
+<section id="hero-image">
 </section>
-<aside id="summary">
-<ul><li><div id="title_pres">L'esprit de la Svanétie dans votre assiette</div>
-<div id="summary_pres">Au Wonders of Svaneti, nous rendons hommage à la Géorgie authentique, berceau d'une des plus anciennes et riches traditions culinaires au monde.
+	<aside id="presentation">
+		<div id="presentation-title">L'esprit de la Svanétie dans votre assiette</div>
+		<div id="presentation-text">Au Wonders of Svaneti, nous rendons hommage à la Géorgie authentique, berceau d'une des plus anciennes et riches traditions culinaires au monde.
 Notre cuisine 100% géorgienne puise ses racines dans les recettes transmises de génération en génération. Épices parfumées, fromages généreux, herbes fraîches et viandes tendres s'unissent pour créer des plats qui réchauffent le cœur et l'âme.
-Que vous découvriez pour la première fois les saveurs du Caucase ou que vous cherchiez à retrouver les goûts de votre enfance, notre table est un lieu de partage où chaque repas devient une célébration.</div></li></ul>
-</aside>
+Que vous découvriez pour la première fois les saveurs du Caucase ou que vous cherchiez à retrouver les goûts de votre enfance, notre table est un lieu de partage où chaque repas devient une célébration.
+		</div>
+	</aside>
 </div>
+
 </body>
 </html>
