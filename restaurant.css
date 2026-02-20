@@ -1,91 +1,139 @@
-#home_page{
-margin:0;
-}
-#navbar{
-align-items:center;
-height:120px;
-background-color:rgb(224, 224, 224);
-display:flex;
-}
-#nav-left,#nav-right{
-cursor:pointer;
-width:42%;
-display:flex;
-font-size:20px;
-font-family:Playfair Display;
-}
-#nav-right .nav-item{
-font-weight:bold;
-margin-left:75px;
-vertical-align:middle;
-display:flex;
-}
-#nav-left .nav-item{
-font-weight:bold;
-margin-left:120px;
-vertical-align:middle;
-display:flex;
-}
-#search-form{
-border-radius:30px;
-cursor:auto;
-}
+/*home_page*/
 
+#home_page{
+margin:0px;
+font-family:Poppins,sans-serif;
+}
 a{
 text-decoration:none;
 color:inherit;
 }
-#restaurant-name{
-cursor:pointer;
-margin-top:10px;
-font-family:Algerian;
-font-size:28px;
-text-align:center;
-width:10%;
+
+#navbar{
 display:flex;
+align-items:center;
+height:115px;
+background-color:#2C1A0E;
+border-bottom:3px solid #C4622D;
+width:100%;
 }
-.nav-item:hover{
-color:rgb(255, 102, 102);
-}
-[type="search"]{
-border-color:black;
-}
-[src^="magnifying"]{
-width:12px;
-height:12px;
-}
-#search-btn{
-background-color:white;
-}
-#content-container{
-border:1px solid grey;
-display:flex;
-}
-#hero-image{
-background-repeat:no-repeat;
-background-position:center;
-background-size:cover;
-width:50%;
-height:600px;
-background-image:url("page_accueil.webp");
-}
-#presentation-title{
-font-family:Algerian;
-text-decoration:underline;
-font-style:italic;
-font-size:30px;
-}
-#presentation-text{
-line-height:30px;
-height:200px;
-font-size:24px;
-padding-top:30px;
-font-family:Constantia;
-}
-#presentation{
-margin:130px 70px 70px 50px;
+
+#nav-left,#nav-right{
 width:40%;
+display:flex;
+align-items:center;
+list-style:none;
+}
+
+
+.nav-item{
+font-size:14px;
+font-weight:bold;
+color:#E8D5B0;
+cursor:pointer;
+padding:8px 17px;
+border-radius:12px;
+}
+
+.nav-item-special{
+color:#E8D5B0;
+padding:8px 17px;
+border-radius:12px;
+}
+
+.nav-item:hover{
+background-color:#C4622D;
+color:white;
+}
+
+#restaurant-name{
+display:flex;
+align-items:center;
+justify-content:center;
+width:20%;
+font-family:Algerian,serif;
+font-size:20px;
+font-weight:bold;
+color:#E8D5B0;
+background-color:#C4622D;
+padding:14px 18px;
+border-radius:20px;
+cursor:pointer;
+}
+
+#search-form{
+display:flex;
+align-items:center;
+border:2px solid #C4622D;
+border-radius:20px;
+background-color:#F5ECD7;
+padding:4px 10px;
+}
+
+[type="search"]{
+border:none;
+background-color:transparent;
+outline:none;
+font-family:Poppins,sans-serif;
+font-size:14px;
+width:130px;
+color:#2C1A0E;
+}
+
+#search-btn{
+background-color:transparent;
+border:none;
+cursor:pointer;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+[src^="magnifying"]{
+width:14px;
+height:14px;
+}
+
+#content-container{
+align-items:stretch;
+overflow:hidden; 
+height:670px;
+display:flex;
+justify-content:center;
+}
+
+#hero-image{
+width:50%;
+background-image:url('page_accueil.webp');
+background-size:cover;
+background-position:center;
+}
+
+#presentation{
+border:1px solid black;
+width:50%;
+padding:70px 50px;
+background-color:#2C1A0E;
+}
+
+#presentation-title{
+margin-top:60px;
+font-family:poppins, serif;
+font-size:36px;
+color:#E8D5B0;
+text-decoration:underline;
+text-decoration-color:#E8D5B0;
+font-style:italic;
+}
+
+#presentation-text{
+margin-top:50px;
+font-family:Constantia,serif;
+font-size:22px;
+line-height:30px;
+color:#E8D5B0;
 text-align:left;
+width:700px;
 }
 /*connexion.html*/
 
@@ -115,6 +163,7 @@ color:#2F9CDB;
 text-align:center;
 text-decoration:underline;
 text-decoration-color:#35A5E5;
+padding:20px 0px;
 }
 
 #tab_connexion td{
@@ -171,7 +220,7 @@ display:flex;
 align-items:center;
 justify-content:center;
 width:100%;
-padding:250px;
+padding:150px;
 }
 /*border:1px solid black;*/
 
