@@ -18,13 +18,18 @@ border-bottom:3px solid #C4622D;
 width:100%;
 }
 
-#nav-left,#nav-right{
+#nav-right{
 width:40%;
 display:flex;
 align-items:center;
 list-style:none;
 }
-
+#nav-left{
+width:40%;
+display:flex;
+align-items:center;
+list-style:none;
+}
 
 .nav-item{
 font-size:14px;
@@ -33,6 +38,14 @@ color:#E8D5B0;
 cursor:pointer;
 padding:8px 17px;
 border-radius:12px;
+}
+
+#indentation-left{
+margin-left:200px;
+}
+
+#indentation-right{
+margin-left:60px;
 }
 
 .nav-item-special{
@@ -104,13 +117,12 @@ justify-content:center;
 
 #hero-image{
 width:55%;
-background-image:url('page_accueil.webp');
+background-image:url("page_accueil.webp");
 background-size:cover;
 background-position:center;
 }
 
 #presentation{
-border:1px solid black;
 width:45%;
 padding:70px 50px;
 background-color:#2C1A0E;
@@ -141,6 +153,7 @@ width:700px;
 background-image:url("blue_image.jpg");
 background-position:center;
 background-size:cover;
+min-height:100vh;
 font-family:Poppins,sans-serif;
 display:flex;
 align-items:center;
@@ -314,7 +327,6 @@ border-color:#2A8630;
 }
 
 #tab_inscription textarea{
-border:1px solid black;
 width:260px;
 height:90px;
 padding:12px 16px;
@@ -351,3 +363,4 @@ letter-spacing:0.25px;
 background-color:#5DDC66;
 }
 /*border:1px solid black;*/
+
