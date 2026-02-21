@@ -10,7 +10,7 @@
 <section id="section_form">
 	<div id="container">
 		<h2>Formulaire de connexion</h2>
-		<form action="test" method="post" id="form_connexion">
+		<form action="#" method="post" id="form_connexion">
 		<table id="tab_connexion">
 			<tr>
 				<td><label for="Email">Email</label></td>
@@ -22,11 +22,14 @@
 			</tr>
 			<tr>
 				<td><label for="remind_me">Se souvenir de moi</label></td>
-				<td><input type="checkbox" name="forgot_password" id="remind_me"/></td>
+				<td><input type="checkbox" name="remind" id="remind_me"/></td>
 			</tr>
-			<tr>
+			<tr id="test">
 				<td>
-					<button type="submit">Mot de passe oublié ?</button>
+					<button type="submit" id="forgot_password">Mot de passe oublié ?</button>
+				</td>
+				<td>
+					<button type="submit" id="inscription"><a href="inscription.html" target="_blank">Je ne possède pas de compte</a></button>
 				</td>
 			</tr>
 		</table>
