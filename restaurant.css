@@ -616,5 +616,127 @@ text-transform:uppercase;
 font-weight:bold;
 }
 
+/*notation.html*/
+
+#body_notation{
+font-family:Poppins,sans-serif;
+background-color:#F5ECD7;
+margin:0;
+}
+
+#header-notation{
+display:flex;
+align-items:center;
+justify-content:center;
+background-color:#2C1A0E;
+border-bottom:3px solid #C4622D;
+height:110px;
+}
+
+#restaurant-name-notation{
+font-family:Algerian,serif;
+font-size:24px;
+font-weight:bold;
+color:#E8D5B0;
+background-color:#C4622D;
+padding:14px 24px;
+border-radius:20px;
+}
+
+#section_notation{
+display:flex;
+align-items:center;
+justify-content:center;
+margin-top:100px;
+}
+
+#container_notation{
+background-color:#2C1A0E;
+border-radius:20px;
+padding:50px 60px;
+width:600px;
+display:flex;
+flex-direction:column;
+align-items:center;
+}
+
+#container_notation h2{
+font-family:Algerian,serif;
+font-size:28px;
+color:#C4622D;
+text-decoration:underline;
+text-decoration-color:#E8D5B0;
+margin-bottom:10px;
+}
+
+#notation-commande{
+font-family:Constantia,serif;
+font-style:italic;
+color:#E8D5B0;
+font-size:14px;
+margin-bottom:30px;
+text-align:center;
+}
+
+#tab_notation{
+width:100%;
+border-spacing:14px 24px;
+}
+
+#tab_notation td{
+padding:4px 10px;
+}
+
+#tab_notation label{
+font-size:14px;
+font-weight:bold;
+color:#C4622D;
+}
+
+#tab_notation select{
+width:250px;
+padding:10px 14px;
+border:2px solid #C4622D;
+border-radius:12px;
+font-family:Poppins,sans-serif;
+font-size:14px;
+background-color:#F5ECD7;
+color:#2C1A0E;
+cursor:pointer;
+}
+
+#tab_notation textarea{
+width:275px;
+height:100px;
+padding:10px 14px;
+border:2px solid #C4622D;
+border-radius:12px;
+font-family:Constantia,serif;
+font-size:14px;
+background-color:#F5ECD7;
+color:#2C1A0E;
+outline:none;
+resize:none;
+}
+
+#button_notation{
+width:100%;
+padding:14px;
+margin-top:10px;
+background-color:#C4622D;
+color:white;
+font-family:Poppins,sans-serif;
+font-size:15px;
+font-weight:bold;
+border:none;
+border-radius:12px;
+cursor:pointer;
+}
+
+#button_notation:hover{
+background-color:#f89436;
+color:white;
+}
+
 /*border:1px solid white;*/
 
