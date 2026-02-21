@@ -97,13 +97,13 @@ height:14px;
 #content-container{
 align-items:stretch;
 overflow:hidden; 
-height:800px;
+height:850px;
 display:flex;
 justify-content:center;
 }
 
 #hero-image{
-width:50%;
+width:55%;
 background-image:url('page_accueil.webp');
 background-size:cover;
 background-position:center;
@@ -111,7 +111,7 @@ background-position:center;
 
 #presentation{
 border:1px solid black;
-width:50%;
+width:45%;
 padding:70px 50px;
 background-color:#2C1A0E;
 }
