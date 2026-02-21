@@ -2,48 +2,63 @@
 <html lang="fr">
 <head>
 
-<title>The wonders of Svaneti | page d'accueil</title>
 <link rel="stylesheet" href="restaurant.css">
+<title>Formulaire d'inscription</title>
 
 </head>
-<body id="home_page">
-
-<header>
-<nav id="navbar">
-	<ul id="nav-left">
-		<li class="nav-item" id="indentation-left">Nos Menus</li>
-		<li class="nav-item">Specialité du Moment</li>
-		<li class="nav-item">Extras</li>
-	</ul>
-	<div id="restaurant-name">The Wonders of Svaneti</div>
-	<ul id="nav-right">
-		<li class="nav-item" id="indentation-right">À propos</li>
-		<li class="nav-item">Reservation</li>
-		<li class="nav-item">
-			<a href="connexion.html" target="_blank">Connexion</a>
-		</li>
-		<li class="nav-item-special">
-			<form id="search-form" action="#" method="get">
-				<input type="search" placeholder="Rechercher..." name="search_bar"/>
-				<button type="submit" id="search-btn">
-					<img src="magnifying_glass.jpg" alt="loupe">
-				</button>
-			</form>
-		</li>
-	</ul>
-</nav>
-</header>
-<div id="content-container">
-<section id="hero-image">
+<body id="body_inscription">
+<section id="section_inscription">
+	<div id="container_form">
+		<h2>Formulaire d'inscription</h2>
+		<form action="#" method="post" id="form_inscription">
+		<table id="tab_inscription">
+			<tr>
+				<td><label for="name">Surnom</label></td>
+				<td><input type="text"placeholder="Name"name="name" id="name"/></td>
+			</tr>
+			<tr>
+				<td><label for="surname">Nom</label></td>
+				<td><input type="text" placeholder="Surname" name="surname" id="surname"/></td>
+			</tr>
+			<tr>
+				<td><label for="Email2">Email</label></td>
+				<td><input type="text" placeholder="Email"name="email" id="Email2"/></td>
+			</tr>
+			<tr>
+				<td><label for="password_ins">Mot de passe</label></td>
+				<td><input type="password" placeholder="Mot de passe" name="password" id="password_ins"/></td>
+			</tr>
+			<tr>
+				<td><label for="password_conf">Confirmation mot de passe</label></td>
+				<td><input type="password" placeholder="Mot de passe" name="password" id="password_conf"/></td>
+			</tr>
+			<tr>
+				<td><label for="address">Address</label></td>
+				<td><input type="text" placeholder="Address" name="address" id="address"/></td>
+			</tr>
+			<tr>
+				<td><label for="phone">Phone</label></td>
+				<td><input type="text" placeholder="Phone number" name="phone" id="phone"/></td>
+			</tr>
+			<tr>
+				<td><label for="birthday">Date d'anniversaire</label></td>
+				<td><input type="date" name="birthday" id="birthday"/></td>
+			</tr>
+			<tr>
+				<td><label for="info">Informations complémentaires <subscript>*</subscript></label></td>
+				<td>
+					<textarea name="info_complementaires" id="info" placeholder="Étage, code interphone..."></textarea>
+				</td>
+			</tr>
+			<tr>
+    				<td colspan="2">
+       					 <button type="submit">S'inscrire</button>
+    				</td>
+			</tr>
+		</table>
+	</div>
 </section>
-	<aside id="presentation">
-		<div id="presentation-title">L'esprit de la Svanétie dans votre assiette</div>
-		<div id="presentation-text">Au Wonders of Svaneti, nous rendons hommage à la Géorgie authentique, berceau d'une des plus anciennes et riches traditions culinaires au monde.
-Notre cuisine 100% géorgienne puise ses racines dans les recettes transmises de génération en génération. Épices parfumées, fromages généreux, herbes fraîches et viandes tendres s'unissent pour créer des plats qui réchauffent le cœur et l'âme.
-Que vous découvriez pour la première fois les saveurs du Caucase ou que vous cherchiez à retrouver les goûts de votre enfance, notre table est un lieu de partage où chaque repas devient une célébration.
-		</div>
-	</aside>
-</div>
 
 </body>
 </html>
+
