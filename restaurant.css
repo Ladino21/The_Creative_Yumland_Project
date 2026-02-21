@@ -163,7 +163,7 @@ justify-content:center;
 #container{
 background-color:white;
 border-radius:20px;
-padding:50px 40px;
+padding:15px 30px 40px 30px;
 width:480px;
 display:flex;
 align-items:center;
@@ -214,35 +214,52 @@ cursor:pointer;
 }
 
 #forgot_password{
-width:105%;
+display:block;
+text-align:center;
 padding:14px;
 margin-top:10px;
 background-color:#2F9CDB;
 color:white;
 font-family:Poppins,sans-serif;
-font-size:16px;
+font-size:12px;
 font-weight:bold;
 border-radius:12px;
-border-color:#21C6EF;
 cursor:pointer;
+width:90%;
 }
 
 #inscription{
-width:70%;
-margin-left:75px;
+display:block;
+text-align:center;
+margin-left:35px;
+padding:14px;
 margin-top:10px;
 background-color:#2F9CDB;
 color:white;
 font-family:Poppins,sans-serif;
-height:50px;
 font-size:12px;
 font-weight:bold;
 border-radius:12px;
-border-color:#21C6EF;
 cursor:pointer;
+width:80%;
 }
 
-#tab_connexion button[type="submit"]:hover{
+#connexion_button{
+display:block;
+text-align:center;
+padding:14px;
+margin-top:10px;
+background-color:#2F9CDB;
+color:white;
+font-family:Poppins,sans-serif;
+font-size:12px;
+font-weight:bold;
+border-radius:12px;
+cursor:pointer;
+width:97%;
+}
+
+#forgot_password:hover,#inscription:hover,#connexion_button:hover{
 background-color:#21C6EF;
 }
 
@@ -363,7 +380,7 @@ letter-spacing:0.25px;
 background-color:#5DDC66;
 }
 
-/*profil html*/
+/* profil.html */
 
 #body_profil{
 font-family:Poppins,sans-serif;
@@ -599,5 +616,5 @@ text-transform:uppercase;
 font-weight:bold;
 }
 
-/*border:1px solid black;*/
+/*border:1px solid white;*/
 
