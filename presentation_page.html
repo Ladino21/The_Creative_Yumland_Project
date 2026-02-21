@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<link rel="stylesheet" href="restaurant.css">
+<title>The Wonders of Svaneti | Nos Plats</title>
+</head>
+<body id="body_produits">
+<header>
+<nav id="navbar">
+	<ul id="nav-left">
+		<li class="nav-item" id="indentation-left"><a href="presentation_page.html" target="_blank">Menus</a></li>
+		<li class="nav-item">Specialité du Moment</li>
+		<li class="nav-item">Extras</li>
+	</ul>
+	<div id="restaurant-name"><a href="home_page.html" target="_blank">The Wonders of Svaneti</a></div>
+	<ul id="nav-right">
+		<li class="nav-item" id="indentation-right">À propos</li>
+		<li class="nav-item">Reservation</li>
+		<li class="nav-item">
+			<a href="connexion.html">Connexion</a>
+		</li>
+		<li class="nav-item-special">
+			<form id="search-form" action="#" method="get">
+				<input type="search" placeholder="Rechercher..." name="search_bar"/>
+				<button type="submit" id="search-btn">
+					<img src="magnifying_glass.jpg" alt="loupe">
+				</button>
+			</form>
+		</li>
+	</ul>
+</nav>
+</header>
+<div id="barre_carte">
+    <div id="barre_carte_texte">
+        <h1 id="produits-titre">La Carte</h1>
+        <p id="produits-sous-titre">Voyagez au cœur du Caucase, une assiette à la fois</p>
+    </div>
+</div>
+<div id="produits-container">
+    <aside id="colone_gauche">
+        <div class="filtre-bloc">
+            <h3 class="filtre-titre">Catégorie</h3>
+            <ul class="filtre-liste">
+                <li class="filtre-item-actif">Tous</li>
+                <li class="filtre-item">Menus</li>
+                <li class="filtre-item">Entrées</li>
+                <li class="filtre-item">Plats</li>
+                <li class="filtre-item">Desserts</li>
+                <li class="filtre-item">Boissons</li>
+            </ul>
+        </div>
+        <div class="filtre-bloc">
+            <h3 class="filtre-titre">Saveurs</h3>
+            <ul class="filtre-liste">
+                <li class="filtre-item">Épicé</li>
+                <li class="filtre-item">Fumé</li>
+                <li class="filtre-item">Végétarien</li>
+                <li class="filtre-item">Fruité</li>
+                <li class="filtre-item">Grillé</li>
+            </ul>
+        </div>
+        <div class="filtre-bloc">
+            <h3 class="filtre-titre">Allergènes</h3>
+            <ul class="filtre-liste">
+                <li class="filtre-item">Sans noix</li>
+                <li class="filtre-item">Sans gluten</li>
+                <li class="filtre-item">Sans lactose</li>
+                <li class="filtre-item">Sans œuf</li>
+            </ul>
+        </div>
+    </aside>
+    <main id="produits-grille">
+        <section class="produits-section">
+            <h2 class="section-titre">Nos Menus</h2>
+            <div class="cards-container">
+                <div class="card-plat">
+                    <div class="card-img" id="img-tamada"></div>
+                    <div class="card-body">
+                        <h3 class="card-nom">Le Tamada</h3>
+                        <p class="card-origine">🇬🇪 Géorgie — Menu Dégustation</p>
+                        <p class="card-desc">Le festin du maître de cérémonie. Pkhali, Khinkali, Mtsvadi, Churchkhela et vin Rkatsiteli.</p>
+                        <div class="card-footer">
+                            <span class="card-prix">45,00 €</span>
+                            <button class="card-bouton">Commander</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-plat">
+                    <div class="card-img" id="img-khachapuri"></div>
+                    <div class="card-body">
+                        <h3 class="card-nom">Menu Khachapuri</h3>
+                        <p class="card-origine">🇬🇪 Adjarie & Mingrélie</p>
+                        <p class="card-desc">Voyage autour du fromage géorgien. Deux Khachapuri régionaux, sulguni et Kada.</p>
+                        <div class="card-footer">
+                            <span class="card-prix">32,00 €</span>
+                            <button class="card-bouton">Commander</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-plat">
+                    <div class="card-img" id="img-svanetie"></div>
+                    <div class="card-body">
+                        <h3 class="card-nom">Menu Svanétie</h3>
+                        <p class="card-origine">🇬🇪 Montagnes de Svanétie</p>
+                        <p class="card-desc">Les saveurs des sommets. Salade géorgienne, Chakapuli, Satsivi et Pelamushi.</p>
+                        <div class="card-footer">
+                            <span class="card-prix">38,00 €</span>
+                            <button class="card-bouton">Commander</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-plat">
+                    <div class="card-img" id="img-veggie"></div>
+                    <div class="card-body">
+                        <h3 class="card-nom">Menu Végétarien</h3>
+                        <p class="card-origine">🇬🇪 L'Esprit du Caucase</p>
+                        <p class="card-desc">Pkhali trio, Badrijani, Lobiani, Ajapsandali et Nazuki.</p>
+                        <div class="card-footer">
+                            <span class="card-prix">28,00 €</span>
+                            <button class="card-bouton">Commander</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="produits-section">
+            <h2 class="section-titre">Entrées</h2>
+            <div class="cards-container">
+                <div class="card-plat">
+                    <div class="card-img" id="img-pkhali"></div>
+                    <div class="card-body">
+                        <h3 class="card-nom">Pkhali</h3>
+                        <p class="card-origine">🇬🇪 Géorgie — Végétarien</p>
+                        <p class="card-desc">Amuse-bouche aux légumes et noix du Caucase. Épinards, betterave ou haricots verts.</p>
+                        <div class="card-footer">
+                            <span class="card-prix">8,00 €</span>
+                            <button class="card-bouton">Commander</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-plat">
+                    <div class="card-img" id="img-badrijani"></div>
+                    <div class="card-body">
+                        <h3 class="card-nom">Badrijani</h3>
+                        <p class="card-origine">🇬🇪 Géorgie — Végétarien</p>
+                        <p class="card-desc">Aubergines grillées fourrées à la pâte de noix, grenade et coriandre fraîche.</p>
+                        <div class="card-footer">
+                            <span class="card-prix">9,00 €</span>
+                            <button class="card-bouton">Commander</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-plat">
+                    <div class="card-img" id="img-salade"></div>
+                    <div class="card-body">
+                        <h3 class="card-nom">Salade Géorgienne</h3>
+                        <p class="card-origine">🇬🇪 Géorgie</p>
+                        <p class="card-desc">Tomates, concombres, oignons rouges, coriandre et aneth, huile de noix.</p>
+                        <div class="card-footer">
+                            <span class="card-prix">7,00 €</span>
+                            <button class="card-bouton">Commander</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-plat">
+                    <div class="card-img" id="img-cornichons"></div>
+                    <div class="card-body">
+                        <h3 class="card-nom">Cornichons Géorgiens</h3>
+                        <p class="card-origine">🇬🇪 Géorgie</p>
+                        <p class="card-desc">Cornichons marinés aux herbes fraîches, ail et épices khmeli suneli.</p>
+                        <div class="card-footer">
+                            <span class="card-prix">5,00 €</span>
+                            <button class="card-bouton">Commander</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="produits-section">
+            <h2 class="section-titre">Plats</h2>
+            <div class="cards-container">
+                <div class="card-plat">
+                    <div class="card-img" id="img-khinkali"></div>
+                    <div class="card-body">
+                        <h3 class="card-nom">Khinkali</h3>
+                        <p class="card-origine">🇬🇪 Svanétie & Kakhétie</p>
+                        <p class="card-desc">Raviolis géorgiens juteux farcis à la viande épicée, bouillon intérieur. Se mange à la main.</p>
+                        <div class="card-footer">
+                            <span class="card-prix">14,00 €</span>
+                            <button class="card-bouton">Commander</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-plat">
+                    <div class="card-img" id="img-mtsvadi"></div>
+                    <div class="card-body">
+                        <h3 class="card-nom">Mtsvadi</h3>
+                        <p class="card-origine">🇬🇪 Géorgie</p>
+                        <p class="card-desc">Brochettes de viande grillée au feu de bois, marinées à la sauce tkemali de prune sauvage.</p>
+                        <div class="card-footer">
+                            <span class="card-prix">16,00 €</span>
+                            <button class="card-bouton">Commander</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-plat">
+                    <div class="card-img" id="img-soko"></div>
+                    <div class="card-body">
+                        <h3 class="card-nom">Soko Kecze</h3>
+                        <p class="card-origine">🇬🇪 Géorgie</p>
+                        <p class="card-desc">Champignons sauvages cuits au four dans une poêle en argile avec sulguni fondu et beurre.</p>
+                        <div class="card-footer">
+                            <span class="card-prix">13,00 €</span>
+                            <button class="card-bouton">Commander</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-plat">
+                    <div class="card-img" id="img-satsivi"></div>
+                    <div class="card-body">
+                        <h3 class="card-nom">Satsivi</h3>
+                        <p class="card-origine">🇬🇪 Géorgie occidentale</p>
+                        <p class="card-desc">Volaille froide nappée d'une sauce onctueuse aux noix, safran d'Iran et épices khmeli suneli.</p>
+                        <div class="card-footer">
+                            <span class="card-prix">17,00 €</span>
+                            <button class="card-bouton">Commander</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="produits-section">
+            <h2 class="section-titre">Desserts</h2>
+            <div class="cards-container">
+                <div class="card-plat">
+                    <div class="card-img" id="img-churchkhela"></div>
+                    <div class="card-body">
+                        <h3 class="card-nom">Churchkhela</h3>
+                        <p class="card-origine">🇬🇪 Kakhétie</p>
+                        <p class="card-desc">Noix et noisettes enfilées sur une ficelle et enrobées de jus de raisin concentré séché.</p>
+                        <div class="card-footer">
+                            <span class="card-prix">6,00 €</span>
+                            <button class="card-bouton">Commander</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-plat">
+                    <div class="card-img" id="img-pelamushi"></div>
+                    <div class="card-body">
+                        <h3 class="card-nom">Pelamushi</h3>
+                        <p class="card-origine">🇬🇪 Géorgie</p>
+                        <p class="card-desc">Pudding traditionnel à base de jus de raisin rouge et farine de maïs, parsemé de noix.</p>
+                        <div class="card-footer">
+                            <span class="card-prix">7,00 €</span>
+                            <button class="card-bouton">Commander</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-plat">
+                    <div class="card-img" id="img-nazuki"></div>
+                    <div class="card-body">
+                        <h3 class="card-nom">Nazuki</h3>
+                        <p class="card-origine">🇬🇪 Géorgie</p>
+                        <p class="card-desc">Pain sucré et épicé à la cannelle, cardamome et clou de girofle. Douceur des fêtes géorgiennes.</p>
+                        <div class="card-footer">
+                            <span class="card-prix">5,50 €</span>
+                            <button class="card-bouton">Commander</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="produits-section">
+            <h2 class="section-titre">Boissons</h2>
+            <div class="cards-container">
+
+                <div class="card-plat">
+                    <div class="card-img" id="img-rkatsiteli"></div>
+                    <div class="card-body">
+                        <h3 class="card-nom">Rkatsiteli Ambré</h3>
+                        <p class="card-origine">🇬🇪 Kakhétie — Vin de 8000 ans</p>
+                        <p class="card-desc">Vin ambré géorgien fermenté en amphore Qvevri. Notes de noix, miel et abricot sec.</p>
+                        <div class="card-footer">
+                            <span class="card-prix">9,00 €</span>
+                            <button class="card-bouton">Commander</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-plat">
+                    <div class="card-img" id="img-limonade"></div>
+                    <div class="card-body">
+                        <h3 class="card-nom">Limonade Lagidze</h3>
+                        <p class="card-origine">🇬🇪 Tbilissi depuis 1887</p>
+                        <p class="card-desc">Limonade artisanale géorgienne aux sirops naturels : poire, crème de vanille ou estragon.</p>
+                        <div class="card-footer">
+                            <span class="card-prix">4,50 €</span>
+                            <button class="card-bouton">Commander</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-plat">
+                    <div class="card-img" id="img-tan"></div>
+                    <div class="card-body">
+                        <h3 class="card-nom">Tan</h3>
+                        <p class="card-origine">🇦🇲 Arménie — voisin caucasien</p>
+                        <p class="card-desc">Boisson traditionnelle à base de yaourt fermenté, eau gazeuse et sel. Rafraîchissante et légère.</p>
+                        <div class="card-footer">
+                            <span class="card-prix">3,50 €</span>
+                            <button class="card-bouton">Commander</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+</body>
+</html>
