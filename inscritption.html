@@ -9,15 +9,15 @@
 <body id="body_inscription">
 <section id="section_inscription">
 	<div id="container_form">
-		<h2>Formulaire d'incription</h2>
+		<h2>Formulaire d'inscription</h2>
 		<form action="test" method="post" id="form_inscription">
 		<table id="tab_inscription">
 			<tr>
-				<td><label for="name">Name</label></td>
+				<td><label for="name">Surnom</label></td>
 				<td><input type="text"placeholder="Name"name="name" id="name"/></td>
 			</tr>
 			<tr>
-				<td><label for="surname">Surname</label></td>
+				<td><label for="surname">Nom</label></td>
 				<td><input type="text" placeholder="Surname" name="surname" id="surname"/></td>
 			</tr>
 			<tr>
@@ -29,7 +29,7 @@
 				<td><input type="password" placeholder="Mot de passe" name="password" id="password_ins"/></td>
 			</tr>
 			<tr>
-				<td><label for="password_conf">Mot de passe</label></td>
+				<td><label for="password_conf">Confirmation mot de passe</label></td>
 				<td><input type="password" placeholder="Mot de passe" name="password" id="password_conf"/></td>
 			</tr>
 			<tr>
@@ -45,10 +45,16 @@
 				<td><input type="date" name="birthday" id="birthday"/></td>
 			</tr>
 			<tr>
-				<td><label for="info">Informations complémentaires </label></td>
+				<td><label for="info">Informations complémentaires <subscript>*</subscript></label></td>
 				<td>
-					<textarea name="info_complementaires" id="info" placeholder="Étage, code interphone..."></textarea>
+					<textarea name="info_complementaires" id="info" placeholder="Étage, code interphone...">
+					</textarea>
 				</td>
+			</tr>
+			<tr>
+    				<td colspan="2">
+       					 <button type="submit">S'inscrire</button>
+    				</td>
 			</tr>
 		</table>
 	</div>
