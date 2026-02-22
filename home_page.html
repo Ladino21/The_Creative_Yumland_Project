@@ -1,30 +1,28 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-
 <title>The wonders of Svaneti | page d'accueil</title>
 <link rel="stylesheet" href="restaurant.css">
-
 </head>
 <body id="home_page">
-
 <header>
 <nav id="navbar">
 	<ul id="nav-left">
 		<a href="presentation_page.html" target="_blank"><li class="nav-item" id="indentation-left">Menus</li></a>
-		<li class="nav-item">Specialité du Moment</li>
-		<li class="nav-item">Extras</li>
+		<a href="commandes.html" target="_blank"><li class="nav-item">Commandes</li></a>
+		<a href="livraison.html" target="_blank"><li class="nav-item">Livraison</li></a>
+		<a href="admin.html" target="_blank"><li class="nav-item">Admin</li></a>
+		<a href="notation.html" target="_blank"><li class="nav-item">Notation</li></a>
 	</ul>
-	<a href="home_page.html" target="_blank"><div id="restaurant-name">The Wonders of Svaneti</div></a>
+	<a href="home_page.html" target="_self"><div id="restaurant-name">The Wonders of Svaneti</div></a>
 	<ul id="nav-right">
-		<li class="nav-item" id="indentation-right">Commande</li>
+		<a href="inscription.html" target="_blank"><li class="nav-item" id="indentation-right">Inscription</li></a>
 		<a href="profil.html" target="_blank"><li class="nav-item">Profil</li></a>
 		<a href="connexion.html" target="_blank"><li class="nav-item">Connexion</li></a>
 		<li class="nav-item-special">
 			<form id="search-form" action="#" method="get">
-				<input type="search" placeholder="Rechercher un plat" name="search_bar"/>
-				<button type="submit" id="search-button">
-					<img src="magnifying_glass.jpg" alt="loupe">
+				<input type="search" placeholder="Rechercher un plat..." id="search_bar_admin" name="search"/>
+                <button type="submit" id="admin_button">Rechercher</button>
 				</button>
 			</form>
 		</li>
