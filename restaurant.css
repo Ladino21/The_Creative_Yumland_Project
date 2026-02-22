@@ -54,7 +54,7 @@ padding:8px 17px;
 border-radius:12px;
 }
 
-.nav-item:hover,#restaurant-name:hover{
+.nav-item:hover,#restaurant-name:hover,#redirection_menu:hover{
 background-color:#C4622D;
 color:white;
 }
@@ -110,31 +110,31 @@ height:14px;
 #content-container{
 align-items:stretch;
 overflow:hidden; 
-height:850px;
+height:600px;
 display:flex;
-justify-content:center;
+border-bottom:3px solid #C4622D;
 }
 
 #hero-image{
-width:55%;
+width:45%;
 background-image:url("page_accueil.webp");
 background-size:cover;
 background-position:center;
 }
 
 #presentation{
-width:45%;
-padding:70px 50px;
-background-color:#2C1A0E;
+width:55%;
+padding:70px 60px;
+background-color:#F5ECD7;
 }
 
 #presentation-title{
 margin-top:60px;
-font-family:poppins, serif;
+font-family:Algerian,serif;
 font-size:36px;
-color:#E8D5B0;
+color:#C4622D;
 text-decoration:underline;
-text-decoration-color:#E8D5B0;
+text-decoration-color:#C4622D;
 font-style:italic;
 }
 
@@ -143,10 +143,30 @@ margin-top:50px;
 font-family:Constantia,serif;
 font-size:22px;
 line-height:30px;
-color:#E8D5B0;
+color:#2C1A0E;
 text-align:left;
 width:700px;
 }
+#bonus_accueil{
+width:100%;
+background-color:#F5ECD7;
+height:450px;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+}
+
+#culture_accueil{
+padding-top:25px;
+width:75%;
+font-family:Constantia,serif;
+font-size:22px;
+line-height:30px;
+color:#2C1A0E;
+text-align:center;
+}
+
 
 .nav-item a{
 display:block;
@@ -161,6 +181,21 @@ width:100%;
 height:100%;
 }
 
+#redirection_menu{
+margin-top:20px;
+font-size:14px;
+font-weight:bold;
+color:#C4622D;
+cursor:pointer;
+padding:8px 17px;
+border-radius:12px;
+width:75px;
+margin-left:45%;
+background-color:#C4622D;
+color:#F5ECD7;
+margin-bottom:50px;
+list-style:none;
+}
 
 /*connexion.html*/
 
