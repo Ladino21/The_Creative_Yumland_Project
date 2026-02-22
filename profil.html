@@ -5,26 +5,28 @@
 <title>The Wonders of Svaneti | Profil</title>
 </head>
 <body id="body_profil">
-
-<header id="header-profil">
-    <div id="header-profil-left">
-        <div id="avatar-img"></div>
-        <div id="header-profil-text">
-            <h1 id="profil-nom">Wael Hajji</h1>
-            <p id="profil-membre">Membre depuis janvier 2025</p>
-        </div>
-    </div>
-    <div id="header-profil-center">
-        <a href="home_page.html" id="retour-accueil">← Retour à l'accueil</a>
-    </div>
-    <div id="header-profil-right">
-        <div id="header-points">
-            <span id="header-points-valeur">340</span>
-            <span id="header-points-fidèle">points fidélité</span>
-        </div>
-    </div>
+<header>
+<nav id="navbar">
+	<ul id="nav-left">
+		<a href="presentation_page.html" target="_blank"><li class="nav-item" id="indentation-left">Menus</li></a>
+		<a href="admin.html" target="_blank"><li class="nav-item">Admin</li></a>
+		<a href="notation.html" target="_blank"><li class="nav-item">Notation</li></a>
+	</ul>
+	<a href="home_page.html" target="_self"><div id="restaurant-name">The Wonders of Svaneti</div></a>
+	<ul id="nav-right">
+		<a href="inscription.html" target="_blank"><li class="nav-item" id="indentation-right">Inscription</li></a>
+		<a href="profil.html" target="_blank"><li class="nav-item">Profil</li></a>
+		<a href="connexion.html" target="_blank"><li class="nav-item">Connexion</li></a>
+		<li class="nav-item-special">
+			<form id="search-form" action="#" method="get">
+				<input type="search" placeholder="Rechercher un plat..." id="search_bar_admin" name="search"/>
+                <button type="submit" id="admin_button">Rechercher</button>
+				</button>
+			</form>
+		</li>
+	</ul>
+</nav>
 </header>
-
 <div id="profil-container">
     <section id="profil-infos">
         <h2 class="profil-titre">Mes Informations</h2>
