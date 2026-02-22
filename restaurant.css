@@ -1,4 +1,4 @@
-/*home_page*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~home_page~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 #home_page{
 margin:0px;
@@ -32,7 +32,7 @@ list-style:none;
 }
 
 .nav-item{
-font-size:14px;
+font-size:15px;
 font-weight:bold;
 color:#E8D5B0;
 cursor:pointer;
@@ -41,7 +41,7 @@ border-radius:12px;
 }
 
 #indentation-left{
-margin-left:250px;
+margin-left:175px;
 }
 
 #indentation-right{
@@ -101,6 +101,7 @@ display:flex;
 align-items:center;
 justify-content:center;
 }
+
 
 [src^="magnifying"]{
 width:14px;
@@ -197,8 +198,7 @@ margin-bottom:50px;
 list-style:none;
 }
 
-/*connexion.html*/
-
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~connexion.html~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 #body_connexion{
 background-image:url("connexion.webp");
@@ -321,7 +321,7 @@ width:100%;
 padding:150px;
 }
 
-/*Inscription.html*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Inscription.html~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 #body_inscription{
 font-family:Poppins,sans-serif;
@@ -425,7 +425,7 @@ background-color:#E8D5B0;
 color:#2C1A0E;
 }
 
-/* profil.html */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~profil.html~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 #body_profil{
 font-family:Poppins,sans-serif;
@@ -661,7 +661,7 @@ text-transform:uppercase;
 font-weight:bold;
 }
 
-/*notation.html*/
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~notation.html~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 #body_notation{
 font-family:Poppins,sans-serif;
@@ -783,7 +783,8 @@ background-color:#f89436;
 color:white;
 }
 
-/* presentation_page*/
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~presentation_page~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 
 #body_produits{
@@ -808,7 +809,7 @@ text-align:center;
 #produits-titre{
 font-family:Algerian,serif;
 font-size:48px;
-color:#C4622D;
+color:black;
 text-decoration:underline;
 text-decoration-color:#C4622D;
 }
@@ -817,7 +818,7 @@ text-decoration-color:#C4622D;
 font-family:Constantia,serif;
 font-style:italic;
 font-size:18px;
-color:#C4622D;
+color:black;
 margin-top:10px;
 }
 
@@ -883,6 +884,7 @@ font-weight:bold;
 }
 
 #produits-grille{
+flex:1;
 display:flex;
 flex-direction:column;
 }
@@ -987,8 +989,7 @@ background-color:#d38b47;
 color:white;
 }
 
-/* admin.html*/
-
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~admin.html~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 #body_admin{
 font-family:Poppins,sans-serif;
@@ -1178,7 +1179,7 @@ font-weight:bold;
 background-color:#a7541d;
 }
 
-/*commande.hmtl*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~commande.hmtl~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 #body_commandes{
 font-family:Poppins,sans-serif;
@@ -1317,6 +1318,140 @@ font-weight:bold;
 font-family:Poppins,sans-serif;
 }
 
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Livraison.html~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+#body_livraison{
+font-family:Poppins,sans-serif;
+background-color:#2C1A0E;
+margin:0px;
+}
+
+#header_livraison{
+display:flex;
+align-items:center;
+background-color:#2C1A0E;
+border-bottom:3px solid #C4622D;
+padding:20px 30px;
+height:90px;
+}
+
+#livraison_titre{
+font-family:Algerian,serif;
+font-size:28px;
+color:#E8D5B0;
+width:90%;
+}
+#livraison_commande_num{
+margin-top:7px;
+font-size:22px;
+font-weight:bold;
+text-align:center;
+}
+
+#livraison_commande_id{
+margin-top:5px;
+font-size:13px;
+font-style:italic;
+color:#E8D5B0;
+text-align:center;
+}
+
+#client_id{
+border:3px solid #E8D5B0;
+flex:display;
+align-items:center;
+flex-direction:column;
+font-family:Poppins,sans-serif;
+font-size:20px;
+font-weight:bold;
+color:white;
+background-color:#C4622D;
+border-radius:12px;
+padding:10px 20px;
+height:60px;
+width:60px
+}
+
+#livraison_container{
+display:flex;
+flex-direction:column;
+padding:30px;
+}
+
+.livraison_bloc_titre{
+font-family:Algerian,serif;
+font-size:20px;
+color:#C4622D;
+text-decoration:underline;
+text-decoration-color:#E8D5B0;
+margin-bottom:16px;
+}
+
+#livraison_bloc_client,
+#livraison_bloc_adresse,
+#livraison_bloc_commande{
+background-color:#3D2A1A;
+border-radius:16px;
+padding:24px 30px;
+margin-bottom:20px;
+border:2px solid #C4622D;
+}
+
+.tab_livraison{
+width:100%;
+border-spacing:0px 12px;
+}
+
+.livraison_label{
+font-size:15px;
+font-weight:bold;
+color:#C4622D;
+width:40%;
+padding:4px 8px;
+}
+
+.livraison_valeur{
+font-family:Constantia,serif;
+font-size:16px;
+color:#E8D5B0;
+padding:4px 8px;
+}
+
+#bouton_maps{
+display:block;
+text-align:center;
+background-color:#C4622D;
+color:white;
+font-family:Poppins,sans-serif;
+font-size:18px;
+font-weight:bold;
+border-radius:16px;
+padding:18px;
+margin-top:16px;
+cursor:pointer;
+}
+
+#bouton_maps:hover{
+background-color:#ff924a;
+}
+
+#bouton_liv{
+background-color:#C4622D;
+color:white;
+border:none;
+border-radius:16px;
+padding:22px;
+font-family:Poppins,sans-serif;
+font-size:20px;
+font-weight:bold;
+cursor:pointer;
+width:100%;
+margin-top:10px;
+}
+
+#bouton_liv:hover{
+background-color:#ff924a;
+}
 
 /*border:1px solid white;*/
 
