@@ -1178,6 +1178,145 @@ font-weight:bold;
 background-color:#a7541d;
 }
 
+/*commande.hmtl*/
+
+#body_commandes{
+font-family:Poppins,sans-serif;
+background-color:#F5ECD7;
+margin:0px;
+}
+
+#header_commandes{
+display:flex;
+align-items:center;
+justify-content:center;
+background-color:#2C1A0E;
+border-bottom:3px solid #C4622D;
+padding:20px 60px;
+height:90px;
+}
+
+#commandes_header_left{
+width:60%;
+}
+
+#commandes_titre{
+font-family:Algerian,serif;
+font-size:24px;
+color:#E8D5B0;
+}
+
+#commandes_sous_titre{
+font-size:12px;
+color:#C4622D;
+font-variant:small-caps;
+margin-top:4px;
+}
+
+#commandes_header_right{
+width:40%;
+display:flex;
+justify-content:flex-end;
+}
+
+.commandes_compteur{
+border:3px solid #E8D5B0;
+display:flex;
+flex-direction:column;
+align-items:center;
+background-color:#C4622D;
+border-radius:16px;
+padding:12px 24px;
+margin-left:16px;
+}
+
+.compteur_valeur{
+font-size:28px;
+font-weight:bold;
+color:white;
+}
+
+.compteur_label{
+font-size:12px;
+font-style:italic;
+color:#F5ECD7;
+margin-top:2px;
+}
+
+#commandes_container{
+padding:40px 60px;
+display:flex;
+flex-direction:column;
+}
+
+.commandes_section{
+margin-bottom:50px;
+}
+
+.commandes_section_titre{
+font-family:Algerian,serif;
+font-size:22px;
+color:#2C1A0E;
+text-decoration:underline;
+text-decoration-color:#C4622D;
+margin-bottom:20px;
+padding-bottom:8px;
+border-bottom:2px solid #C4622D;
+}
+
+.tab_commandes{
+border:3px solid black;
+width:100%;
+border-spacing:0px;
+background-color:white;
+border-radius:16px;
+overflow:hidden;
+}
+
+.tab_commandes_header th{
+background-color:#2C1A0E;
+color:#C4622D;
+font-size:13px;
+font-weight:bold;
+padding:14px 16px;
+text-align:left;
+}
+
+.tab_commandes td{
+padding:14px 16px;
+font-size:13px;
+color:#2C1A0E;
+border-bottom:1px solid #F5ECD7;
+font-family:Constantia,serif;
+}
+
+.tab-commandes td:hover{
+background-color:#F5ECD7;
+}
+
+.bouton_liv{
+background-color:#C4622D;
+color:white;
+border:none;
+border-radius:10px;
+padding:10px 16px;
+font-family:Poppins,sans-serif;
+font-size:12px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.bouton_liv:hover{
+background-color:#ff924a;
+}
+
+.statut_en_cours{
+text-transform:uppercase;
+color:#C4622D;
+font-weight:bold;
+font-family:Poppins,sans-serif;
+}
+
 
 /*border:1px solid white;*/
 
