@@ -1355,6 +1355,26 @@ color:#E8D5B0;
 text-align:center;
 }
 
+#livraison_retour{
+display:block;
+text-align:center;
+background-color:#C4622D;
+color:white;
+font-family:Poppins,sans-serif;
+font-size:16px;
+font-weight:bold;
+border-radius:12px;
+padding:14px 20px;
+cursor:pointer;
+border:3px solid #E8D5B0;
+margin-left:20px;
+}
+
+#livraison_retour:hover{
+background-color:#ff924a;
+}
+
+
 #client_id{
 border:3px solid #E8D5B0;
 flex:display;
