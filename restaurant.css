@@ -161,6 +161,7 @@ justify-content:center;
 }
 
 #container{
+border:3px solid black;
 background-color: #2C1A0E;
 border-radius:20px;
 padding:15px 30px 40px 30px;
