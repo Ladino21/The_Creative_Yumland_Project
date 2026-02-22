@@ -787,7 +787,7 @@ color:white;
 
 
 #body_produits{
-font-family:Poppins, sans-serif;
+font-family:Poppins,sans-serif;
 background-color:#F5ECD7;
 margin:0;
 }
@@ -805,7 +805,7 @@ border-bottom:3px solid #C4622D;
 text-align:center;
 }
 
-#produits-titre{
+#produits_titre{
 font-family:Algerian,serif;
 font-size:48px;
 color:black;
@@ -813,7 +813,7 @@ text-decoration:underline;
 text-decoration-color:#C4622D;
 }
 
-#produits-sous-titre{
+#produits_sous_titre{
 font-family:Constantia,serif;
 font-style:italic;
 font-size:18px;
@@ -821,7 +821,7 @@ color:black;
 margin-top:10px;
 }
 
-#produits-container{
+#produits_container{
 display:flex;
 padding:40px 60px;
 }
@@ -833,14 +833,14 @@ display:flex;
 flex-direction:column;
 }
 
-.filtre-bloc{
+.filtre_bloc{
 background-color:#2C1A0E;
 border-radius:16px;
 padding:20px;
 margin-bottom:20px;
 }
 
-.filtre-titre{
+.filtre_titre{
 font-family:Algerian,serif;
 font-size:16px;
 color:#C4622D;
@@ -849,13 +849,13 @@ text-decoration:underline;
 text-decoration-color:#E8D5B0;
 }
 
-.filtre-liste{
+.filtre_liste{
 list-style:none;
 padding:0;
 margin:0;
 }
 
-.filtre-item{
+.filtre_item{
 font-size:13px;
 color:#E8D5B0;
 font-family:Poppins,sans-serif;
@@ -865,34 +865,34 @@ cursor:pointer;
 margin-bottom:4px;
 }
 
-.filtre-item:hover{
+.filtre_item:hover{
 background-color:#C4622D;
 color:white;
 }
 
-.filtre-item-actif{
+.filtre_item_actif{
 font-size:13px;
 font-family:Poppins,sans-serif;
 padding:8px 10px;
 border-radius:10px;
 cursor:pointer;
 margin-bottom:4px;
-background-color:#C4622D; /* couleur fixe : changer sûrement sur les autres phases*/
+background-color:#C4622D;
 color:white;
 font-weight:bold;
 }
 
-#produits-grille{
+#produits_grille{
 flex:1;
 display:flex;
 flex-direction:column;
 }
 
-.produits-section{
+.produits_section{
 margin-bottom:50px;
 }
 
-.section-titre{
+.section_titre{
 font-family:Algerian,serif;
 font-size:24px;
 color:#2C1A0E;
@@ -903,11 +903,11 @@ padding-bottom:8px;
 border-bottom:2px solid #C4622D;
 }
 
-.cards-container{
+.cards_container{
 display:flex;
 }
 
-.card-plat{
+.card_plat{
 border:4px solid black;
 width:240px;
 background-color:#2C1A0E;
@@ -917,7 +917,7 @@ margin-bottom:15px;
 overflow:hidden;
 }
 
-.card-img{
+.card_img{
 font-size:13px;
 font-variant:small-caps;
 display:flex;
@@ -931,27 +931,27 @@ background-size:cover;
 background-position:center;
 }
 
-.card-body{
+.card_body{
 padding:16px;
 display:flex;
 flex-direction:column;
 }
 
-.card-nom{
+.card_nom{
 font-family:Algerian,serif;
 font-size:16px;
 color:#E8D5B0;
 margin-bottom:4px;
 }
 
-.card-origine{
+.card_origine{
 font-size:11px;
 color:#C4622D;
 font-style:italic;
 margin-bottom:8px;
 }
 
-.card-desc{
+.card_desc{
 font-family:Constantia,serif;
 font-size:13px;
 color:#E8D5B0;
@@ -959,22 +959,23 @@ line-height:20px;
 margin-bottom:14px;
 }
 
-.card-footer{
+.card_footer{
 display:flex;
 align-items:center;
 justify-content:center;
 }
 
-.card-prix{
+.card_prix{
 font-size:16px;
 font-weight:bold;
 color:#C4622D;
 margin-right:16px;
 }
 
-.card-bouton{
+.card_bouton{
 background-color:#C4622D;
 color:white;
+border:none;
 border-radius:10px;
 padding:8px 14px;
 font-family:Poppins,sans-serif;
@@ -983,7 +984,7 @@ font-weight:bold;
 cursor:pointer;
 }
 
-.card-bouton:hover{
+.card_bouton:hover{
 background-color:#d38b47;
 color:white;
 }
