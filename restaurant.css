@@ -149,6 +149,7 @@ width:700px;
 }
 /*connexion.html*/
 
+
 #body_connexion{
 background-image:url("wait.webp");
 background-position:center;
@@ -162,7 +163,7 @@ justify-content:center;
 
 #container{
 border:3px solid black;
-background-color: #2C1A0E;
+background-color:#2C1A0E;
 border-radius:20px;
 padding:15px 30px 40px 30px;
 width:480px;
@@ -270,12 +271,13 @@ width:100%;
 padding:150px;
 }
 
-
 /*Inscription.html*/
 
 #body_inscription{
 font-family:Poppins,sans-serif;
-background-image:url("inscription.jpg");
+background-image:url("inscription.jpeg");
+background-position:center;
+background-size:cover;
 background-position:center;
 margin:0px;
 }
@@ -289,7 +291,8 @@ width:100%;
 }
 
 #container_form{
-background-color:white;
+border:3px solid black;
+background-color:#2C1A0E;
 border-radius:20px;
 padding:50px 60px;
 width:520px;
@@ -301,10 +304,10 @@ align-items:center;
 #container_form h2{
 font-size:28px;
 font-weight:bold;
-color:#2A8630;
+color:#E8D5B0;
 text-align:center;
 text-decoration:underline;
-text-decoration-color:#A5D6A7;
+text-decoration-color:#C4622D;
 }
 
 #tab_inscription{
@@ -319,7 +322,7 @@ padding:4px 8px;
 #tab_inscription label{
 font-size:14px;
 font-weight:bold;
-color:#2A8630;
+color:#E8D5B0;
 letter-spacing:0.5px;
 }
 
@@ -328,45 +331,36 @@ letter-spacing:0.5px;
 #tab_inscription input[type="date"]{
 width:260px;
 padding:12px 16px;
-border:2px solid #A5D6A7;
+border:2px solid #C4622D;
 border-radius:12px;
 font-family:Poppins,sans-serif;
 font-size:14px;
-color:#18551C;
-background-color:#F1F8F1;
+color:#2C1A0E;
+background-color:#F5ECD7;
 outline:none;
 }
 
-#tab_inscription input[type="text"]:focus,
-#tab_inscription input[type="password"]:focus,
-#tab_inscription input[type="date"]:focus{
-border-color:#2A8630;
-}
 
 #tab_inscription textarea{
 width:260px;
 height:90px;
 padding:12px 16px;
-border:2px solid #A5D6A7;
+border:2px solid #C4622D;
 border-radius:12px;
 font-family:Poppins,sans-serif;
 font-size:14px;
-color:#18551C;
-background-color:#F1F8F1;
+color:#2C1A0E;
+background-color:#F5ECD7;
 outline:none;
 resize:none;
-}
-
-#tab_inscription textarea:focus{
-border-color:#2E7D32;
 }
 
 #tab_inscription button[type="submit"]{
 width:100%;
 padding:14px;
 margin-top:12px;
-background-color:#2A8630;
-color:white;
+background-color:#C4622D;
+color:#E8D5B0;
 font-family:Poppins,sans-serif;
 font-size:16px;
 font-weight:bold;
@@ -377,7 +371,8 @@ letter-spacing:0.25px;
 }
 
 #tab_inscription button[type="submit"]:hover{
-background-color:#5DDC66;
+background-color:#E8D5B0;
+color:#2C1A0E;
 }
 
 /* profil.html */
