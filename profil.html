@@ -5,133 +5,125 @@
 <title>The Wonders of Svaneti | Profil</title>
 </head>
 <body id="body_profil">
-<header>
-<nav id="navbar">
-	<ul id="nav-left">
-		<a href="presentation_page.html" target="_blank"><li class="nav-item" id="indentation-left">Menus</li></a>
-		<a href="admin.html" target="_blank"><li class="nav-item">Admin</li></a>
-		<a href="notation.html" target="_blank"><li class="nav-item">Notation</li></a>
-	</ul>
-	<a href="home_page.html" target="_self"><div id="restaurant-name">The Wonders of Svaneti</div></a>
-	<ul id="nav-right">
-		<a href="inscription.html" target="_blank"><li class="nav-item" id="indentation-right">Inscription</li></a>
-		<a href="profil.html" target="_blank"><li class="nav-item">Profil</li></a>
-		<a href="connexion.html" target="_blank"><li class="nav-item">Connexion</li></a>
-		<li class="nav-item-special">
-			<form id="search-form" action="#" method="get">
-				<input type="search" placeholder="Rechercher un plat..." id="search_bar_admin" name="search"/>
-                <button type="submit" id="admin_button">Rechercher</button>
-				</button>
-			</form>
-		</li>
-	</ul>
-</nav>
+<header id="header_profil">
+    <div id="header_profil_left">
+        <div id="avatar_img"></div>
+        <div id="header_profil_text">
+            <h1 id="profil_nom">Wael Hajji</h1>
+            <p id="profil_membre">Membre depuis janvier 2025</p>
+        </div>
+    </div>
+    <div id="header_profil_center">
+        <a href="home_page.html" id="retour_accueil">← Retour à l'accueil</a>
+    </div>
+    <div id="header_profil_right">
+        <div id="header_points">
+            <span id="header_points_valeur">340</span>
+            <span id="header_points_fidele">points fidélité</span>
+        </div>
+    </div>
 </header>
-<div id="profil-container">
-    <section id="profil-infos">
-        <h2 class="profil-titre">Mes Informations</h2>
-        <table id="tab-profil">
+<div id="profil_container">
+    <section id="profil_infos">
+        <h2 class="profil_titre">Mes Informations</h2>
+        <table id="tab_profil">
             <tr>
                 <td><label>Nom</label></td>
-                <td><span class="profil-valeur">Hajji</span></td>
+                <td><span class="profil_valeur">Hajji</span></td>
                 <td><span class="crayon">✏️</span></td>
             </tr>
             <tr>
                 <td><label>Prénom</label></td>
-                <td><span class="profil-valeur">Wael</span></td>
+                <td><span class="profil_valeur">Wael</span></td>
                 <td><span class="crayon">✏️</span></td>
             </tr>
             <tr>
                 <td><label>Email</label></td>
-                <td><span class="profil-valeur">wael.hajji@etu.cyu.fr</span></td>
+                <td><span class="profil_valeur">wael.hajji@etu.cyu.fr</span></td>
                 <td><span class="crayon">✏️</span></td>
             </tr>
             <tr>
                 <td><label>Téléphone</label></td>
-                <td><span class="profil-valeur">06 12 .. .. .. </span></td>
+                <td><span class="profil_valeur">06 12 .. .. ..</span></td>
                 <td><span class="crayon">✏️</span></td>
             </tr>
             <tr>
                 <td><label>Adresse</label></td>
-                <td><span class="profil-valeur">12 rue de la Clé à molette,Cergy</span></td>
+                <td><span class="profil_valeur">12 rue de la Clé à molette, Cergy</span></td>
                 <td><span class="crayon">✏️</span></td>
             </tr>
             <tr>
                 <td><label>Mot de passe</label></td>
-                <td><span class="profil-valeur">**************</span></td>
+                <td><span class="profil_valeur">**************</span></td>
                 <td><span class="crayon">✏️</span></td>
             </tr>
             <tr>
                 <td><label>Infos complémentaires</label></td>
-                <td><span class="profil-valeur">Appartement 425, code 212</span></td>
+                <td><span class="profil_valeur">Appartement 425, code 212</span></td>
                 <td><span class="crayon">✏️</span></td>
             </tr>
         </table>
     </section>
-
-    <aside id="profil-aside">
-
-        <div id="fidèle-bloc">
-            <h2 class="profil-titre">Compte Fidélité</h2>
-            <div id="fidèle-points">
-                <span id="points-valeur">340</span>
-                <span id="points-fidèle">points</span>
+    <aside id="profil_aside">
+        <div id="fidele_bloc">
+            <h2 class="profil_titre">Compte Fidélité</h2>
+            <div id="fidele_points">
+                <span id="points_valeur">340</span>
+                <span id="points_fidele">points</span>
             </div>
-            <div id="fidèle-barre-fond">
-                <div id="fidèle-barre-remplie"></div>
+            <div id="fidele_barre_fond">
+                <div id="fidele_barre_remplie"></div>
             </div>
-            <p id="fidèle-info">Plus que 160 points pour un plat offert !</p>
+            <p id="fidele_info">Plus que 160 points pour un plat offert !</p>
         </div>
-        <div id="historique-bloc">
-            <h2 class="profil-titre">Historique des commandes</h2>
-            <table id="tab-historique">
-                <tr class="tab-header">
+        <div id="historique_bloc">
+            <h2 class="profil_titre">Historique des commandes</h2>
+            <table id="tab_historique">
+                <tr class="tab_header">
                     <th>Date</th>
                     <th>Commande</th>
                     <th>Total</th>
                     <th>Statut</th>
-                    <th>Gain-Fidélité</th>
+                    <th>Gain Fidélité</th>
                 </tr>
                 <tr>
                     <td>12/02/2026</td>
                     <td>Khinkali x3, Khachapuri</td>
                     <td>24,50 €</td>
-                    <td class="statut-livre">Livré</td>
+                    <td class="statut_livre">Livré</td>
                     <td>60 pts</td>
                 </tr>
                 <tr>
                     <td>05/02/2026</td>
                     <td>Menu Svanétie, Boisson</td>
                     <td>18,00 €</td>
-                    <td class="statut-livre">Livré</td>
+                    <td class="statut_livre">Livré</td>
                     <td>48 pts</td>
                 </tr>
                 <tr>
                     <td>28/01/2026</td>
                     <td>Mtsvadi, Lobiani</td>
                     <td>21,00 €</td>
-                    <td class="statut-livre">Livré</td>
+                    <td class="statut_livre">Livré</td>
                     <td>54 pts</td>
                 </tr>
                 <tr>
                     <td>17/01/2026</td>
                     <td>Menu spécial, dessert</td>
                     <td>28 €</td>
-                    <td class="statut-livre">Livré</td>
+                    <td class="statut_livre">Livré</td>
                     <td>70,50 pts</td>
                 </tr>
                 <tr>
                     <td>02/01/2026</td>
                     <td>Menu de base, dessert</td>
                     <td>19 €</td>
-                    <td class="statut-livre">Livré</td>
+                    <td class="statut_livre">Livré</td>
                     <td>50,25 pts</td>
                 </tr>
             </table>
         </div>
-
     </aside>
 </div>
-
 </body>
 </html>
