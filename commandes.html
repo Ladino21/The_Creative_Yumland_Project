@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<link rel="stylesheet" href="restaurant.css">
+<title>The Wonders of Svaneti | Commandes</title>
+</head>
+<body id="body_commandes">
+<header id="header_commandes">
+    <div id="commandes_header_left">
+        <div id="commandes_titre">Gestion des Commandes</div>
+        <p id="commandes_sous_titre">Vue restaurateur — mise à jour en temps réel</p>
+    </div>
+    <div id="commandes_header_right">
+        <div class="commandes_compteur">
+            <span class="compteur_valeur">5</span>
+            <span class="compteur_label">À préparer</span>
+        </div>
+        <div class="commandes_compteur">
+            <span class="compteur_valeur">3</span>
+            <span class="compteur_label">En livraison</span>
+        </div>
+    </div>
+</header>
+<div id="commandes_container">
+    <section class="commandes_section">
+        <h2 class="commandes_section_titre">🍳 Commandes à préparer</h2>
+        <table class="tab_commandes">
+            <tr class="tab_commandes_header">
+                <th>N° commande</th>
+                <th>Client</th>
+                <th>Plats commandés</th>
+                <th>Heure</th>
+                <th>Total</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td>#0041</td>
+                <td>Anatole Revillion</td>
+                <td>Khinkali x3, Khachapuri Adjurali</td>
+                <td>12h14</td>
+                <td>24,50 €</td>
+                <td><button class="bouton_liv">Passer en livraison</button></td>
+            </tr>
+            <tr>
+                <td>#0042</td>
+                <td>Younes Anajjar</td>
+                <td>Menu Svanétie, Limonade Lagidze</td>
+                <td>12h18</td>
+                <td>42,50 €</td>
+                <td><button class="bouton_liv">Passer en livraison</button></td>
+            </tr>
+            <tr>
+                <td>#0043</td>
+                <td>Adam Abd El Ghany</td>
+                <td>Mtsvadi, Salade Géorgienne, Tan</td>
+                <td>12h22</td>
+                <td>27,00 €</td>
+                <td><button class="bouton_liv">Passer en livraison</button></td>
+            </tr>
+            <tr>
+                <td>#0044</td>
+                <td>Maëlys Louvrier</td>
+                <td>Menu Végétarien, Churchkhela</td>
+                <td>12h25</td>
+                <td>34,00 €</td>
+                <td><button class="bouton_liv">Passer en livraison</button></td>
+            </tr>
+            <tr>
+                <td>#0045</td>
+                <td>Rendy Aoualli</td>
+                <td>Soko Kecze, Badrijani, Rkatsiteli</td>
+                <td>12h30</td>
+                <td>31,00 €</td>
+                <td><button class="bouton_liv">Passer en livraison</button></td>
+            </tr>
+        </table>
+    </section>
+    <section class="commandes_section">
+        <h2 class="commandes_section_titre">🛵 Commandes en livraison</h2>
+        <table class="tab_commandes">
+            <tr class="tab_commandes_header">
+                <th>N° commande</th>
+                <th>Client</th>
+                <th>Plats commandés</th>
+                <th>Heure départ</th>
+                <th>Total</th>
+                <th>Statut</th>
+            </tr>
+            <tr>
+                <td>#0038</td>
+                <td>Wael Hajji</td>
+                <td>Menu Tamada</td>
+                <td>11h55</td>
+                <td>45,00 €</td>
+                <td class="statut_en_cours">En route</td>
+            </tr>
+            <tr>
+                <td>#0039</td>
+                <td>Anes Mokrane</td>
+                <td>Satsivi, Pain traditionnel, Tan</td>
+                <td>12h02</td>
+                <td>25,50 €</td>
+                <td class="statut_en_cours">En route</td>
+            </tr>
+            <tr>
+                <td>#0040</td>
+                <td>Mathis Tollet</td>
+                <td>Menu Khachapuri, Pelamushi</td>
+                <td>12h08</td>
+                <td>39,00 €</td>
+                <td class="statut_en_cours">En route</td>
+            </tr>
+        </table>
+    </section>
+</div>
+</body>
+</html>
