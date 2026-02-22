@@ -1418,6 +1418,7 @@ width:60px
 }
 
 #livraison_container{
+background-color:#E8D5B0;
 display:flex;
 flex-direction:column;
 padding:30px;
