@@ -38,15 +38,15 @@
             <form id="admin_form" action="#" method="get">
                 <input type="search" placeholder="Rechercher un utilisateur..." id="search_bar_admin" name="search"/>
                 <button type="submit" id="admin_button">Rechercher</button>
+                <select id="admin_list" name="filtre">
+                    <option value="tous">Tous les utilisateurs</option>
+                    <option value="commandes">Avec commandes</option>
+                    <option value="sans">Sans commande</option>
+                </select>
             </form>
-            <select id="admin_list" name="filtre">
-                <option value="tous">Tous les utilisateurs</option>
-                <option value="commandes">Avec commandes</option>
-                <option value="sans">Sans commande</option>
-            </select>
         </div>
         <table id="tab_admin">
-            <tr class="entête">
+            <tr class="entete">
                 <th>Nom</th>
                 <th>Prénom</th>
                 <th>Email</th>
