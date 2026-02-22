@@ -872,6 +872,12 @@ overflow:hidden;
 }
 
 .card-img{
+font-size:13px;
+font-variant:small-caps;
+display:flex;
+justify-content:center;
+align-items:center;
+color:#E8D5B0;
 width:100%;
 height:180px;
 background-color:#C4622D;
