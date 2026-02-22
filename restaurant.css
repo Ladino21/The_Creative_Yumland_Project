@@ -18,20 +18,20 @@ border-bottom:3px solid #C4622D;
 width:100%;
 }
 
-#nav-right{
+#nav_right{
 width:40%;
 display:flex;
 align-items:center;
 list-style:none;
 }
-#nav-left{
+#nav_left{
 width:40%;
 display:flex;
 align-items:center;
 list-style:none;
 }
 
-.nav-item{
+.nav_item{
 font-size:15px;
 font-weight:bold;
 color:#E8D5B0;
@@ -40,26 +40,26 @@ padding:8px 17px;
 border-radius:12px;
 }
 
-#indentation-left{
+#indentation_left{
 margin-left:175px;
 }
 
-#indentation-right{
+#indentation_right{
 margin-left:100px;
 }
 
-.nav-item-special{
+.nav_item_special{
 color:#E8D5B0;
 padding:8px 17px;
 border-radius:12px;
 }
 
-.nav-item:hover,#restaurant-name:hover,#redirection_menu:hover{
+.nav_item:hover,#restaurant_name:hover,#redirection_menu:hover{
 background-color:#C4622D;
 color:white;
 }
 
-#restaurant-name{
+#restaurant_name{
 display:flex;
 align-items:center;
 justify-content:center;
@@ -74,7 +74,7 @@ border-radius:20px;
 cursor:pointer;
 }
 
-#search-form{
+#search_form{
 display:flex;
 align-items:center;
 border:2px solid #C4622D;
@@ -93,7 +93,7 @@ width:130px;
 color:#2C1A0E;
 }
 
-#search-button{
+#search_button{
 background-color:transparent;
 border:none;
 cursor:pointer;
@@ -102,21 +102,20 @@ align-items:center;
 justify-content:center;
 }
 
-
 [src^="magnifying"]{
 width:14px;
 height:14px;
 }
 
-#content-container{
+#content_container{
 align-items:stretch;
-overflow:hidden; 
+overflow:hidden;
 height:600px;
 display:flex;
 border-bottom:3px solid #C4622D;
 }
 
-#hero-image{
+#hero_image{
 width:45%;
 background-image:url("page_accueil.webp");
 background-size:cover;
@@ -129,7 +128,7 @@ padding:70px 60px;
 background-color:#F5ECD7;
 }
 
-#presentation-title{
+#presentation_title{
 margin-top:60px;
 font-family:Algerian,serif;
 font-size:36px;
@@ -139,7 +138,7 @@ text-decoration-color:#C4622D;
 font-style:italic;
 }
 
-#presentation-text{
+#presentation_text{
 margin-top:50px;
 font-family:Constantia,serif;
 font-size:22px;
@@ -148,6 +147,7 @@ color:#2C1A0E;
 text-align:left;
 width:700px;
 }
+
 #bonus_accueil{
 width:100%;
 background-color:#F5ECD7;
@@ -168,14 +168,13 @@ color:#2C1A0E;
 text-align:center;
 }
 
-
-.nav-item a{
+.nav_item a{
 display:block;
 width:100%;
 height:100%;
 }
 
-#restaurant-name{
+#restaurant_name{
 text-align:center;
 display:block;
 width:100%;
