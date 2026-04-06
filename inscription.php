@@ -52,6 +52,18 @@ if(!empty($_POST)){
 			if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
 				$erreur="L'email est invalide !!";
 			}
+			// Vérifier si l'email est déjà utilisé
+			if(empty($erreur)){
+				$contenu_tmp=file_get_contents("inscription.json");
+				$utilisateurs_tmp=json_decode($contenu_tmp, true);
+				if(is_array($utilisateurs_tmp)){
+					for($i=0; $i<count($utilisateurs_tmp) && empty($erreur); $i++){
+						if(isset($utilisateurs_tmp[$i]["email"]) && $utilisateurs_tmp[$i]["email"]==$email){
+							$erreur="Cet email est déjà utilisé !!";
+						}
+					}
+				}
+			}
 		}
 	}
 
@@ -152,6 +164,12 @@ if(!empty($_POST)){
 			if(strlen($rue)<3){
 				$erreur="Le nom de la rue est trop court !!";
 			}
+			$speciaux_rue=["-"," "];
+			for($i=0; $i<strlen($rue) && empty($erreur); $i++){
+				if(!ctype_alpha($rue[$i]) && !is_numeric($rue[$i]) && !in_array($rue[$i], $speciaux_rue)){
+					$erreur="La rue ne peut contenir que des lettres, chiffres, tirets (-) et espaces !!";
+				}
+			}
 		}
 	}
 
@@ -163,6 +181,12 @@ if(!empty($_POST)){
 			$ville=$_POST["ville"];
 			if(strlen($ville)<2){
 				$erreur="Le nom de la ville est trop court !!";
+			}
+			$speciaux_ville=["-"," "];
+			for($i=0; $i<strlen($ville) && empty($erreur); $i++){
+				if(!ctype_alpha($ville[$i]) && !in_array($ville[$i], $speciaux_ville)){
+					$erreur="La ville ne peut contenir que des lettres, tirets (-) et espaces !!";
+				}
 			}
 		}
 	}
@@ -184,23 +208,17 @@ if(!empty($_POST)){
 		}
 	}
 
-	// Sauvegarde dans le fichier JSON si tout est valide
 	if(empty($erreur)){
-
-		
-		$mdp_hache=password_hash($password1, PASSWORD_DEFAULT);
-
+		$mdp=password_hash($password1,PASSWORD_DEFAULT);
 		// On lit le fichier JSON et on le convertit en tableau PHP
 		$fichier="inscription.json";
 		$contenu=file_get_contents($fichier);
-		$utilisateurs=json_decode($contenu, true);
+		$utilisateurs=json_decode($contenu,true);
 
 		// Si le fichier était vide ou mal formé, on repart d'un tableau vide
 		if(!is_array($utilisateurs)){
 			$utilisateurs=[];
 		}
-
-		// On crée le nouvel utilisateur
 		$nouvel_utilisateur=[
 			"name"=>$name,
 			"surname"=>$surname,
@@ -211,14 +229,13 @@ if(!empty($_POST)){
 			"rue"=>$rue,
 			"ville"=>$ville,
 			"code_postal"=>$code_postal,
-			"password"=>$mdp_hache,
+			"password"=>$mdp,
 			"role"=>"client"
 		];
 
 		// On ajoute l'utilisateur au tableau et on réécrit le fichier
 		$utilisateurs[]=$nouvel_utilisateur;
-		file_put_contents($fichier, json_encode($utilisateurs, JSON_PRETTY_PRINT));
-
+		file_put_contents($fichier,json_encode($utilisateurs,JSON_PRETTY_PRINT));
 		$erreur="Inscription réussie !!";
 	}
 }
