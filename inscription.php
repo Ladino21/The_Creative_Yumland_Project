@@ -245,6 +245,11 @@ if(!empty($_POST)){
 <head>
 <link rel="stylesheet" href="restaurant.css">
 <title>The Wonders of Svaneti | Formulaire d'inscription</title>
+
+<?php if($erreur === "Inscription réussie !!"){ ?>
+<meta http-equiv="refresh" content="2;url=home_page.html">
+<?php } ?>
+
 </head>
 <body id="body_inscription">
 <section id="section_inscription">
