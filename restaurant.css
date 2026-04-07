@@ -523,6 +523,22 @@ background-color:#C4622D;
 color:white;
 }
 
+#deconnexion_button{
+font-size:12px;
+font-weight:bold;
+color:#F5ECD7;
+padding:10px 16px;
+border-radius:12px;
+border:2px solid #C4622D;
+cursor:pointer;
+}
+
+#deconnexion_button:hover{
+background-color:#C4622D;
+color:white;
+}
+
+
 #header_profil_right{
 width:30%;
 display:flex;
