@@ -228,6 +228,21 @@ text-decoration-color:#C4622D;
 padding:20px 0px;
 }
 
+#erreur_connexion{
+font-family:Poppins,sans-serif;
+font-size:14px;
+font-weight:bold;
+color:#E8D5B0;
+background-color:#5C1A0E;
+border:2px solid #C4622D;
+border-radius:12px;
+padding:12px 16px;
+margin-bottom:10px;
+text-align:center;
+width:100%;
+box-sizing:border-box;
+}
+
 #tab_connexion td{
 padding:12px 6px;
 }
