@@ -46,7 +46,7 @@ if($utilisateur===null){
 		<a href="home_page.html" id="retour_accueil">← Retour à l'accueil</a>
 	</div>
 	<div id="header_profil_right">
-		<a href="deconnexion.php" id="retour_accueil">Se déconnecter</a>
+		<a href="deconnexion.php" id="deconnexion_button">Se déconnecter</a>
 	</div>
 </header>
 <div id="profil_container">
