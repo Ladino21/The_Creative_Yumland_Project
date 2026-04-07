@@ -305,7 +305,7 @@ cursor:pointer;
 width:97%;
 }
 
-#forgot_password:hover,#inscription:hover,#connexion_button:hover{
+#inscription:hover,#connexion_button:hover{
 background-color:#E8D5B0;
 color:#2C1A0E;
 }
