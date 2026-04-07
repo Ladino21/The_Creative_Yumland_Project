@@ -124,10 +124,7 @@ if(!empty($_POST)){
 				<td><input type="checkbox" name="remind" id="remind_me" <?php if(!empty($email_cookie)){echo "checked";} ?>/></td>
 			</tr>
 			<tr id="test">
-				<td class="container_button">
-					<a href="#" id="forgot_password" target="_self">Mot de passe oublié ?</a>
-				</td>
-				<td>
+				<td colspan="2" class="container_button">
 					<a href="inscription.php" target="_self" id="inscription">Je ne possède pas de compte</a>
 				</td>
 			</tr>
