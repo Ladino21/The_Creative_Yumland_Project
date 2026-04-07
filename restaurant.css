@@ -274,23 +274,7 @@ cursor:pointer;
 accent-color:#C4622D;;
 }
 
-#inscription{
-display:block;
-text-align:center;
-margin-left:35px;
-padding:14px;
-margin-top:10px;
-background-color:#C4622D;
-color:#E8D5B0;
-font-family:Poppins,sans-serif;
-font-size:12px;
-font-weight:bold;
-border-radius:12px;
-cursor:pointer;
-width:80%;
-}
-
-#connexion_button{
+#inscription,#connexion_button{
 display:block;
 text-align:center;
 padding:14px;
