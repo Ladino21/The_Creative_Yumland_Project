@@ -16,10 +16,8 @@ if(!empty($_SESSION["email"])){
 		header("location: livraison.php");
 		exit();
 	}
-    else{
-	    header("location: profil.php");
-	    exit();
-    }
+	header("location: profil.php");
+	exit();
 }
 
 $email_cookie="";
@@ -92,10 +90,8 @@ if(!empty($_POST)){
 				header("location: livraison.php");
 				exit;
 			}
-            else{
-                header("location: profil.php");
-			    exit;
-            }
+			header("location: profil.php");
+			exit;
 		}
 	}
 }
@@ -146,4 +142,5 @@ if(!empty($_POST)){
 </section>
 </body>
 </html>
+
 
