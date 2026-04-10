@@ -46,7 +46,7 @@ if(!empty($_POST)){
 	// vérification des identifiants (emails) dans le fichier JSON
 	if(empty($erreur)){
 		$password=$_POST["password"];
-		$fichier="inscription.json";
+		$fichier="data/inscription.json";
 		$contenu=file_get_contents($fichier);
 		$utilisateurs=json_decode($contenu, true);
 
