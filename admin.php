@@ -93,7 +93,7 @@ if(!empty($_GET["filtre"])){
     <main id="admin_res">
         <div id="admin_recherche">
             <form id="admin_form" action="admin.php" method="get">
-                <input type="search" placeholder="Rechercher un utilisateur..." id="search_bar_admin" name="search" value="<?php echo htmlspecialchars($recherche); ?>"/>
+                <input type="search" placeholder="Rechercher un utilisateur..." id="search_bar_admin" name="search" value="<?php echo $recherche ; ?>"/>
                 <button type="submit" id="admin_button">Rechercher</button>
                 <select id="admin_list" name="filtre">
                     <option value="tous">Tous les utilisateurs</option>
