@@ -7,7 +7,7 @@ if(empty($_SESSION["email"])){
 }
 
 // Lecture du JSON pour récupérer toutes les infos de l'utilisateur connecté
-$fichier="inscription.json";
+$fichier="data/inscription.json";
 $contenu=file_get_contents($fichier);
 $utilisateurs=json_decode($contenu, true);
 
