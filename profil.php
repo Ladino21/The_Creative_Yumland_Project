@@ -39,7 +39,7 @@ if($utilisateur===null){
 		<div id="avatar_img"></div>
 		<div id="header_profil_text">
 			<h1 id="profil_nom"><?php echo $utilisateur["name"]." ".$utilisateur["surname"]; ?></h1>
-			<p id="profil_membre">Membre depuis <?php echo date("d/m/Y", strtotime($utilisateur["birthday"])); ?></p>
+			<p id="profil_membre">Membre depuis <?php echo date("d/m/Y", strtotime($utilisateur["date_inscription"])); ?></p>
 		</div>
 	</div>
 	<div id="header_profil_center">
