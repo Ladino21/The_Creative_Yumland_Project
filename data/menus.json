@@ -1,0 +1,196 @@
+{
+    "entrees":[
+        {
+            "id":"p01",
+            "nom":"Pkhali",
+            "origine":"Georgie — Vegetarien",
+            "description":"Amuse-bouche aux legumes et noix du Caucase. Epinards, betterave ou haricots verts.",
+            "prix":8.00,
+            "allergenes":["noix"],
+            "saveurs":["vegetarien"],
+            "disponible":true
+        },
+        {
+            "id":"p02",
+            "nom":"Badrijani",
+            "origine":"Georgie — Vegetarien",
+            "description":"Aubergines grillees fourrees a la pate de noix, grenade et coriandre fraiche.",
+            "prix":9.00,
+            "allergenes":["noix"],
+            "saveurs":["vegetarien","grille"],
+            "disponible":true
+        },
+        {
+            "id":"p03",
+            "nom":"Salade Georgienne",
+            "origine":"Georgie",
+            "description":"Tomates, concombres, oignons rouges, coriandre et aneth, huile de noix.",
+            "prix":7.00,
+            "allergenes":["noix"],
+            "saveurs":["vegetarien"],
+            "disponible":true
+        },
+        {
+            "id":"p04",
+            "nom":"Cornichons Georgiens",
+            "origine":"Georgie",
+            "description":"Cornichons marines aux herbes fraiches, ail et epices khmeli suneli.",
+            "prix":5.00,
+            "allergenes":[],
+            "saveurs":["vegetarien","epice"],
+            "disponible":true
+        }
+    ],
+    "plats":[
+        {
+            "id":"p05",
+            "nom":"Khinkali",
+            "origine":"Svanetie & Kakhetie",
+            "description":"Raviolis georgiens juteux farcis a la viande epicee, bouillon interieur. Se mange a la main.",
+            "prix":14.00,
+            "allergenes":["gluten"],
+            "saveurs":["epice"],
+            "disponible":true
+        },
+        {
+            "id":"p06",
+            "nom":"Mtsvadi",
+            "origine":"Georgie",
+            "description":"Brochettes de viande grillee au feu de bois, marinees a la sauce tkemali de prune sauvage.",
+            "prix":16.00,
+            "allergenes":[],
+            "saveurs":["grille","fume"],
+            "disponible":true
+        },
+        {
+            "id":"p07",
+            "nom":"Soko Kecze",
+            "origine":"Georgie",
+            "description":"Champignons sauvages cuits au four dans une poele en argile avec sulguni fondu et beurre.",
+            "prix":13.00,
+            "allergenes":["lactose"],
+            "saveurs":["vegetarien"],
+            "disponible":true
+        },
+        {
+            "id":"p08",
+            "nom":"Satsivi",
+            "origine":"Georgie occidentale",
+            "description":"Volaille froide nappee d'une sauce onctueuse aux noix, safran d'Iran et epices khmeli suneli.",
+            "prix":17.00,
+            "allergenes":["noix"],
+            "saveurs":["epice"],
+            "disponible":true
+        }
+    ],
+    "desserts":[
+        {
+            "id":"p09",
+            "nom":"Churchkhela",
+            "origine":"Kakhetie",
+            "description":"Noix et noisettes enfilees sur une ficelle et enrobees de jus de raisin concentre seche.",
+            "prix":6.00,
+            "allergenes":["noix"],
+            "saveurs":["fruite"],
+            "disponible":true
+        },
+        {
+            "id":"p10",
+            "nom":"Pelamushi",
+            "origine":"Georgie",
+            "description":"Pudding traditionnel a base de jus de raisin rouge et farine de mais, parseme de noix.",
+            "prix":7.00,
+            "allergenes":["noix"],
+            "saveurs":["fruite"],
+            "disponible":true
+        },
+        {
+            "id":"p11",
+            "nom":"Nazuki",
+            "origine":"Georgie",
+            "description":"Pain sucre et epice a la cannelle, cardamome et clou de girofle. Douceur des fetes georgiennes.",
+            "prix":5.50,
+            "allergenes":["gluten","oeuf"],
+            "saveurs":["fruite"],
+            "disponible":true
+        }
+    ],
+    "boissons":[
+        {
+            "id":"p12",
+            "nom":"Rkatsiteli Ambre",
+            "origine":"Kakhetie — Vin de 8000 ans",
+            "description":"Vin ambre georgien fermente en amphore Qvevri. Notes de noix, miel et abricot sec.",
+            "prix":9.00,
+            "allergenes":["sulfites"],
+            "saveurs":["fruite"],
+            "disponible":true
+        },
+        {
+            "id":"p13",
+            "nom":"Limonade Lagidze",
+            "origine":"Tbilissi depuis 1887",
+            "description":"Limonade artisanale georgienne aux sirops naturels : poire, creme de vanille ou estragon.",
+            "prix":4.50,
+            "allergenes":[],
+            "saveurs":["fruite"],
+            "disponible":true
+        },
+        {
+            "id":"p14",
+            "nom":"Tan",
+            "origine":"Armenie — voisin caucasien",
+            "description":"Boisson traditionnelle a base de yaourt fermente, eau gazeuse et sel. Rafraichissante et legere.",
+            "prix":3.50,
+            "allergenes":["lactose"],
+            "saveurs":["fruite"],
+            "disponible":true
+        }
+    ],
+    "menus":[
+        {
+            "id":"m01",
+            "nom":"Le Tamada",
+            "origine":"Georgie — Menu Degustation",
+            "description":"Le festin du maitre de ceremonie. Pkhali, Khinkali, Mtsvadi, Churchkhela et vin Rkatsiteli.",
+            "prix":45.00,
+            "plats":["p01","p05","p06","p09","p12"],
+            "personnes_min":1,
+            "creneau":null,
+            "disponible":true
+        },
+        {
+            "id":"m02",
+            "nom":"Menu Khachapuri",
+            "origine":"Adjarie & Mingrelie",
+            "description":"Voyage autour du fromage georgien. Deux Khachapuri regionaux, sulguni et Kada.",
+            "prix":32.00,
+            "plats":["p07","p08","p11","p13"],
+            "personnes_min":1,
+            "creneau":null,
+            "disponible":true
+        },
+        {
+            "id":"m03",
+            "nom":"Menu Svanetie",
+            "origine":"Montagnes de Svanetie",
+            "description":"Les saveurs des sommets. Salade georgienne, Satsivi et Pelamushi.",
+            "prix":38.00,
+            "plats":["p03","p08","p10","p14"],
+            "personnes_min":1,
+            "creneau":null,
+            "disponible":true
+        },
+        {
+            "id":"m04",
+            "nom":"Menu Vegetarien",
+            "origine":"L'Esprit du Caucase",
+            "description":"Pkhali trio, Badrijani, Cornichons georgiens et Nazuki.",
+            "prix":28.00,
+            "plats":["p01","p02","p04","p11"],
+            "personnes_min":1,
+            "creneau":null,
+            "disponible":true
+        }
+    ]
+}
