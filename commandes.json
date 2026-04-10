@@ -1,0 +1,278 @@
+[
+    {
+        "id":"c038",
+        "client_email":"wael.hajji@etu.cyu.fr",
+        "items":[
+            {"id":"m01","nom":"Le Tamada","quantite":1,"prix_unitaire":45.00}
+        ],
+        "total":45.00,
+        "type":"livraison",
+        "adresse_livraison":{
+            "numero":"3",
+            "rue":"Allee du Parc",
+            "ville":"Cergy",
+            "code_postal":"95000",
+            "etage":"2",
+            "interphone":"B12",
+            "commentaire":""
+        },
+        "statut":"en_livraison",
+        "livreur_email":"livreur@wonders-svaneti.fr",
+        "date_commande":"2026-04-10T11:45:00",
+        "date_livraison_prevue":null,
+        "paiement":"paye",
+        "note":null
+    },
+    {
+        "id":"c039",
+        "client_email":"anes.mokrane@etu.cyu.fr",
+        "items":[
+            {"id":"p08","nom":"Satsivi","quantite":1,"prix_unitaire":17.00},
+            {"id":"p14","nom":"Tan","quantite":2,"prix_unitaire":3.50}
+        ],
+        "total":24.00,
+        "type":"livraison",
+        "adresse_livraison":{
+            "numero":"18",
+            "rue":"Rue des Chardonnerets",
+            "ville":"Montmagny",
+            "code_postal":"95360",
+            "etage":"",
+            "interphone":"",
+            "commentaire":"Sonner deux fois"
+        },
+        "statut":"en_livraison",
+        "livreur_email":"livreur@wonders-svaneti.fr",
+        "date_commande":"2026-04-10T12:02:00",
+        "date_livraison_prevue":null,
+        "paiement":"paye",
+        "note":null
+    },
+    {
+        "id":"c040",
+        "client_email":"maelys.louvrier@gmail.com",
+        "items":[
+            {"id":"m02","nom":"Menu Khachapuri","quantite":1,"prix_unitaire":32.00},
+            {"id":"p10","nom":"Pelamushi","quantite":1,"prix_unitaire":7.00}
+        ],
+        "total":39.00,
+        "type":"livraison",
+        "adresse_livraison":{
+            "numero":"3",
+            "rue":"Allee du Parc",
+            "ville":"Cergy",
+            "code_postal":"95000",
+            "etage":"3",
+            "interphone":"C04",
+            "commentaire":""
+        },
+        "statut":"en_livraison",
+        "livreur_email":"livreur@wonders-svaneti.fr",
+        "date_commande":"2026-04-10T12:08:00",
+        "date_livraison_prevue":null,
+        "paiement":"paye",
+        "note":null
+    },
+    {
+        "id":"c041",
+        "client_email":"wael.hajji@etu.cyu.fr",
+        "items":[
+            {"id":"p05","nom":"Khinkali","quantite":3,"prix_unitaire":14.00},
+            {"id":"p09","nom":"Churchkhela","quantite":1,"prix_unitaire":6.00}
+        ],
+        "total":48.00,
+        "type":"livraison",
+        "adresse_livraison":{
+            "numero":"3",
+            "rue":"Allee du Parc",
+            "ville":"Cergy",
+            "code_postal":"95000",
+            "etage":"2",
+            "interphone":"B12",
+            "commentaire":""
+        },
+        "statut":"a_preparer",
+        "livreur_email":null,
+        "date_commande":"2026-04-10T12:14:00",
+        "date_livraison_prevue":null,
+        "paiement":"paye",
+        "note":null
+    },
+    {
+        "id":"c042",
+        "client_email":"anes.mokrane@etu.cyu.fr",
+        "items":[
+            {"id":"m03","nom":"Menu Svanetie","quantite":1,"prix_unitaire":38.00},
+            {"id":"p13","nom":"Limonade Lagidze","quantite":1,"prix_unitaire":4.50}
+        ],
+        "total":42.50,
+        "type":"livraison",
+        "adresse_livraison":{
+            "numero":"18",
+            "rue":"Rue des Chardonnerets",
+            "ville":"Montmagny",
+            "code_postal":"95360",
+            "etage":"",
+            "interphone":"",
+            "commentaire":"Sonner deux fois"
+        },
+        "statut":"a_preparer",
+        "livreur_email":null,
+        "date_commande":"2026-04-10T12:18:00",
+        "date_livraison_prevue":null,
+        "paiement":"paye",
+        "note":null
+    },
+    {
+        "id":"c043",
+        "client_email":"adam.adel@hotmail.com",
+        "items":[
+            {"id":"p06","nom":"Mtsvadi","quantite":1,"prix_unitaire":16.00},
+            {"id":"p03","nom":"Salade Georgienne","quantite":1,"prix_unitaire":7.00},
+            {"id":"p14","nom":"Tan","quantite":1,"prix_unitaire":3.50}
+        ],
+        "total":26.50,
+        "type":"livraison",
+        "adresse_livraison":{
+            "numero":"12",
+            "rue":"Rue Notre Dame des Oiseaux",
+            "ville":"Verneuil sur Seine",
+            "code_postal":"78480",
+            "etage":"",
+            "interphone":"",
+            "commentaire":""
+        },
+        "statut":"a_preparer",
+        "livreur_email":null,
+        "date_commande":"2026-04-10T12:22:00",
+        "date_livraison_prevue":null,
+        "paiement":"paye",
+        "note":null
+    },
+    {
+        "id":"c044",
+        "client_email":"maelys.louvrier@gmail.com",
+        "items":[
+            {"id":"m04","nom":"Menu Vegetarien","quantite":1,"prix_unitaire":28.00},
+            {"id":"p09","nom":"Churchkhela","quantite":1,"prix_unitaire":6.00}
+        ],
+        "total":34.00,
+        "type":"livraison",
+        "adresse_livraison":{
+            "numero":"3",
+            "rue":"Allee du Parc",
+            "ville":"Cergy",
+            "code_postal":"95000",
+            "etage":"3",
+            "interphone":"C04",
+            "commentaire":""
+        },
+        "statut":"a_preparer",
+        "livreur_email":null,
+        "date_commande":"2026-04-10T12:25:00",
+        "date_livraison_prevue":null,
+        "paiement":"paye",
+        "note":null
+    },
+    {
+        "id":"c045",
+        "client_email":"rendy.aoualli@etu.cyu.fr",
+        "items":[
+            {"id":"p07","nom":"Soko Kecze","quantite":1,"prix_unitaire":13.00},
+            {"id":"p02","nom":"Badrijani","quantite":1,"prix_unitaire":9.00},
+            {"id":"p12","nom":"Rkatsiteli Ambre","quantite":1,"prix_unitaire":9.00}
+        ],
+        "total":31.00,
+        "type":"livraison",
+        "adresse_livraison":{
+            "numero":"27",
+            "rue":"Rue des Vignes",
+            "ville":"Cergy",
+            "code_postal":"95000",
+            "etage":"",
+            "interphone":"",
+            "commentaire":""
+        },
+        "statut":"a_preparer",
+        "livreur_email":null,
+        "date_commande":"2026-04-10T12:30:00",
+        "date_livraison_prevue":null,
+        "paiement":"paye",
+        "note":null
+    },
+    {
+        "id":"c035",
+        "client_email":"wael.hajji@etu.cyu.fr",
+        "items":[
+            {"id":"p05","nom":"Khinkali","quantite":2,"prix_unitaire":14.00},
+            {"id":"p13","nom":"Limonade Lagidze","quantite":1,"prix_unitaire":4.50}
+        ],
+        "total":32.50,
+        "type":"livraison",
+        "adresse_livraison":{
+            "numero":"3",
+            "rue":"Allee du Parc",
+            "ville":"Cergy",
+            "code_postal":"95000",
+            "etage":"2",
+            "interphone":"B12",
+            "commentaire":""
+        },
+        "statut":"livree",
+        "livreur_email":"livreur@wonders-svaneti.fr",
+        "date_commande":"2026-04-09T19:10:00",
+        "date_livraison_prevue":null,
+        "paiement":"paye",
+        "note":{
+            "note_produit":5,
+            "note_livraison":4,
+            "commentaire":"Tres bon, khinkali parfaits !"
+        }
+    },
+    {
+        "id":"c036",
+        "client_email":"adam.adel@hotmail.com",
+        "items":[
+            {"id":"m01","nom":"Le Tamada","quantite":1,"prix_unitaire":45.00}
+        ],
+        "total":45.00,
+        "type":"livraison",
+        "adresse_livraison":{
+            "numero":"12",
+            "rue":"Rue Notre Dame des Oiseaux",
+            "ville":"Verneuil sur Seine",
+            "code_postal":"78480",
+            "etage":"",
+            "interphone":"",
+            "commentaire":""
+        },
+        "statut":"livree",
+        "livreur_email":"livreur@wonders-svaneti.fr",
+        "date_commande":"2026-04-09T20:05:00",
+        "date_livraison_prevue":null,
+        "paiement":"paye",
+        "note":null
+    },
+    {
+        "id":"c037",
+        "client_email":"rendy.aoualli@etu.cyu.fr",
+        "items":[
+            {"id":"p08","nom":"Satsivi","quantite":1,"prix_unitaire":17.00},
+            {"id":"p10","nom":"Pelamushi","quantite":1,"prix_unitaire":7.00},
+            {"id":"p14","nom":"Tan","quantite":1,"prix_unitaire":3.50}
+        ],
+        "total":27.50,
+        "type":"emporter",
+        "adresse_livraison":null,
+        "statut":"livree",
+        "livreur_email":null,
+        "date_commande":"2026-04-09T13:00:00",
+        "date_livraison_prevue":null,
+        "paiement":"paye",
+        "note":{
+            "note_produit":6,
+            "note_livraison":5,
+            "commentaire":"Excellent, je recommande le Satsivi !"
+        }
+    }
+]
