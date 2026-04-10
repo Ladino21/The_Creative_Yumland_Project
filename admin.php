@@ -125,7 +125,9 @@ if(!empty($_GET["filtre"])){
                             $a_commande=true;
                         }
                     }
-                    if(!$a_commande){ continue; }
+                    if(!$a_commande){
+                        continue; 
+                    }
                 }
                 if($filtre=="sans"){
                     $a_commande=false;
@@ -134,7 +136,9 @@ if(!empty($_GET["filtre"])){
                             $a_commande=true;
                         }
                     }
-                    if($a_commande){ continue; }
+                    if($a_commande){
+                        continue; 
+                    }
                 }
 
                 // Filtre recherche texte
