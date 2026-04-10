@@ -12,9 +12,10 @@ color:inherit;
 #deconnexion_button{
 font-size:12px;
 font-weight:bold;
-color:#F5ECD7;
+color:#E8D5B0;
 padding:10px 16px;
 border-radius:12px;
+background-color:#2C1A0E;
 border:2px solid #C4622D;
 cursor:pointer;
 margin-left:12px;
@@ -23,6 +24,7 @@ margin-left:12px;
 #deconnexion_button:hover{
 background-color:#C4622D;
 color:white;
+border:2px solid #C4622D;
 }
 
 #navbar{
@@ -1251,9 +1253,9 @@ color:#E8D5B0;
 }
 
 #commandes_sous_titre{
-font-size:12px;
-color:#C4622D;
-font-variant:small-caps;
+font-family:Algerian,serif;
+font-size:16px;
+color:#E8D5B0;
 margin-top:4px;
 }
 
