@@ -96,9 +96,9 @@ if(!empty($_GET["filtre"])){
                 <input type="search" placeholder="Rechercher un utilisateur..." id="search_bar_admin" name="search" value="<?php echo $recherche ; ?>"/>
                 <button type="submit" id="admin_button">Rechercher</button>
                 <select id="admin_list" name="filtre">
-                    <option value="tous">Tous les utilisateurs</option>
-                    <option value="commandes">Avec commandes</option>
-                    <option value="sans">Sans commande</option>
+                    <option value="tous" <?php if($filtre=="tous") echo "selected"; ?>>Tous les utilisateurs</option>
+                    <option value="commandes" <?php if($filtre=="commandes") echo "selected"; ?>>Avec commandes</option>
+                    <option value="sans" <?php if($filtre=="sans") echo "selected"; ?>>Sans commande</option>
                 </select>
             </form>
         </div>
