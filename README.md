@@ -3,11 +3,11 @@ README — The Wonders of Svaneti
 Projet Creative-Yumland • CY Tech préING2 • 2025-2026
 
 C'est quoi ce projet ?
-- C'est le site web d'un restaurant géorgien fictif appelé The Wonders of Svaneti. Le but final sur tout le semestre c'est d'avoir une application complète qui gère la chaîne d'une commande — de la consultation de la carte jusqu'à la livraison.
+- C'est le site web d'un restaurant géorgien appelé The Wonders of Svaneti. Le but final sur tout le semestre c'est d'avoir une application complète qui gère la chaîne d'une commande — de la consultation de la carte jusqu'à la livraison.
 
 Phase 1 — Retour
 - On a créé 9 pages statiques qui couvrent tous les profils utilisateurs du projet :
-- PageProfil(Client) / home_page.html(Client) / presentation_page.html(Client)/ inscription.html(Client) / connexion.html(Client) / profil.html(Client) /notation.html(Client) / admin.html(Administrateur) / commandes.html(Restaurateur) / livraison.html(Livreur)
+- Page: Profil(Client) / home_page.html(Client) / presentation_page.html(Client)/ inscription.html(Client) / connexion.html(Client) / profil.html(Client) /notation.html(Client) / admin.html(Administrateur) / commandes.html(Restaurateur) / livraison.html(Livreur)
 - Tout le CSS est centralisé dans un seul fichier : restaurant.css.
 
 Stack technique
