@@ -9,6 +9,22 @@ text-decoration:none;
 color:inherit;
 }
 
+#deconnexion_button{
+font-size:12px;
+font-weight:bold;
+color:#F5ECD7;
+padding:10px 16px;
+border-radius:12px;
+border:2px solid #C4622D;
+cursor:pointer;
+margin-left:12px;
+}
+
+#deconnexion_button:hover{
+background-color:#C4622D;
+color:white;
+}
+
 #navbar{
 display:flex;
 align-items:center;
@@ -283,11 +299,12 @@ background-color:#C4622D;
 color:#E8D5B0;
 font-family:Poppins,sans-serif;
 font-size:12px;
-border:none;
 font-weight:bold;
+border:none;
 border-radius:12px;
 cursor:pointer;
 width:97%;
+box-sizing:border-box;
 }
 
 #inscription:hover,#connexion_button:hover{
@@ -356,7 +373,6 @@ text-align:center;
 width:100%;
 box-sizing:border-box;
 }
-
 
 #tab_inscription{
 width:100%;
@@ -492,22 +508,6 @@ cursor:pointer;
 background-color:#C4622D;
 color:white;
 }
-
-#deconnexion_button{
-font-size:12px;
-font-weight:bold;
-color:#F5ECD7;
-padding:10px 16px;
-border-radius:12px;
-border:2px solid #C4622D;
-cursor:pointer;
-}
-
-#deconnexion_button:hover{
-background-color:#C4622D;
-color:white;
-}
-
 
 #header_profil_right{
 width:30%;
@@ -1048,6 +1048,7 @@ font-variant:small-caps;
 width:40%;
 display:flex;
 justify-content:flex-end;
+align-items:center;
 }
 
 #admin_retour{
@@ -1260,6 +1261,7 @@ margin-top:4px;
 width:33%;
 display:flex;
 justify-content:flex-end;
+align-items:center;
 }
 
 .commandes_compteur{
