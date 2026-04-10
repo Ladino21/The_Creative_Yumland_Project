@@ -54,7 +54,7 @@ if(!empty($_POST)){
 			}
 			// Vérifier si l'email est déjà utilisé
 			if(empty($erreur)){
-				$contenu_tmp=file_get_contents("inscription.json");
+				$contenu_tmp=file_get_contents("data/inscription.json");
 				$utilisateurs_tmp=json_decode($contenu_tmp, true);
 				if(is_array($utilisateurs_tmp)){
 					for($i=0; $i<count($utilisateurs_tmp) && empty($erreur); $i++){
@@ -211,7 +211,7 @@ if(!empty($_POST)){
 	if(empty($erreur)){
 		$mdp=password_hash($password1,PASSWORD_DEFAULT);
 		// On lit le fichier JSON et on le convertit en tableau PHP
-		$fichier="inscription.json";
+		$fichier="data/inscription.json";
 		$contenu=file_get_contents($fichier);
 		$utilisateurs=json_decode($contenu,true);
 
