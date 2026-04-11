@@ -82,6 +82,17 @@
             "saveurs":["epice"],
             "disponible":true
         }
+        // plat fictif pour avoirs 15 types de plats dans le projet 
+        {
+            "id":"p15",
+            "nom":"Chakapuli",
+            "origine":"Georgie — Plat de printemps",
+            "description":"Ragout d'agneau mijote au vin blanc sec, estragon frais, oignons verts et epices du Caucase.",
+            "prix":18.00,
+            "allergenes":[],
+            "saveurs":["epice","grille"],
+            "disponible":true
+        }
     ],
     "desserts":[
         {
