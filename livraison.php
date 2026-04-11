@@ -20,13 +20,11 @@ if(!empty($_POST) && !empty($_POST["id_commande"])){
 			}
 		}
 	}
-	// réecrit le fichier avec le nouveau statut de livraison
 	ecrire_json("data/commandes.json", $commandes);
 	header("location: livraison.php");
 	exit;
 }
 
-// Chercher la commande en_livraison assignée à ce livreur
 $commande=null;
 for($i=0; $i<count($commandes) && $commande==null; $i++){
 	if($commandes[$i]["statut"]=="en_livraison" && $commandes[$i]["livreur_email"]==$_SESSION["email"]){
@@ -34,7 +32,6 @@ for($i=0; $i<count($commandes) && $commande==null; $i++){
 	}
 }
 
-// Chercher les infos du client
 $client=null;
 if($commande!=null){
 	for($i=0; $i<count($utilisateurs) && $client==null; $i++){
