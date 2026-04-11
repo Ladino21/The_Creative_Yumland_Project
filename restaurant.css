@@ -1383,7 +1383,7 @@ height:90px;
 font-family:Algerian,serif;
 font-size:28px;
 color:#E8D5B0;
-width:90%;
+flex:1;
 }
 
 
@@ -1433,8 +1433,14 @@ color:white;
 background-color:#C4622D;
 border-radius:12px;
 padding:10px 20px;
-height:60px;
-width:60px
+min-width:100px;
+}
+
+#livraison_header_right{
+display:flex;
+align-items:center;
+gap:12px;
+margin-left:16px;
 }
 
 #livraison_container{
@@ -1520,4 +1526,3 @@ background-color:#ff924a;
 }
 
 /*border:1px solid white;*/
-
