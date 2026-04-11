@@ -1,30 +1,30 @@
 <?php
 session_start();
+require_once "includes/session.php";
+require_once "includes/json.php";
+verifier_session();
 
-if(empty($_SESSION["email"])){
-	header("location: connexion.php");
-	exit;
-}
-
-// Lecture du JSON pour récupérer toutes les infos de l'utilisateur connecté
-$fichier="data/inscription.json";
-$contenu=file_get_contents($fichier);
-$utilisateurs=json_decode($contenu, true);
+$utilisateurs=lire_json("data/inscription.json");
 
 $utilisateur=null;
-if(is_array($utilisateurs)){
-	for($i=0; $i<count($utilisateurs) && $utilisateur===null; $i++){
-		if(isset($utilisateurs[$i]["email"]) && $utilisateurs[$i]["email"]==$_SESSION["email"]){
-			$utilisateur=$utilisateurs[$i];
-		}
+for($i=0; $i<count($utilisateurs) && $utilisateur==null; $i++){
+	if($utilisateurs[$i]["email"]==$_SESSION["email"]){
+		$utilisateur=$utilisateurs[$i];
 	}
 }
 
-// Sécurité : si l'utilisateur n'est plus dans le JSON, on déconnecte
-if($utilisateur===null){
+if($utilisateur==null){
 	session_destroy();
 	header("location: connexion.php");
-	exit;
+	exit();
+}
+
+$toutes_commandes=lire_json("data/commandes.json");
+$mes_commandes=[];
+for($i=0; $i<count($toutes_commandes); $i++){
+	if($toutes_commandes[$i]["client_email"]==$_SESSION["email"]){
+		$mes_commandes[]=$toutes_commandes[$i];
+	}
 }
 ?>
 <!DOCTYPE html>
@@ -105,10 +105,39 @@ if($utilisateur===null){
 					<th>Commande</th>
 					<th>Total</th>
 					<th>Statut</th>
+					<th>Note</th>
 				</tr>
+				<?php if(count($mes_commandes)==0){ ?>
 				<tr>
-					<td colspan="4" style="text-align:center;font-style:italic;color:#C4622D;">Aucune commande pour l'instant.</td>
+					<td colspan="5" style="text-align:center;font-style:italic;color:#C4622D;">Aucune commande pour l'instant.</td>
 				</tr>
+				<?php } ?>
+				<?php for($i=0; $i<count($mes_commandes); $i++){
+					$cmd=$mes_commandes[$i];
+					$resume="";
+					for($j=0; $j<count($cmd["items"]); $j++){
+						if($j>0){
+							$resume=$resume.", ";
+						}
+						$resume=$resume.$cmd["items"][$j]["nom"]." x".$cmd["items"][$j]["quantite"];
+					}
+				?>
+				<tr>
+					<td><?php echo date("d/m/Y", strtotime($cmd["date_commande"])); ?></td>
+					<td><?php echo $resume; ?></td>
+					<td><?php echo $cmd["total"]; ?> €</td>
+					<td><?php echo $cmd["statut"]; ?></td>
+					<td>
+					<?php if($cmd["statut"]=="livree" && $cmd["note"]==null){ ?>
+						<a href="notation.php?id=<?php echo $cmd["id"]; ?>" class="lien_noter">Noter</a>
+					<?php }elseif($cmd["note"]!=null){ ?>
+						<span class="note_donnee">⭐ <?php echo $cmd["note"]["note_produit"]; ?>/5</span>
+					<?php }else{ ?>
+						—
+					<?php } ?>
+					</td>
+				</tr>
+				<?php } ?>
 			</table>
 		</div>
 	</aside>
