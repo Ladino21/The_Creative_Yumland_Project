@@ -7,7 +7,6 @@ verifier_role("restaurateur");
 $commandes=lire_json("data/commandes.json");
 $utilisateurs=lire_json("data/inscription.json");
 
-// Séparer les commandes par statut
 $a_preparer=[];
 $en_livraison=[];
 for($i=0; $i<count($commandes); $i++){
@@ -19,7 +18,18 @@ for($i=0; $i<count($commandes); $i++){
     }
 }
 
-// Récupérer le nom d'un client à partir de son email
+if(!empty($_POST["commande_id"]) && !empty($_POST["livreur_email"])){
+    for($i=0; $i<count($commandes); $i++){
+        if($commandes[$i]["id"]==$_POST["commande_id"]){
+            $commandes[$i]["statut"]="en_livraison";
+            $commandes[$i]["livreur_email"]=$_POST["livreur_email"];
+        }
+    }
+    ecrire_json("data/commandes.json", $commandes);
+    header("location: commandes.php");
+    exit();
+}
+
 function get_nom_client($email, $utilisateurs){
     for($i=0; $i<count($utilisateurs); $i++){
         if($utilisateurs[$i]["email"]==$email){
@@ -29,7 +39,6 @@ function get_nom_client($email, $utilisateurs){
     return $email;
 }
 
-// Récupérer la liste des livreurs disponibles
 $livreurs=[];
 for($i=0; $i<count($utilisateurs); $i++){
     if($utilisateurs[$i]["role"]=="livreur"){
@@ -50,7 +59,7 @@ for($i=0; $i<count($utilisateurs); $i++){
         <p id="commandes_sous_titre">Connecté : <?php echo $_SESSION["name"]." ".$_SESSION["surname"]; ?></p>
     </div>
     <div id="commandes_header_center">
-        <a href="home_page.html" id="commandes_retour">← Accueil</a>
+        <a href="home_page.php" id="commandes_retour">← Accueil</a>
     </div>
     <div id="commandes_header_right">
         <div class="commandes_compteur">
@@ -92,21 +101,28 @@ for($i=0; $i<count($utilisateurs); $i++){
                     $liste_plats=$liste_plats.$c["items"][$j]["nom"]." x".$c["items"][$j]["quantite"];
                 }
 
+                $prevue="";
+                if(!empty($c["date_livraison_prevue"])){
+                    $prevue=' <span class="commande_planifiee">⏰ '.date("d/m H\hi", strtotime($c["date_livraison_prevue"])).'</span>';
+                }
                 echo '<tr>';
-                echo '<td>'.$c["id"].'</td>';
+                echo '<td>'.$c["id"].$prevue.'</td>';
                 echo '<td>'.$nom_client.'</td>';
                 echo '<td>'.$liste_plats.'</td>';
                 echo '<td>'.$heure.'</td>';
                 echo '<td>'.$c["total"].' €</td>';
-                echo '<td>';
-                echo '<select class="select_livreur">';
+                echo '<td colspan="2">';
+                echo '<form action="commandes.php" method="post" class="form_livraison">';
+                echo '<input type="hidden" name="commande_id" value="'.$c["id"].'"/>';
+                echo '<select name="livreur_email" class="select_livreur" required>';
                 echo '<option value="">-- Choisir un livreur --</option>';
                 for($k=0; $k<count($livreurs); $k++){
                     echo '<option value="'.$livreurs[$k]["email"].'">'.$livreurs[$k]["name"]." ".$livreurs[$k]["surname"].'</option>';
                 }
                 echo '</select>';
+                echo '<button type="submit" class="bouton_liv">Passer en livraison</button>';
+                echo '</form>';
                 echo '</td>';
-                echo '<td><button type="button" class="bouton_liv">Passer en livraison</button></td>';
                 echo '</tr>';
             }
             ?>
@@ -132,7 +148,9 @@ for($i=0; $i<count($utilisateurs); $i++){
 
                 $liste_plats="";
                 for($j=0; $j<count($c["items"]); $j++){
-                    if($j>0) $liste_plats=$liste_plats.", ";
+                    if($j>0){
+                        $liste_plats=$liste_plats.", ";
+                    }
                     $liste_plats=$liste_plats.$c["items"][$j]["nom"]." x".$c["items"][$j]["quantite"];
                 }
 
@@ -154,3 +172,4 @@ for($i=0; $i<count($utilisateurs); $i++){
 </div>
 </body>
 </html>
+
