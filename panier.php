@@ -137,6 +137,23 @@ if(!empty($_POST["action"])){
 <title>The Wonders of Svaneti | Paiement</title>
 </head>
 <body id="body_panier">
+<header>
+<nav id="navbar">
+    <ul id="nav_left">
+        <a href="presentation_page.php" target="_self"><li class="nav_item" id="indentation_left">Menus</li></a>
+    </ul>
+    <a href="home_page.html" target="_self"><div class="restaurant_name">The Wonders of Svaneti</div></a>
+    <ul id="nav_right">
+        <?php if(!empty($_SESSION["email"])){ ?>
+        <a href="profil.php" target="_self"><li class="nav_item" id="indentation_right">Profil</li></a>
+        <a href="deconnexion.php" id="deconnexion_button">Se déconnecter</a>
+        <?php }else{ ?>
+        <a href="inscription.php" target="_self"><li class="nav_item" id="indentation_right">Inscription</li></a>
+        <a href="connexion.php" target="_self"><li class="nav_item">Connexion</li></a>
+        <?php } ?>
+    </ul>
+</nav>
+</header>
 <div id="panier_redirect">
     <p id="panier_redirect_texte">Paiement sécurisé</p>
     <form action="https://www.plateforme-smc.fr/cybank/index.php" method="post">
