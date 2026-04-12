@@ -57,7 +57,7 @@ for($i=0; $i<count($toutes_commandes); $i++){
 		<?php if($mode_admin){ ?>
 		<a href="admin.php" id="retour_accueil">← Retour à l'admin</a>
 		<?php }else{ ?>
-		<a href="home_page.html" id="retour_accueil">← Retour à l'accueil</a>
+		<a href="home_page.php" id="retour_accueil">← Retour à l'accueil</a>
 		<?php } ?>
 	</div>
 	<div id="header_profil_right">
@@ -146,7 +146,7 @@ for($i=0; $i<count($toutes_commandes); $i++){
 					<?php if($cmd["statut"]=="livree" && $cmd["note"]==null && !$mode_admin){ ?>
 						<a href="notation.php?id=<?php echo $cmd["id"]; ?>" class="lien_noter">Noter</a>
 					<?php }elseif($cmd["note"]!=null){ ?>
-						<span class="note_donnee">⭐ <?php echo $cmd["note"]["note_produit"]; ?>/5</span>
+						<span class="note_donnee">⭐ <?php echo $cmd["note"]["note_produit"]; ?>/6</span>
 					<?php }else{ ?>
 						—
 					<?php } ?>
@@ -159,3 +159,4 @@ for($i=0; $i<count($toutes_commandes); $i++){
 </div>
 </body>
 </html>
+
