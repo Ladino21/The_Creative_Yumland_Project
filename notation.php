@@ -26,7 +26,8 @@ for($i=0; $i<count($commandes) && $commande==null; $i++){
 $erreur="";
 
 if($commande==null && empty($id_commande)){
-	$erreur="Aucune commande à noter.";
+	header("location: profil.php");
+	exit();
 }
 if($commande==null && !empty($id_commande)){
 	$erreur="Cette commande n'existe pas ou a déjà été notée.";
@@ -81,7 +82,7 @@ if($commande!=null){
 </head>
 <body id="body_notation">
 <header id="header-notation">
-	<a href="home_page.html" target="_self"><div class="restaurant_name">The Wonders of Svaneti</div></a>
+	<a href="home_page.php" target="_self"><div class="restaurant_name">The Wonders of Svaneti</div></a>
 </header>
 <section id="section_notation">
 	<div id="container_notation">
