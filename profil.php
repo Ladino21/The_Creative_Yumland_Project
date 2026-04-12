@@ -6,14 +6,25 @@ verifier_session();
 
 $utilisateurs=lire_json("data/inscription.json");
 
+$mode_admin=false;
+$email_cible=$_SESSION["email"];
+if($_SESSION["role"]=="admin" && !empty($_GET["email"])){
+	$mode_admin=true;
+	$email_cible=$_GET["email"];
+}
+
 $utilisateur=null;
 for($i=0; $i<count($utilisateurs) && $utilisateur==null; $i++){
-	if($utilisateurs[$i]["email"]==$_SESSION["email"]){
+	if($utilisateurs[$i]["email"]==$email_cible){
 		$utilisateur=$utilisateurs[$i];
 	}
 }
 
 if($utilisateur==null){
+	if($mode_admin){
+		header("location: admin.php");
+		exit();
+	}
 	session_destroy();
 	header("location: connexion.php");
 	exit();
@@ -22,7 +33,7 @@ if($utilisateur==null){
 $toutes_commandes=lire_json("data/commandes.json");
 $mes_commandes=[];
 for($i=0; $i<count($toutes_commandes); $i++){
-	if($toutes_commandes[$i]["client_email"]==$_SESSION["email"]){
+	if($toutes_commandes[$i]["client_email"]==$email_cible){
 		$mes_commandes[]=$toutes_commandes[$i];
 	}
 }
@@ -43,7 +54,11 @@ for($i=0; $i<count($toutes_commandes); $i++){
 		</div>
 	</div>
 	<div id="header_profil_center">
+		<?php if($mode_admin){ ?>
+		<a href="admin.php" id="retour_accueil">← Retour à l'admin</a>
+		<?php }else{ ?>
 		<a href="home_page.html" id="retour_accueil">← Retour à l'accueil</a>
+		<?php } ?>
 	</div>
 	<div id="header_profil_right">
 		<a href="deconnexion.php" id="deconnexion_button">Se déconnecter</a>
@@ -56,32 +71,32 @@ for($i=0; $i<count($toutes_commandes); $i++){
 			<tr>
 				<td><label>Nom</label></td>
 				<td><span class="profil_valeur"><?php echo $utilisateur["surname"]; ?></span></td>
-				<td><span class="crayon">✏️</span></td>
+				<?php if(!$mode_admin){ ?><td><span class="crayon">✏️</span></td><?php } ?>
 			</tr>
 			<tr>
 				<td><label>Prénom</label></td>
 				<td><span class="profil_valeur"><?php echo $utilisateur["name"]; ?></span></td>
-				<td><span class="crayon">✏️</span></td>
+				<?php if(!$mode_admin){ ?><td><span class="crayon">✏️</span></td><?php } ?>
 			</tr>
 			<tr>
 				<td><label>Email</label></td>
 				<td><span class="profil_valeur"><?php echo $utilisateur["email"]; ?></span></td>
-				<td><span class="crayon">✏️</span></td>
+				<?php if(!$mode_admin){ ?><td><span class="crayon">✏️</span></td><?php } ?>
 			</tr>
 			<tr>
 				<td><label>Téléphone</label></td>
 				<td><span class="profil_valeur"><?php echo $utilisateur["phone"]; ?></span></td>
-				<td><span class="crayon">✏️</span></td>
+				<?php if(!$mode_admin){ ?><td><span class="crayon">✏️</span></td><?php } ?>
 			</tr>
 			<tr>
 				<td><label>Adresse</label></td>
 				<td><span class="profil_valeur"><?php echo $utilisateur["numero"]." rue ".$utilisateur["rue"].", ".$utilisateur["ville"]; ?></span></td>
-				<td><span class="crayon">✏️</span></td>
+				<?php if(!$mode_admin){ ?><td><span class="crayon">✏️</span></td><?php } ?>
 			</tr>
 			<tr>
 				<td><label>Mot de passe</label></td>
 				<td><span class="profil_valeur">**************</span></td>
-				<td><span class="crayon">✏️</span></td>
+				<?php if(!$mode_admin){ ?><td><span class="crayon">✏️</span></td><?php } ?>
 			</tr>
 		</table>
 	</section>
@@ -128,7 +143,7 @@ for($i=0; $i<count($toutes_commandes); $i++){
 					<td><?php echo $cmd["total"]; ?> €</td>
 					<td><?php echo $cmd["statut"]; ?></td>
 					<td>
-					<?php if($cmd["statut"]=="livree" && $cmd["note"]==null){ ?>
+					<?php if($cmd["statut"]=="livree" && $cmd["note"]==null && !$mode_admin){ ?>
 						<a href="notation.php?id=<?php echo $cmd["id"]; ?>" class="lien_noter">Noter</a>
 					<?php }elseif($cmd["note"]!=null){ ?>
 						<span class="note_donnee">⭐ <?php echo $cmd["note"]["note_produit"]; ?>/5</span>
