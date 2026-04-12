@@ -2,6 +2,7 @@
 // Verif connexion
 function verifier_session(){
     if(empty($_SESSION["email"])){
+        $_SESSION["apres_connexion"]=$_SERVER["REQUEST_URI"];
         header("location:connexion.php");
         exit;
     }
