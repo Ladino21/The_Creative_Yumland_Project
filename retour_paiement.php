@@ -65,9 +65,9 @@ if(empty($erreur)){
             "rue"=>$u["rue"],
             "ville"=>$u["ville"],
             "code_postal"=>$u["code_postal"],
-            "etage"=>"",
-            "interphone"=>"",
-            "commentaire"=>""
+            "etage"=>$cmd_session["etage"],
+            "interphone"=>$cmd_session["interphone"],
+            "commentaire"=>$cmd_session["commentaire_livraison"]
         ];
     }
     $items=[];
@@ -118,7 +118,7 @@ if(empty($erreur)){
     <ul id="nav_left">
         <a href="presentation_page.php" target="_self"><li class="nav_item" id="indentation_left">Menus</li></a>
     </ul>
-    <a href="home_page.html" target="_self"><div class="restaurant_name">The Wonders of Svaneti</div></a>
+    <a href="home_page.php" target="_self"><div class="restaurant_name">The Wonders of Svaneti</div></a>
     <ul id="nav_right">
         <?php if(!empty($_SESSION["email"])){ ?>
         <a href="profil.php" target="_self"><li class="nav_item" id="indentation_right">Profil</li></a>
