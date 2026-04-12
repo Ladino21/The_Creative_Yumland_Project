@@ -7,7 +7,6 @@ verifier_role("admin");
 $utilisateurs=lire_json("data/inscription.json");
 $commandes=lire_json("data/commandes.json");
 
-// Statistiques
 $nb_utilisateurs=count($utilisateurs);
 $nb_avec_commande=0;
 $nb_en_cours=0;
@@ -43,7 +42,6 @@ if($nb_notes>0){
     $note_moyenne="—";
 }
 
-// Recherche et filtre
 $recherche="";
 if(!empty($_GET["search"])){
     $recherche=$_GET["search"];
@@ -66,7 +64,7 @@ if(!empty($_GET["filtre"])){
         <p id="admin_undertitle">Gestion des utilisateurs</p>
     </div>
     <div id="admin_header_right">
-        <a href="home_page.html" id="admin_retour">← Retour à l'accueil</a>
+        <a href="home_page.php" id="admin_retour">← Retour à l'accueil</a>
         <a href="deconnexion.php" id="deconnexion_button">Se déconnecter</a>
     </div>
 </header>
@@ -152,7 +150,7 @@ if(!empty($_GET["filtre"])){
                 echo '<td>'.$u["email"].'</td>';
                 echo '<td>'.$u["phone"].'</td>';
                 echo '<td>'.$u["role"].'</td>';
-                echo '<td>'.date("d/m/Y", strtotime($u["date_inscription"])).'</td>';
+                echo '<td>'.(!empty($u["date_inscription"]) ? date("d/m/Y", strtotime($u["date_inscription"])) : "—").'</td>';
                 echo '<td><a href="profil.php?email='.$u["email"].'" class="redirection_profil">Voir</a></td>';
                 echo '<td>';
                 echo '<button type="button" class="bouton_admin_action">Bloquer</button>';
