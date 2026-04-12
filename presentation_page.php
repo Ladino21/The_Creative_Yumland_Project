@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,17 +11,17 @@
 <header>
 <nav id="navbar">
 	<ul id="nav_left">
-		<a href="presentation_page.html" target="_self"><li class="nav_item" id="indentation_left">Menus</li></a>
-		<a href="commandes.html" target="_self"><li class="nav_item">Commandes</li></a>
-		<a href="livraison.html" target="_self"><li class="nav_item">Livraison</li></a>
-		<a href="admin.html" target="_self"><li class="nav_item">Admin</li></a>
-		<a href="notation.html" target="_self"><li class="nav_item">Notation</li></a>
+		<a href="presentation_page.php" target="_self"><li class="nav_item" id="indentation_left">Menus</li></a>
+		<a href="commandes.php" target="_self"><li class="nav_item">Commandes</li></a>
+		<a href="livraison.php" target="_self"><li class="nav_item">Livraison</li></a>
+		<a href="admin.php" target="_self"><li class="nav_item">Admin</li></a>
+		<a href="notation.php" target="_self"><li class="nav_item">Notation</li></a>
 	</ul>
-	<a href="home_page.html" target="_self"><div class="restaurant_name">The Wonders of Svaneti</div></a>
+	<a href="home_page.php" target="_self"><div class="restaurant_name">The Wonders of Svaneti</div></a>
 	<ul id="nav_right">
-		<a href="inscription.html" target="_self"><li class="nav_item" id="indentation_right">Inscription</li></a>
-		<a href="profil.html" target="_self"><li class="nav_item">Profil</li></a>
-		<a href="connexion.html" target="_self"><li class="nav_item">Connexion</li></a>
+		<a href="inscription.php" target="_self"><li class="nav_item" id="indentation_right">Inscription</li></a>
+		<a href="profil.php" target="_self"><li class="nav_item">Profil</li></a>
+		<a href="connexion.php" target="_self"><li class="nav_item">Connexion</li></a>
 		<li class="nav_item_special">
 			<form id="search_form" action="#" method="get">
 				<input type="search" placeholder="Rechercher un plat..." id="search_bar_admin" name="search"/>
@@ -79,7 +82,11 @@
 						<p class="card_desc">Le festin du maître de cérémonie. Pkhali, Khinkali, Mtsvadi, Churchkhela et vin Rkatsiteli.</p>
 						<div class="card_footer">
 							<span class="card_prix">45,00 €</span>
-							<button type="button" class="card_bouton">Commander</button>
+							<form action="panier.php" method="post" class="form_commander">
+								<input type="hidden" name="action" value="ajouter"/>
+								<input type="hidden" name="id" value="m01"/>
+								<button type="submit" class="card_bouton">Commander</button>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -91,7 +98,11 @@
 						<p class="card_desc">Voyage autour du fromage géorgien. Deux Khachapuri régionaux, sulguni et Kada.</p>
 						<div class="card_footer">
 							<span class="card_prix">32,00 €</span>
-							<button type="button" class="card_bouton">Commander</button>
+							<form action="panier.php" method="post" class="form_commander">
+								<input type="hidden" name="action" value="ajouter"/>
+								<input type="hidden" name="id" value="m02"/>
+								<button type="submit" class="card_bouton">Commander</button>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -103,7 +114,11 @@
 						<p class="card_desc">Les saveurs des sommets. Salade géorgienne, Chakapuli, Satsivi et Pelamushi.</p>
 						<div class="card_footer">
 							<span class="card_prix">38,00 €</span>
-							<button type="button" class="card_bouton">Commander</button>
+							<form action="panier.php" method="post" class="form_commander">
+								<input type="hidden" name="action" value="ajouter"/>
+								<input type="hidden" name="id" value="m03"/>
+								<button type="submit" class="card_bouton">Commander</button>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -115,7 +130,11 @@
 						<p class="card_desc">Pkhali trio, Badrijani, Lobiani, Ajapsandali et Nazuki.</p>
 						<div class="card_footer">
 							<span class="card_prix">28,00 €</span>
-							<button type="button" class="card_bouton">Commander</button>
+							<form action="panier.php" method="post" class="form_commander">
+								<input type="hidden" name="action" value="ajouter"/>
+								<input type="hidden" name="id" value="m04"/>
+								<button type="submit" class="card_bouton">Commander</button>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -132,7 +151,11 @@
 						<p class="card_desc">Amuse-bouche aux légumes et noix du Caucase. Épinards, betterave ou haricots verts.</p>
 						<div class="card_footer">
 							<span class="card_prix">8,00 €</span>
-							<button type="button" class="card_bouton">Commander</button>
+							<form action="panier.php" method="post" class="form_commander">
+								<input type="hidden" name="action" value="ajouter"/>
+								<input type="hidden" name="id" value="p01"/>
+								<button type="submit" class="card_bouton">Commander</button>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -144,7 +167,11 @@
 						<p class="card_desc">Aubergines grillées fourrées à la pâte de noix, grenade et coriandre fraîche.</p>
 						<div class="card_footer">
 							<span class="card_prix">9,00 €</span>
-							<button type="button" class="card_bouton">Commander</button>
+							<form action="panier.php" method="post" class="form_commander">
+								<input type="hidden" name="action" value="ajouter"/>
+								<input type="hidden" name="id" value="p02"/>
+								<button type="submit" class="card_bouton">Commander</button>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -156,7 +183,11 @@
 						<p class="card_desc">Tomates, concombres, oignons rouges, coriandre et aneth, huile de noix.</p>
 						<div class="card_footer">
 							<span class="card_prix">7,00 €</span>
-							<button type="button" class="card_bouton">Commander</button>
+							<form action="panier.php" method="post" class="form_commander">
+								<input type="hidden" name="action" value="ajouter"/>
+								<input type="hidden" name="id" value="p03"/>
+								<button type="submit" class="card_bouton">Commander</button>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -168,7 +199,11 @@
 						<p class="card_desc">Cornichons marinés aux herbes fraîches, ail et épices khmeli suneli.</p>
 						<div class="card_footer">
 							<span class="card_prix">5,00 €</span>
-							<button type="button" class="card_bouton">Commander</button>
+							<form action="panier.php" method="post" class="form_commander">
+								<input type="hidden" name="action" value="ajouter"/>
+								<input type="hidden" name="id" value="p04"/>
+								<button type="submit" class="card_bouton">Commander</button>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -185,7 +220,11 @@
 						<p class="card_desc">Raviolis géorgiens juteux farcis à la viande épicée, bouillon intérieur. Se mange à la main.</p>
 						<div class="card_footer">
 							<span class="card_prix">14,00 €</span>
-							<button type="button" class="card_bouton">Commander</button>
+							<form action="panier.php" method="post" class="form_commander">
+								<input type="hidden" name="action" value="ajouter"/>
+								<input type="hidden" name="id" value="p05"/>
+								<button type="submit" class="card_bouton">Commander</button>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -197,7 +236,11 @@
 						<p class="card_desc">Brochettes de viande grillée au feu de bois, marinées à la sauce tkemali de prune sauvage.</p>
 						<div class="card_footer">
 							<span class="card_prix">16,00 €</span>
-							<button type="button" class="card_bouton">Commander</button>
+							<form action="panier.php" method="post" class="form_commander">
+								<input type="hidden" name="action" value="ajouter"/>
+								<input type="hidden" name="id" value="p06"/>
+								<button type="submit" class="card_bouton">Commander</button>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -209,7 +252,11 @@
 						<p class="card_desc">Champignons sauvages cuits au four dans une poêle en argile avec sulguni fondu et beurre.</p>
 						<div class="card_footer">
 							<span class="card_prix">13,00 €</span>
-							<button type="button" class="card_bouton">Commander</button>
+							<form action="panier.php" method="post" class="form_commander">
+								<input type="hidden" name="action" value="ajouter"/>
+								<input type="hidden" name="id" value="p07"/>
+								<button type="submit" class="card_bouton">Commander</button>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -221,10 +268,15 @@
 						<p class="card_desc">Volaille froide nappée d'une sauce onctueuse aux noix, safran d'Iran et épices khmeli suneli.</p>
 						<div class="card_footer">
 							<span class="card_prix">17,00 €</span>
-							<button type="button" class="card_bouton">Commander</button>
+							<form action="panier.php" method="post" class="form_commander">
+								<input type="hidden" name="action" value="ajouter"/>
+								<input type="hidden" name="id" value="p08"/>
+								<button type="submit" class="card_bouton">Commander</button>
+							</form>
 						</div>
 					</div>
 				</div>
+	
 			</div>
 		</section>
 		<section class="produits_section">
@@ -238,7 +290,11 @@
 						<p class="card_desc">Noix et noisettes enfilées sur une ficelle et enrobées de jus de raisin concentré séché.</p>
 						<div class="card_footer">
 							<span class="card_prix">6,00 €</span>
-							<button type="button" class="card_bouton">Commander</button>
+							<form action="panier.php" method="post" class="form_commander">
+								<input type="hidden" name="action" value="ajouter"/>
+								<input type="hidden" name="id" value="p09"/>
+								<button type="submit" class="card_bouton">Commander</button>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -250,7 +306,11 @@
 						<p class="card_desc">Pudding traditionnel à base de jus de raisin rouge et farine de maïs, parsemé de noix.</p>
 						<div class="card_footer">
 							<span class="card_prix">7,00 €</span>
-							<button type="button" class="card_bouton">Commander</button>
+							<form action="panier.php" method="post" class="form_commander">
+								<input type="hidden" name="action" value="ajouter"/>
+								<input type="hidden" name="id" value="p10"/>
+								<button type="submit" class="card_bouton">Commander</button>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -262,7 +322,11 @@
 						<p class="card_desc">Pain sucré et épicé à la cannelle, cardamome et clou de girofle. Douceur des fêtes géorgiennes.</p>
 						<div class="card_footer">
 							<span class="card_prix">5,50 €</span>
-							<button type="button" class="card_bouton">Commander</button>
+							<form action="panier.php" method="post" class="form_commander">
+								<input type="hidden" name="action" value="ajouter"/>
+								<input type="hidden" name="id" value="p11"/>
+								<button type="submit" class="card_bouton">Commander</button>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -279,7 +343,11 @@
 						<p class="card_desc">Vin ambré géorgien fermenté en amphore Qvevri. Notes de noix, miel et abricot sec.</p>
 						<div class="card_footer">
 							<span class="card_prix">9,00 €</span>
-							<button type="button" class="card_bouton">Commander</button>
+							<form action="panier.php" method="post" class="form_commander">
+								<input type="hidden" name="action" value="ajouter"/>
+								<input type="hidden" name="id" value="p12"/>
+								<button type="submit" class="card_bouton">Commander</button>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -291,7 +359,11 @@
 						<p class="card_desc">Limonade artisanale géorgienne aux sirops naturels : poire, crème de vanille ou estragon.</p>
 						<div class="card_footer">
 							<span class="card_prix">4,50 €</span>
-							<button type="button" class="card_bouton">Commander</button>
+							<form action="panier.php" method="post" class="form_commander">
+								<input type="hidden" name="action" value="ajouter"/>
+								<input type="hidden" name="id" value="p13"/>
+								<button type="submit" class="card_bouton">Commander</button>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -303,7 +375,11 @@
 						<p class="card_desc">Boisson traditionnelle à base de yaourt fermenté, eau gazeuse et sel. Rafraîchissante et légère.</p>
 						<div class="card_footer">
 							<span class="card_prix">3,50 €</span>
-							<button type="button" class="card_bouton">Commander</button>
+							<form action="panier.php" method="post" class="form_commander">
+								<input type="hidden" name="action" value="ajouter"/>
+								<input type="hidden" name="id" value="p14"/>
+								<button type="submit" class="card_bouton">Commander</button>
+							</form>
 						</div>
 					</div>
 				</div>
