@@ -1,9 +1,8 @@
 <?php
+require_once "includes/json.php";
 $erreur="";
 
 if(!empty($_POST)){
-
-	// nom et prenom
 	if(empty($_POST["name"]) || empty($_POST["surname"])){
 		$erreur="Vous n'avez rien entré !!";
 	}
@@ -12,10 +11,10 @@ if(!empty($_POST)){
 		$surname=$_POST["surname"];
 		$long1=strlen($name);
 		$long2=strlen($surname);
-		if($long1 > 15){
+		if($long1>15){
 			$erreur="Votre prénom est trop long !!";
 		}
-		if(empty($erreur) && $long2 > 30){
+		if(empty($erreur) && $long2>30){
 			$erreur="Votre nom de famille est trop long !!";
 		}
 		if(empty($erreur)){
@@ -42,32 +41,24 @@ if(!empty($_POST)){
 			}
 		}
 	}
-
-	// email
 	if(empty($erreur)){
 		if(empty($_POST["email"])){
 			$erreur="Entrez votre email !!";
 		}else{
 			$email=$_POST["email"];
-			if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+			if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
 				$erreur="L'email est invalide !!";
 			}
-			// Vérifier si l'email est déjà utilisé
 			if(empty($erreur)){
-				$contenu_tmp=file_get_contents("data/inscription.json");
-				$utilisateurs_tmp=json_decode($contenu_tmp, true);
-				if(is_array($utilisateurs_tmp)){
-					for($i=0; $i<count($utilisateurs_tmp) && empty($erreur); $i++){
-						if(isset($utilisateurs_tmp[$i]["email"]) && $utilisateurs_tmp[$i]["email"]==$email){
-							$erreur="Cet email est déjà utilisé !!";
-						}
+				$utilisateurs_tmp=lire_json("data/inscription.json");
+				for($i=0; $i<count($utilisateurs_tmp) && empty($erreur); $i++){
+					if(isset($utilisateurs_tmp[$i]["email"]) && $utilisateurs_tmp[$i]["email"]==$email){
+						$erreur="Cet email est déjà utilisé !!";
 					}
 				}
 			}
 		}
 	}
-
-	// phone
 	if(empty($erreur)){
 		if(empty($_POST["phone"])){
 			$erreur="Entrez votre numéro de téléphone !!";
@@ -87,8 +78,6 @@ if(!empty($_POST)){
 			}
 		}
 	}
-
-	// mot de passe
 	if(empty($erreur)){
 		if(empty($_POST["password1"]) || empty($_POST["password2"])){
 			$erreur="Entrez votre mot de passe !!";
@@ -121,8 +110,6 @@ if(!empty($_POST)){
 			}
 		}
 	}
-
-	// date d'anniversaire
 	if(empty($erreur)){
 		if(empty($_POST["birthday"])){
 			$erreur="Entrez votre date d'anniversaire !!";
@@ -137,8 +124,6 @@ if(!empty($_POST)){
 			}
 		}
 	}
-
-	// numéro de rue
 	if(empty($erreur)){
 		if(empty($_POST["numero"])){
 			$erreur="Entrez votre numéro de rue !!";
@@ -154,8 +139,6 @@ if(!empty($_POST)){
 			}
 		}
 	}
-
-	// rue
 	if(empty($erreur)){
 		if(empty($_POST["rue"])){
 			$erreur="Entrez votre rue !!";
@@ -172,8 +155,6 @@ if(!empty($_POST)){
 			}
 		}
 	}
-
-	// ville
 	if(empty($erreur)){
 		if(empty($_POST["ville"])){
 			$erreur="Entrez votre ville !!";
@@ -190,8 +171,6 @@ if(!empty($_POST)){
 			}
 		}
 	}
-
-	// code postal
 	if(empty($erreur)){
 		if(empty($_POST["code_postal"])){
 			$erreur="Entrez votre code postal !!";
@@ -210,15 +189,7 @@ if(!empty($_POST)){
 
 	if(empty($erreur)){
 		$mdp=password_hash($password1,PASSWORD_DEFAULT);
-		// On lit le fichier JSON et on le convertit en tableau PHP
-		$fichier="data/inscription.json";
-		$contenu=file_get_contents($fichier);
-		$utilisateurs=json_decode($contenu,true);
-
-		// Si le fichier était vide ou mal formé, on repart d'un tableau vide
-		if(!is_array($utilisateurs)){
-			$utilisateurs=[];
-		}
+		$utilisateurs=lire_json("data/inscription.json");
 		$nouvel_utilisateur=[
 			"name"=>$name,
 			"surname"=>$surname,
@@ -230,12 +201,13 @@ if(!empty($_POST)){
 			"ville"=>$ville,
 			"code_postal"=>$code_postal,
 			"password"=>$mdp,
-			"role"=>"client"
+			"role"=>"client",
+			"statut"=>"actif",
+			"date_inscription"=>date("Y-m-d")
 		];
 
-		// On ajoute l'utilisateur au tableau et on réécrit le fichier
 		$utilisateurs[]=$nouvel_utilisateur;
-		file_put_contents($fichier,json_encode($utilisateurs,JSON_PRETTY_PRINT));
+		ecrire_json("data/inscription.json", $utilisateurs);
 		$erreur="Inscription réussie !!";
 	}
 }
@@ -247,7 +219,7 @@ if(!empty($_POST)){
 <title>The Wonders of Svaneti | Formulaire d'inscription</title>
 
 <?php if($erreur=="Inscription réussie !!"){ ?>
-<meta http-equiv="refresh" content="2;url=home_page.html">
+<meta http-equiv="refresh" content="2;url=home_page.php">
 <?php } ?>
 
 </head>
@@ -315,4 +287,3 @@ if(!empty($_POST)){
 </section>
 </body>
 </html>
-
