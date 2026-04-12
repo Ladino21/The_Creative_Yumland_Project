@@ -1,5 +1,79 @@
 <?php
 session_start();
+require_once "includes/json.php";
+
+$data=lire_json("data/menus.json");
+
+$search="";
+if(!empty($_GET["search"])){
+    $search=$_GET["search"];
+}
+$categorie="tous";
+if(!empty($_GET["categorie"])){
+    $categorie=$_GET["categorie"];
+}
+$saveur="";
+if(!empty($_GET["saveur"])){
+    $saveur=$_GET["saveur"];
+}
+$allergene="";
+if(!empty($_GET["allergene"])){
+    $allergene=$_GET["allergene"];
+}
+
+$image_ids=[
+    "m01"=>"img_tamada","m02"=>"img_khachapuri",
+    "m03"=>"img_svanetie","m04"=>"img_veggie",
+    "p01"=>"img_pkhali","p02"=>"img_badrijani",
+    "p03"=>"img_salade","p04"=>"img_cornichons",
+    "p05"=>"img_khinkali","p06"=>"img_mtsvadi",
+    "p07"=>"img_soko","p08"=>"img_satsivi",
+    "p09"=>"img_churchkhela","p10"=>"img_pelamushi",
+    "p11"=>"img_nazuki","p12"=>"img_rkatsiteli",
+    "p13"=>"img_limonade","p14"=>"img_tan"
+];
+
+$sections_def=[
+    "menus"=>"Nos Menus",
+    "entrees"=>"Entrées",
+    "plats"=>"Plats",
+    "desserts"=>"Desserts",
+    "boissons"=>"Boissons"
+];
+
+$sections_affichees=[];
+$cats_keys=["menus","entrees","plats","desserts","boissons"];
+for($s=0; $s<count($cats_keys); $s++){
+    $cat_key=$cats_keys[$s];
+    if($categorie!="tous" && $categorie!=$cat_key){
+        continue;
+    }
+    $items_bruts=$data[$cat_key];
+    $items_filtres=[];
+    for($i=0; $i<count($items_bruts); $i++){
+        $item=$items_bruts[$i];
+        if(!$item["disponible"]){
+            continue;
+        }
+        if(!empty($search) && strpos(strtolower($item["nom"]), strtolower($search))===false){
+            continue;
+        }
+        if(!empty($saveur)){
+            if(empty($item["saveurs"]) || !in_array($saveur, $item["saveurs"])){
+                continue;
+            }
+        }
+        if(!empty($allergene)){
+            if(!empty($item["allergenes"]) && in_array($allergene, $item["allergenes"])){
+                continue;
+            }
+        }
+        $items_filtres[]=$item;
+    }
+    if(count($items_filtres)>0){
+        $sections_affichees[]=["titre"=>$sections_def[$cat_key],"items"=>$items_filtres];
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -12,19 +86,40 @@ session_start();
 <nav id="navbar">
 	<ul id="nav_left">
 		<a href="presentation_page.php" target="_self"><li class="nav_item" id="indentation_left">Menus</li></a>
+		<?php if(!empty($_SESSION["role"]) && $_SESSION["role"]=="restaurateur"){ ?>
 		<a href="commandes.php" target="_self"><li class="nav_item">Commandes</li></a>
+		<?php } ?>
+		<?php if(!empty($_SESSION["role"]) && $_SESSION["role"]=="livreur"){ ?>
 		<a href="livraison.php" target="_self"><li class="nav_item">Livraison</li></a>
+		<?php } ?>
+		<?php if(!empty($_SESSION["role"]) && $_SESSION["role"]=="admin"){ ?>
 		<a href="admin.php" target="_self"><li class="nav_item">Admin</li></a>
+		<?php } ?>
+		<?php if(!empty($_SESSION["role"]) && $_SESSION["role"]=="client"){ ?>
 		<a href="notation.php" target="_self"><li class="nav_item">Notation</li></a>
+		<?php } ?>
 	</ul>
 	<a href="home_page.php" target="_self"><div class="restaurant_name">The Wonders of Svaneti</div></a>
 	<ul id="nav_right">
+		<?php if(!empty($_SESSION["email"])){ ?>
+		<a href="profil.php" target="_self"><li class="nav_item" id="indentation_right">Profil</li></a>
+		<a href="deconnexion.php" id="deconnexion_button">Se déconnecter</a>
+		<?php }else{ ?>
 		<a href="inscription.php" target="_self"><li class="nav_item" id="indentation_right">Inscription</li></a>
-		<a href="profil.php" target="_self"><li class="nav_item">Profil</li></a>
 		<a href="connexion.php" target="_self"><li class="nav_item">Connexion</li></a>
+		<?php } ?>
 		<li class="nav_item_special">
-			<form id="search_form" action="#" method="get">
-				<input type="search" placeholder="Rechercher un plat..." id="search_bar_admin" name="search"/>
+			<form id="search_form" action="presentation_page.php" method="get">
+				<?php if($categorie!="tous"){ ?>
+				<input type="hidden" name="categorie" value="<?php echo $categorie; ?>"/>
+				<?php } ?>
+				<?php if(!empty($saveur)){ ?>
+				<input type="hidden" name="saveur" value="<?php echo $saveur; ?>"/>
+				<?php } ?>
+				<?php if(!empty($allergene)){ ?>
+				<input type="hidden" name="allergene" value="<?php echo $allergene; ?>"/>
+				<?php } ?>
+				<input type="search" placeholder="Rechercher un plat..." id="search_bar_admin" name="search" value="<?php echo $search; ?>"/>
 				<button type="submit" id="admin_button">Rechercher</button>
 			</form>
 		</li>
@@ -42,349 +137,98 @@ session_start();
 		<div class="filtre_bloc">
 			<h3 class="filtre_titre">Catégorie</h3>
 			<ul class="filtre_liste">
-				<li class="filtre_item_actif">Tous</li>
-				<li class="filtre_item">Menus</li>
-				<li class="filtre_item">Entrées</li>
-				<li class="filtre_item">Plats</li>
-				<li class="filtre_item">Desserts</li>
-				<li class="filtre_item">Boissons</li>
+				<a href="presentation_page.php<?php if(!empty($search)) echo "?search=".$search; ?>">
+					<li class="<?php if($categorie=="tous") echo "filtre_item_actif"; else echo "filtre_item"; ?>">Tous</li>
+				</a>
+				<a href="presentation_page.php?categorie=menus<?php if(!empty($search)) echo "&search=".$search; ?>">
+					<li class="<?php if($categorie=="menus") echo "filtre_item_actif"; else echo "filtre_item"; ?>">Menus</li>
+				</a>
+				<a href="presentation_page.php?categorie=entrees<?php if(!empty($search)) echo "&search=".$search; ?>">
+					<li class="<?php if($categorie=="entrees") echo "filtre_item_actif"; else echo "filtre_item"; ?>">Entrées</li>
+				</a>
+				<a href="presentation_page.php?categorie=plats<?php if(!empty($search)) echo "&search=".$search; ?>">
+					<li class="<?php if($categorie=="plats") echo "filtre_item_actif"; else echo "filtre_item"; ?>">Plats</li>
+				</a>
+				<a href="presentation_page.php?categorie=desserts<?php if(!empty($search)) echo "&search=".$search; ?>">
+					<li class="<?php if($categorie=="desserts") echo "filtre_item_actif"; else echo "filtre_item"; ?>">Desserts</li>
+				</a>
+				<a href="presentation_page.php?categorie=boissons<?php if(!empty($search)) echo "&search=".$search; ?>">
+					<li class="<?php if($categorie=="boissons") echo "filtre_item_actif"; else echo "filtre_item"; ?>">Boissons</li>
+				</a>
 			</ul>
 		</div>
 		<div class="filtre_bloc">
 			<h3 class="filtre_titre">Saveurs</h3>
 			<ul class="filtre_liste">
-				<li class="filtre_item">Épicé</li>
-				<li class="filtre_item">Fumé</li>
-				<li class="filtre_item">Végétarien</li>
-				<li class="filtre_item">Fruité</li>
-				<li class="filtre_item">Grillé</li>
+				<a href="presentation_page.php?saveur=epice<?php if(!empty($search)) echo "&search=".$search; ?>">
+					<li class="<?php if($saveur=="epice") echo "filtre_item_actif"; else echo "filtre_item"; ?>">Épicé</li>
+				</a>
+				<a href="presentation_page.php?saveur=fume<?php if(!empty($search)) echo "&search=".$search; ?>">
+					<li class="<?php if($saveur=="fume") echo "filtre_item_actif"; else echo "filtre_item"; ?>">Fumé</li>
+				</a>
+				<a href="presentation_page.php?saveur=vegetarien<?php if(!empty($search)) echo "&search=".$search; ?>">
+					<li class="<?php if($saveur=="vegetarien") echo "filtre_item_actif"; else echo "filtre_item"; ?>">Végétarien</li>
+				</a>
+				<a href="presentation_page.php?saveur=fruite<?php if(!empty($search)) echo "&search=".$search; ?>">
+					<li class="<?php if($saveur=="fruite") echo "filtre_item_actif"; else echo "filtre_item"; ?>">Fruité</li>
+				</a>
+				<a href="presentation_page.php?saveur=grille<?php if(!empty($search)) echo "&search=".$search; ?>">
+					<li class="<?php if($saveur=="grille") echo "filtre_item_actif"; else echo "filtre_item"; ?>">Grillé</li>
+				</a>
 			</ul>
 		</div>
 		<div class="filtre_bloc">
 			<h3 class="filtre_titre">Allergènes</h3>
 			<ul class="filtre_liste">
-				<li class="filtre_item">Sans noix</li>
-				<li class="filtre_item">Sans gluten</li>
-				<li class="filtre_item">Sans lactose</li>
-				<li class="filtre_item">Sans œuf</li>
+				<a href="presentation_page.php?allergene=noix<?php if(!empty($search)) echo "&search=".$search; ?>">
+					<li class="<?php if($allergene=="noix") echo "filtre_item_actif"; else echo "filtre_item"; ?>">Sans noix</li>
+				</a>
+				<a href="presentation_page.php?allergene=gluten<?php if(!empty($search)) echo "&search=".$search; ?>">
+					<li class="<?php if($allergene=="gluten") echo "filtre_item_actif"; else echo "filtre_item"; ?>">Sans gluten</li>
+				</a>
+				<a href="presentation_page.php?allergene=lactose<?php if(!empty($search)) echo "&search=".$search; ?>">
+					<li class="<?php if($allergene=="lactose") echo "filtre_item_actif"; else echo "filtre_item"; ?>">Sans lactose</li>
+				</a>
+				<a href="presentation_page.php?allergene=oeuf<?php if(!empty($search)) echo "&search=".$search; ?>">
+					<li class="<?php if($allergene=="oeuf") echo "filtre_item_actif"; else echo "filtre_item"; ?>">Sans œuf</li>
+				</a>
 			</ul>
 		</div>
 	</aside>
 	<main id="produits_grille">
+		<?php if(count($sections_affichees)==0){ ?>
+		<p id="produits_aucun">Aucun plat ne correspond à votre recherche.</p>
+		<?php } ?>
+		<?php for($s=0; $s<count($sections_affichees); $s++){
+			$section=$sections_affichees[$s];
+		?>
 		<section class="produits_section">
-			<h2 class="section_titre">Nos Menus</h2>
+			<h2 class="section_titre"><?php echo $section["titre"]; ?></h2>
 			<div class="cards_container">
+				<?php for($i=0; $i<count($section["items"]); $i++){
+					$item=$section["items"][$i];
+					$img_id=isset($image_ids[$item["id"]]) ? $image_ids[$item["id"]] : "img_default";
+				?>
 				<div class="card_plat">
-					<div class="card_img" id="img_tamada">Image Not Available</div>
+					<div class="card_img" id="<?php echo $img_id; ?>">Image Not Available</div>
 					<div class="card_body">
-						<h3 class="card_nom">Le Tamada</h3>
-						<p class="card_origine">🇬🇪 Géorgie — Menu Dégustation</p>
-						<p class="card_desc">Le festin du maître de cérémonie. Pkhali, Khinkali, Mtsvadi, Churchkhela et vin Rkatsiteli.</p>
+						<h3 class="card_nom"><?php echo $item["nom"]; ?></h3>
+						<p class="card_origine">🇬🇪 <?php echo $item["origine"]; ?></p>
+						<p class="card_desc"><?php echo $item["description"]; ?></p>
 						<div class="card_footer">
-							<span class="card_prix">45,00 €</span>
+							<span class="card_prix"><?php echo $item["prix"]; ?> €</span>
 							<form action="panier.php" method="post" class="form_commander">
 								<input type="hidden" name="action" value="ajouter"/>
-								<input type="hidden" name="id" value="m01"/>
+								<input type="hidden" name="id" value="<?php echo $item["id"]; ?>"/>
 								<button type="submit" class="card_bouton">Commander</button>
 							</form>
 						</div>
 					</div>
 				</div>
-				<div class="card_plat">
-					<div class="card_img" id="img_khachapuri">Image Not Available</div>
-					<div class="card_body">
-						<h3 class="card_nom">Menu Khachapuri</h3>
-						<p class="card_origine">🇬🇪 Adjarie & Mingrélie</p>
-						<p class="card_desc">Voyage autour du fromage géorgien. Deux Khachapuri régionaux, sulguni et Kada.</p>
-						<div class="card_footer">
-							<span class="card_prix">32,00 €</span>
-							<form action="panier.php" method="post" class="form_commander">
-								<input type="hidden" name="action" value="ajouter"/>
-								<input type="hidden" name="id" value="m02"/>
-								<button type="submit" class="card_bouton">Commander</button>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="card_plat">
-					<div class="card_img" id="img_svanetie">Image Not Available</div>
-					<div class="card_body">
-						<h3 class="card_nom">Menu Svanétie</h3>
-						<p class="card_origine">🇬🇪 Montagnes de Svanétie</p>
-						<p class="card_desc">Les saveurs des sommets. Salade géorgienne, Chakapuli, Satsivi et Pelamushi.</p>
-						<div class="card_footer">
-							<span class="card_prix">38,00 €</span>
-							<form action="panier.php" method="post" class="form_commander">
-								<input type="hidden" name="action" value="ajouter"/>
-								<input type="hidden" name="id" value="m03"/>
-								<button type="submit" class="card_bouton">Commander</button>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="card_plat">
-					<div class="card_img" id="img_veggie">Image Not Available</div>
-					<div class="card_body">
-						<h3 class="card_nom">Menu Végétarien</h3>
-						<p class="card_origine">🇬🇪 L'Esprit du Caucase</p>
-						<p class="card_desc">Pkhali trio, Badrijani, Lobiani, Ajapsandali et Nazuki.</p>
-						<div class="card_footer">
-							<span class="card_prix">28,00 €</span>
-							<form action="panier.php" method="post" class="form_commander">
-								<input type="hidden" name="action" value="ajouter"/>
-								<input type="hidden" name="id" value="m04"/>
-								<button type="submit" class="card_bouton">Commander</button>
-							</form>
-						</div>
-					</div>
-				</div>
+				<?php } ?>
 			</div>
 		</section>
-		<section class="produits_section">
-			<h2 class="section_titre">Entrées</h2>
-			<div class="cards_container">
-				<div class="card_plat">
-					<div class="card_img" id="img_pkhali">Image Not Available</div>
-					<div class="card_body">
-						<h3 class="card_nom">Pkhali</h3>
-						<p class="card_origine">🇬🇪 Géorgie — Végétarien</p>
-						<p class="card_desc">Amuse-bouche aux légumes et noix du Caucase. Épinards, betterave ou haricots verts.</p>
-						<div class="card_footer">
-							<span class="card_prix">8,00 €</span>
-							<form action="panier.php" method="post" class="form_commander">
-								<input type="hidden" name="action" value="ajouter"/>
-								<input type="hidden" name="id" value="p01"/>
-								<button type="submit" class="card_bouton">Commander</button>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="card_plat">
-					<div class="card_img" id="img_badrijani">Image Not Available</div>
-					<div class="card_body">
-						<h3 class="card_nom">Badrijani</h3>
-						<p class="card_origine">🇬🇪 Géorgie — Végétarien</p>
-						<p class="card_desc">Aubergines grillées fourrées à la pâte de noix, grenade et coriandre fraîche.</p>
-						<div class="card_footer">
-							<span class="card_prix">9,00 €</span>
-							<form action="panier.php" method="post" class="form_commander">
-								<input type="hidden" name="action" value="ajouter"/>
-								<input type="hidden" name="id" value="p02"/>
-								<button type="submit" class="card_bouton">Commander</button>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="card_plat">
-					<div class="card_img" id="img_salade">Image Not Available</div>
-					<div class="card_body">
-						<h3 class="card_nom">Salade Géorgienne</h3>
-						<p class="card_origine">🇬🇪 Géorgie</p>
-						<p class="card_desc">Tomates, concombres, oignons rouges, coriandre et aneth, huile de noix.</p>
-						<div class="card_footer">
-							<span class="card_prix">7,00 €</span>
-							<form action="panier.php" method="post" class="form_commander">
-								<input type="hidden" name="action" value="ajouter"/>
-								<input type="hidden" name="id" value="p03"/>
-								<button type="submit" class="card_bouton">Commander</button>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="card_plat">
-					<div class="card_img" id="img_cornichons">Image Not Available</div>
-					<div class="card_body">
-						<h3 class="card_nom">Cornichons Géorgiens</h3>
-						<p class="card_origine">🇬🇪 Géorgie</p>
-						<p class="card_desc">Cornichons marinés aux herbes fraîches, ail et épices khmeli suneli.</p>
-						<div class="card_footer">
-							<span class="card_prix">5,00 €</span>
-							<form action="panier.php" method="post" class="form_commander">
-								<input type="hidden" name="action" value="ajouter"/>
-								<input type="hidden" name="id" value="p04"/>
-								<button type="submit" class="card_bouton">Commander</button>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section class="produits_section">
-			<h2 class="section_titre">Plats</h2>
-			<div class="cards_container">
-				<div class="card_plat">
-					<div class="card_img" id="img_khinkali">Image Not Available</div>
-					<div class="card_body">
-						<h3 class="card_nom">Khinkali</h3>
-						<p class="card_origine">🇬🇪 Svanétie & Kakhétie</p>
-						<p class="card_desc">Raviolis géorgiens juteux farcis à la viande épicée, bouillon intérieur. Se mange à la main.</p>
-						<div class="card_footer">
-							<span class="card_prix">14,00 €</span>
-							<form action="panier.php" method="post" class="form_commander">
-								<input type="hidden" name="action" value="ajouter"/>
-								<input type="hidden" name="id" value="p05"/>
-								<button type="submit" class="card_bouton">Commander</button>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="card_plat">
-					<div class="card_img" id="img_mtsvadi">Image Not Available</div>
-					<div class="card_body">
-						<h3 class="card_nom">Mtsvadi</h3>
-						<p class="card_origine">🇬🇪 Géorgie</p>
-						<p class="card_desc">Brochettes de viande grillée au feu de bois, marinées à la sauce tkemali de prune sauvage.</p>
-						<div class="card_footer">
-							<span class="card_prix">16,00 €</span>
-							<form action="panier.php" method="post" class="form_commander">
-								<input type="hidden" name="action" value="ajouter"/>
-								<input type="hidden" name="id" value="p06"/>
-								<button type="submit" class="card_bouton">Commander</button>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="card_plat">
-					<div class="card_img" id="img_soko">Image Not Available</div>
-					<div class="card_body">
-						<h3 class="card_nom">Soko Kecze</h3>
-						<p class="card_origine">🇬🇪 Géorgie</p>
-						<p class="card_desc">Champignons sauvages cuits au four dans une poêle en argile avec sulguni fondu et beurre.</p>
-						<div class="card_footer">
-							<span class="card_prix">13,00 €</span>
-							<form action="panier.php" method="post" class="form_commander">
-								<input type="hidden" name="action" value="ajouter"/>
-								<input type="hidden" name="id" value="p07"/>
-								<button type="submit" class="card_bouton">Commander</button>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="card_plat">
-					<div class="card_img" id="img_satsivi">Image Not Available</div>
-					<div class="card_body">
-						<h3 class="card_nom">Satsivi</h3>
-						<p class="card_origine">🇬🇪 Géorgie occidentale</p>
-						<p class="card_desc">Volaille froide nappée d'une sauce onctueuse aux noix, safran d'Iran et épices khmeli suneli.</p>
-						<div class="card_footer">
-							<span class="card_prix">17,00 €</span>
-							<form action="panier.php" method="post" class="form_commander">
-								<input type="hidden" name="action" value="ajouter"/>
-								<input type="hidden" name="id" value="p08"/>
-								<button type="submit" class="card_bouton">Commander</button>
-							</form>
-						</div>
-					</div>
-				</div>
-	
-			</div>
-		</section>
-		<section class="produits_section">
-			<h2 class="section_titre">Desserts</h2>
-			<div class="cards_container">
-				<div class="card_plat">
-					<div class="card_img" id="img_churchkhela">Image Not Available</div>
-					<div class="card_body">
-						<h3 class="card_nom">Churchkhela</h3>
-						<p class="card_origine">🇬🇪 Kakhétie</p>
-						<p class="card_desc">Noix et noisettes enfilées sur une ficelle et enrobées de jus de raisin concentré séché.</p>
-						<div class="card_footer">
-							<span class="card_prix">6,00 €</span>
-							<form action="panier.php" method="post" class="form_commander">
-								<input type="hidden" name="action" value="ajouter"/>
-								<input type="hidden" name="id" value="p09"/>
-								<button type="submit" class="card_bouton">Commander</button>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="card_plat">
-					<div class="card_img" id="img_pelamushi">Image Not Available</div>
-					<div class="card_body">
-						<h3 class="card_nom">Pelamushi</h3>
-						<p class="card_origine">🇬🇪 Géorgie</p>
-						<p class="card_desc">Pudding traditionnel à base de jus de raisin rouge et farine de maïs, parsemé de noix.</p>
-						<div class="card_footer">
-							<span class="card_prix">7,00 €</span>
-							<form action="panier.php" method="post" class="form_commander">
-								<input type="hidden" name="action" value="ajouter"/>
-								<input type="hidden" name="id" value="p10"/>
-								<button type="submit" class="card_bouton">Commander</button>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="card_plat">
-					<div class="card_img" id="img_nazuki">Image Not Available</div>
-					<div class="card_body">
-						<h3 class="card_nom">Nazuki</h3>
-						<p class="card_origine">🇬🇪 Géorgie</p>
-						<p class="card_desc">Pain sucré et épicé à la cannelle, cardamome et clou de girofle. Douceur des fêtes géorgiennes.</p>
-						<div class="card_footer">
-							<span class="card_prix">5,50 €</span>
-							<form action="panier.php" method="post" class="form_commander">
-								<input type="hidden" name="action" value="ajouter"/>
-								<input type="hidden" name="id" value="p11"/>
-								<button type="submit" class="card_bouton">Commander</button>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section class="produits_section">
-			<h2 class="section_titre">Boissons</h2>
-			<div class="cards_container">
-				<div class="card_plat">
-					<div class="card_img" id="img_rkatsiteli">Image Not Available</div>
-					<div class="card_body">
-						<h3 class="card_nom">Rkatsiteli Ambré</h3>
-						<p class="card_origine">🇬🇪 Kakhétie — Vin de 8000 ans</p>
-						<p class="card_desc">Vin ambré géorgien fermenté en amphore Qvevri. Notes de noix, miel et abricot sec.</p>
-						<div class="card_footer">
-							<span class="card_prix">9,00 €</span>
-							<form action="panier.php" method="post" class="form_commander">
-								<input type="hidden" name="action" value="ajouter"/>
-								<input type="hidden" name="id" value="p12"/>
-								<button type="submit" class="card_bouton">Commander</button>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="card_plat">
-					<div class="card_img" id="img_limonade">Image Not Available</div>
-					<div class="card_body">
-						<h3 class="card_nom">Limonade Lagidze</h3>
-						<p class="card_origine">🇬🇪 Tbilissi depuis 1887</p>
-						<p class="card_desc">Limonade artisanale géorgienne aux sirops naturels : poire, crème de vanille ou estragon.</p>
-						<div class="card_footer">
-							<span class="card_prix">4,50 €</span>
-							<form action="panier.php" method="post" class="form_commander">
-								<input type="hidden" name="action" value="ajouter"/>
-								<input type="hidden" name="id" value="p13"/>
-								<button type="submit" class="card_bouton">Commander</button>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="card_plat">
-					<div class="card_img" id="img_tan">Image Not Available</div>
-					<div class="card_body">
-						<h3 class="card_nom">Tan</h3>
-						<p class="card_origine">🇦🇲 Arménie — voisin caucasien</p>
-						<p class="card_desc">Boisson traditionnelle à base de yaourt fermenté, eau gazeuse et sel. Rafraîchissante et légère.</p>
-						<div class="card_footer">
-							<span class="card_prix">3,50 €</span>
-							<form action="panier.php" method="post" class="form_commander">
-								<input type="hidden" name="action" value="ajouter"/>
-								<input type="hidden" name="id" value="p14"/>
-								<button type="submit" class="card_bouton">Commander</button>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+		<?php } ?>
 	</main>
 </div>
 </body>
