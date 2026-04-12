@@ -9,7 +9,6 @@ $commandes=lire_json("data/commandes.json");
 
 // Statistiques
 $nb_utilisateurs=count($utilisateurs);
-
 $nb_avec_commande=0;
 $nb_en_cours=0;
 $total_notes=0;
@@ -93,7 +92,7 @@ if(!empty($_GET["filtre"])){
     <main id="admin_res">
         <div id="admin_recherche">
             <form id="admin_form" action="admin.php" method="get">
-                <input type="search" placeholder="Rechercher un utilisateur..." id="search_bar_admin" name="search" value="<?php echo $recherche ; ?>"/>
+                <input type="search" placeholder="Rechercher un utilisateur..." id="search_bar_admin" name="search" value="<?php echo $recherche; ?>"/>
                 <button type="submit" id="admin_button">Rechercher</button>
                 <select id="admin_list" name="filtre">
                     <option value="tous" <?php if($filtre=="tous") echo "selected"; ?>>Tous les utilisateurs</option>
@@ -116,8 +115,6 @@ if(!empty($_GET["filtre"])){
             <?php
             for($i=0; $i<count($utilisateurs); $i++){
                 $u=$utilisateurs[$i];
-
-                // Filtre avec/sans commande
                 if($filtre=="commandes"){
                     $a_commande=false;
                     for($j=0; $j<count($emails_commande); $j++){
@@ -125,6 +122,7 @@ if(!empty($_GET["filtre"])){
                             $a_commande=true;
                         }
                     }
+                    // saute utilisateur
                     if(!$a_commande){
                         continue; 
                     }
@@ -140,8 +138,6 @@ if(!empty($_GET["filtre"])){
                         continue; 
                     }
                 }
-
-                // Filtre recherche texte
                 if(!empty($recherche)){
                     $nom_complet=strtolower($u["name"]." ".$u["surname"]);
                     $email_lower=strtolower($u["email"]);
@@ -157,7 +153,7 @@ if(!empty($_GET["filtre"])){
                 echo '<td>'.$u["phone"].'</td>';
                 echo '<td>'.$u["role"].'</td>';
                 echo '<td>'.date("d/m/Y", strtotime($u["date_inscription"])).'</td>';
-                echo '<td><a href="profil.php?email='.urlencode($u["email"]).'" class="redirection_profil">Voir</a></td>';
+                echo '<td><a href="profil.php?email='.$u["email"].'" class="redirection_profil">Voir</a></td>';
                 echo '<td>';
                 echo '<button type="button" class="bouton_admin_action">Bloquer</button>';
                 echo '<button type="button" class="bouton_admin_action">Premium</button>';
@@ -170,4 +166,3 @@ if(!empty($_GET["filtre"])){
 </div>
 </body>
 </html>
-
