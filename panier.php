@@ -115,13 +115,28 @@ if(!empty($_POST["action"])){
             }
         }
 
+        $etage="";
+        if(!empty($_POST["etage"])){
+            $etage=$_POST["etage"];
+        }
+        $interphone="";
+        if(!empty($_POST["interphone"])){
+            $interphone=$_POST["interphone"];
+        }
+        $commentaire_livraison="";
+        if(!empty($_POST["commentaire_livraison"])){
+            $commentaire_livraison=$_POST["commentaire_livraison"];
+        }
         $_SESSION["commande_en_cours"]=[
             "transaction"=>$transaction,
             "panier"=>$_SESSION["panier"],
             "total"=>$total,
             "type"=>$type,
             "date_prevue"=>$date_prevue,
-            "adresse"=>$utilisateur
+            "adresse"=>$utilisateur,
+            "etage"=>$etage,
+            "interphone"=>$interphone,
+            "commentaire_livraison"=>$commentaire_livraison
         ];
         // infos pour cy bank
         $vendeur="SUPMECA_E";
@@ -142,7 +157,7 @@ if(!empty($_POST["action"])){
     <ul id="nav_left">
         <a href="presentation_page.php" target="_self"><li class="nav_item" id="indentation_left">Menus</li></a>
     </ul>
-    <a href="home_page.html" target="_self"><div class="restaurant_name">The Wonders of Svaneti</div></a>
+    <a href="home_page.php" target="_self"><div class="restaurant_name">The Wonders of Svaneti</div></a>
     <ul id="nav_right">
         <?php if(!empty($_SESSION["email"])){ ?>
         <a href="profil.php" target="_self"><li class="nav_item" id="indentation_right">Profil</li></a>
@@ -188,15 +203,25 @@ for($i=0; $i<count($_SESSION["panier"]); $i++){
 <nav id="navbar">
     <ul id="nav_left">
         <a href="presentation_page.php" target="_self"><li class="nav_item" id="indentation_left">Menus</li></a>
+        <?php if(!empty($_SESSION["role"]) && $_SESSION["role"]=="restaurateur"){ ?>
         <a href="commandes.php" target="_self"><li class="nav_item">Commandes</li></a>
+        <?php } ?>
+        <?php if(!empty($_SESSION["role"]) && $_SESSION["role"]=="livreur"){ ?>
         <a href="livraison.php" target="_self"><li class="nav_item">Livraison</li></a>
+        <?php } ?>
+        <?php if(!empty($_SESSION["role"]) && $_SESSION["role"]=="admin"){ ?>
         <a href="admin.php" target="_self"><li class="nav_item">Admin</li></a>
+        <?php } ?>
     </ul>
-    <a href="home_page.html" target="_self"><div class="restaurant_name">The Wonders of Svaneti</div></a>
+    <a href="home_page.php" target="_self"><div class="restaurant_name">The Wonders of Svaneti</div></a>
     <ul id="nav_right">
+        <?php if(!empty($_SESSION["email"])){ ?>
+        <a href="profil.php" target="_self"><li class="nav_item" id="indentation_right">Profil</li></a>
+        <a href="deconnexion.php" id="deconnexion_button">Se déconnecter</a>
+        <?php }else{ ?>
         <a href="inscription.php" target="_self"><li class="nav_item" id="indentation_right">Inscription</li></a>
-        <a href="profil.php" target="_self"><li class="nav_item">Profil</li></a>
         <a href="connexion.php" target="_self"><li class="nav_item">Connexion</li></a>
+        <?php } ?>
     </ul>
 </nav>
 </header>
@@ -276,6 +301,12 @@ for($i=0; $i<count($_SESSION["panier"]); $i++){
                         <input type="radio" name="quand" value="planifiee"/> Programmer pour plus tard
                     </label>
                     <input type="datetime-local" name="date_prevue" id="input_date_prevue" class="panier_date_input"/>
+                </div>
+                <div class="panier_choix_bloc">
+                    <p class="panier_choix_titre">Informations de livraison (optionnel) :</p>
+                    <input type="text" name="etage" placeholder="Étage (ex: 2)" class="panier_text_input"/>
+                    <input type="text" name="interphone" placeholder="Interphone (ex: B12)" class="panier_text_input"/>
+                    <input type="text" name="commentaire_livraison" placeholder="Commentaire (ex: Sonner deux fois)" class="panier_text_input"/>
                 </div>
                 <button type="submit" id="bouton_payer">Payer <?php echo $total; ?> €</button>
             </form>
