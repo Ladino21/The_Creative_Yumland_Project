@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -9,18 +10,30 @@
 <nav id="navbar">
 	<ul id="nav_left">
 		<a href="presentation_page.php" target="_self"><li class="nav_item" id="indentation_left">Menus</li></a>
+		<?php if(!empty($_SESSION["role"]) && $_SESSION["role"]=="restaurateur"){ ?>
 		<a href="commandes.php" target="_self"><li class="nav_item">Commandes</li></a>
+		<?php } ?>
+		<?php if(!empty($_SESSION["role"]) && $_SESSION["role"]=="livreur"){ ?>
 		<a href="livraison.php" target="_self"><li class="nav_item">Livraison</li></a>
+		<?php } ?>
+		<?php if(!empty($_SESSION["role"]) && $_SESSION["role"]=="admin"){ ?>
 		<a href="admin.php" target="_self"><li class="nav_item">Admin</li></a>
+		<?php } ?>
+		<?php if(!empty($_SESSION["role"]) && $_SESSION["role"]=="client"){ ?>
 		<a href="notation.php" target="_self"><li class="nav_item">Notation</li></a>
+		<?php } ?>
 	</ul>
 	<a href="home_page.php" target="_self"><div class="restaurant_name">The Wonders of Svaneti</div></a>
 	<ul id="nav_right">
+		<?php if(!empty($_SESSION["email"])){ ?>
+		<a href="profil.php" target="_self"><li class="nav_item" id="indentation_right">Profil</li></a>
+		<a href="deconnexion.php" id="deconnexion_button">Se déconnecter</a>
+		<?php }else{ ?>
 		<a href="inscription.php" target="_self"><li class="nav_item" id="indentation_right">Inscription</li></a>
-		<a href="profil.php" target="_self"><li class="nav_item">Profil</li></a>
 		<a href="connexion.php" target="_self"><li class="nav_item">Connexion</li></a>
+		<?php } ?>
 		<li class="nav_item_special">
-			<form id="search_form" action="#" method="get">
+			<form id="search_form" action="presentation_page.php" method="get">
 				<input type="search" placeholder="Rechercher un plat..." id="search_bar_admin" name="search"/>
 				<button type="submit" id="admin_button">Rechercher</button>
 			</form>
