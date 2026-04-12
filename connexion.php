@@ -90,8 +90,14 @@ if(!empty($_POST)){
 				header("location: livraison.php");
 				exit;
 			}
-			header("location: profil.php");
-			exit;
+			if(!empty($_SESSION["apres_connexion"])){
+					$redirect=$_SESSION["apres_connexion"];
+					unset($_SESSION["apres_connexion"]);
+					header("location: ".$redirect);
+					exit();
+				}
+				header("location: profil.php");
+				exit();
 		}
 	}
 }
