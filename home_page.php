@@ -8,17 +8,17 @@
 <header>
 <nav id="navbar">
 	<ul id="nav_left">
-		<a href="presentation_page.html" target="_self"><li class="nav_item" id="indentation_left">Menus</li></a>
-		<a href="commandes.html" target="_self"><li class="nav_item">Commandes</li></a>
-		<a href="livraison.html" target="_self"><li class="nav_item">Livraison</li></a>
-		<a href="admin.html" target="_self"><li class="nav_item">Admin</li></a>
-		<a href="notation.html" target="_self"><li class="nav_item">Notation</li></a>
+		<a href="presentation_page.php" target="_self"><li class="nav_item" id="indentation_left">Menus</li></a>
+		<a href="commandes.php" target="_self"><li class="nav_item">Commandes</li></a>
+		<a href="livraison.php" target="_self"><li class="nav_item">Livraison</li></a>
+		<a href="admin.php" target="_self"><li class="nav_item">Admin</li></a>
+		<a href="notation.php" target="_self"><li class="nav_item">Notation</li></a>
 	</ul>
-	<a href="home_page.html" target="_self"><div class="restaurant_name">The Wonders of Svaneti</div></a>
+	<a href="home_page.php" target="_self"><div class="restaurant_name">The Wonders of Svaneti</div></a>
 	<ul id="nav_right">
-		<a href="inscription.html" target="_self"><li class="nav_item" id="indentation_right">Inscription</li></a>
-		<a href="profil.html" target="_self"><li class="nav_item">Profil</li></a>
-		<a href="connexion.html" target="_self"><li class="nav_item">Connexion</li></a>
+		<a href="inscription.php" target="_self"><li class="nav_item" id="indentation_right">Inscription</li></a>
+		<a href="profil.php" target="_self"><li class="nav_item">Profil</li></a>
+		<a href="connexion.php" target="_self"><li class="nav_item">Connexion</li></a>
 		<li class="nav_item_special">
 			<form id="search_form" action="#" method="get">
 				<input type="search" placeholder="Rechercher un plat..." id="search_bar_admin" name="search"/>
@@ -45,7 +45,7 @@ Que vous découvriez pour la première fois les saveurs du Caucase ou que vous c
 La Géorgie, nichée entre les montagnes du Caucase et les rivages de la mer Noire, est l'une des civilisations les plus anciennes du monde. Berceau de la vigne il y a plus de 8 000 ans, ce pays a forgé au fil des siècles une culture du partage et de la table comme nulle part ailleurs.
 Au cœur de cette culture se trouve le Supra — le grand banquet géorgien — une célébration de la vie, de l'amitié et de la mémoire. Chaque Supra est guidé par le Tamada, le maître de cérémonie, dont le rôle est de porter les toasts et de conduire les convives à travers un voyage de mots, d'émotions et de saveurs. Car en Géorgie, un toast n'est pas une simple formule — c'est un art, un poème, un hommage à la vie.
 Chez The Wonders of Svaneti, nous perpétuons cet esprit. Chaque assiette raconte une région, chaque épice évoque une tradition. Laissez-vous guider.
-<div id="config"><a href="presentation_page.html" target="_self" id="redirection_menu">Menus</a></div>
+<div id="config"><a href="presentation_page.php" target="_self" id="redirection_menu">Menus</a></div>
 </div>
 </div>
 </body>
