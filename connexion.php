@@ -25,9 +25,7 @@ if(isset($_COOKIE["cy_email"])){
 	$email_cookie=$_COOKIE["cy_email"];
 }
 
-// tourne en premier lors d'une première connexion
 if(!empty($_POST)){
-	// email
 	if(empty($_POST["email"])){
 		$erreur="Entrez votre email !!";
 	}else{
@@ -36,14 +34,12 @@ if(!empty($_POST)){
 			$erreur="L'email est invalide !!";
 		}
 	}
-	// mot de passe
+
 	if(empty($erreur)){
 		if(empty($_POST["password"])){
 			$erreur="Entrez votre mot de passe !!";
 		}
 	}
-
-	// vérification des identifiants (emails) dans le fichier JSON
 	if(empty($erreur)){
 		$password=$_POST["password"];
 		$fichier="data/inscription.json";
@@ -52,18 +48,16 @@ if(!empty($_POST)){
 
 		$utilisateur_trouve=null;
 		if(is_array($utilisateurs)){
-			for($i=0; $i<count($utilisateurs) && $utilisateur_trouve===null; $i++){
+			for($i=0; $i<count($utilisateurs) && $utilisateur_trouve==null; $i++){
 				if(isset($utilisateurs[$i]["email"]) && $utilisateurs[$i]["email"]==$email){
 					$utilisateur_trouve=$utilisateurs[$i];
 				}
 			}
 		}
 
-		// Message identique pour email inconnu et mauvais mdp — sécurité
-		if($utilisateur_trouve===null || !password_verify($password, $utilisateur_trouve["password"])){
+		if($utilisateur_trouve==null || !password_verify($password, $utilisateur_trouve["password"])){
 			$erreur="Email ou mot de passe incorrect !!";
 		}else{
-			// Connexion réussie — on stocke les infos en session
 			$_SESSION["email"]=$utilisateur_trouve["email"];
 			$_SESSION["name"]=$utilisateur_trouve["name"];
 			$_SESSION["surname"]=$utilisateur_trouve["surname"];
@@ -76,19 +70,18 @@ if(!empty($_POST)){
 				setcookie("cy_email", "", time()-3600, "/");
 			}
 
-			// Redirection selon le rôle
 			$role=$utilisateur_trouve["role"];
 			if($role=="admin"){
 				header("location: admin.php");
-				exit;
+				exit();
 			}
 			if($role=="restaurateur"){
 				header("location: commandes.php");
-				exit;
+				exit();
 			}
 			if($role=="livreur"){
 				header("location: livraison.php");
-				exit;
+				exit();
 			}
 			if(!empty($_SESSION["apres_connexion"])){
 					$redirect=$_SESSION["apres_connexion"];
