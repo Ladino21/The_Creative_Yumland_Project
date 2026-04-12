@@ -22,7 +22,7 @@ if(!empty($_POST) && !empty($_POST["id_commande"])){
 	}
 	ecrire_json("data/commandes.json", $commandes);
 	header("location: livraison.php");
-	exit;
+	exit();
 }
 
 $commande=null;
@@ -57,7 +57,7 @@ if($commande!=null){
 	</div>
 	<?php } ?>
 	<div id="livraison_header_right">
-		<a href="home_page.html" id="livraison_retour">← Accueil</a>
+		<a href="home_page.php" id="livraison_retour">← Accueil</a>
 		<a href="deconnexion.php" id="deconnexion_button">Se déconnecter</a>
 	</div>
 </header>
@@ -145,3 +145,4 @@ if($commande!=null){
 </div>
 </body>
 </html>
+
