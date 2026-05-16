@@ -1877,3 +1877,216 @@ border:2px solid #C4622D;
 
 
 /*border:1px solid white;*/
+
+/* ============================================================ MODE SOMBRE ============================================================ */
+
+#theme_toggle{
+background:none;
+border:2px solid #C4622D;
+color:#E8D5B0;
+font-size:16px;
+cursor:pointer;
+border-radius:12px;
+padding:5px 10px;
+margin-left:12px;
+font-family:Poppins,sans-serif;
+}
+
+#theme_toggle:hover{
+background-color:#C4622D;
+}
+
+.theme_toggle_flottant{
+position:fixed;
+top:16px;
+right:16px;
+z-index:100;
+background-color:rgba(44,26,14,0.9);
+}
+
+/* Navbar */
+html.mode_sombre #navbar{
+background-color:#0A0705;
+}
+/* Corps des pages */
+html.mode_sombre #home_page,
+html.mode_sombre #body_profil,
+html.mode_sombre #body_admin,
+html.mode_sombre #body_commandes,
+html.mode_sombre #body_notation,
+html.mode_sombre #body_produits,
+html.mode_sombre #body_panier{
+background-color:#1A110A;
+}
+html.mode_sombre #body_connexion{
+background-image:none;
+background-color:#1A110A;
+}
+html.mode_sombre #body_inscription{
+background-image:none;
+background-color:#1A110A;
+}
+
+/* Home page - sections crème */
+html.mode_sombre #presentation{
+background-color:#231810;
+}
+
+html.mode_sombre #presentation_text{
+color:#E8D5B0;
+}
+
+html.mode_sombre #bonus_accueil{
+background-color:#231810;
+}
+
+html.mode_sombre #culture_accueil{
+color:#E8D5B0;
+}
+
+/* Barre de recherche navbar */
+html.mode_sombre #search_form{
+background-color:#3D2A1A;
+}
+
+html.mode_sombre [type="search"]{
+color:#E8D5B0;
+}
+
+/* Presentation page */
+html.mode_sombre #barre_carte{
+background-color:#231810;
+}
+
+html.mode_sombre #produits_titre,
+html.mode_sombre #produits_sous_titre{
+color:#E8D5B0;
+}
+
+html.mode_sombre .section_titre{
+color:#E8D5B0;
+}
+
+/* Inputs texte (connexion, inscription) */
+html.mode_sombre [type="text"],
+html.mode_sombre [type="password"],
+html.mode_sombre [type="email"]{
+background-color:#2C1A0E;
+color:#E8D5B0;
+}
+
+html.mode_sombre #tab_inscription input[type="text"],
+html.mode_sombre #tab_inscription input[type="password"],
+html.mode_sombre #tab_inscription input[type="date"],
+html.mode_sombre #tab_inscription input[type="email"],
+html.mode_sombre #tab_inscription input[type="tel"],
+html.mode_sombre #tab_inscription input[type="number"],
+html.mode_sombre #tab_inscription textarea{
+background-color:#2C1A0E;
+color:#E8D5B0;
+}
+
+html.mode_sombre #tab_notation select,
+html.mode_sombre #tab_notation textarea{
+background-color:#2C1A0E;
+color:#E8D5B0;
+}
+
+html.mode_sombre .select_livreur{
+background-color:#2C1A0E;
+color:#E8D5B0;
+}
+
+/* Admin */
+html.mode_sombre #tab_admin{
+background-color:#231810;
+}
+
+html.mode_sombre #tab_admin td{
+color:#E8D5B0;
+border-bottom:1px solid #3D2A1A;
+}
+
+html.mode_sombre #admin_form{
+background-color:#2C1A0E;
+}
+
+html.mode_sombre #search_bar_admin{
+background-color:transparent;
+color:#E8D5B0;
+}
+
+html.mode_sombre #admin_list{
+background-color:#2C1A0E;
+color:#E8D5B0;
+}
+
+/* Commandes */
+html.mode_sombre .tab_commandes{
+background-color:#231810;
+}
+
+html.mode_sombre .tab_commandes td{
+color:#E8D5B0;
+border-bottom:1px solid #3D2A1A;
+}
+
+html.mode_sombre .commandes_section_titre{
+color:#E8D5B0;
+}
+
+/* Panier */
+html.mode_sombre #tab_panier{
+background-color:#231810;
+}
+
+html.mode_sombre #tab_panier td{
+border-bottom:1px solid #3D2A1A;
+}
+
+html.mode_sombre .panier_nom,
+html.mode_sombre .panier_sous_total{
+color:#E8D5B0;
+}
+
+html.mode_sombre #panier_titre,
+html.mode_sombre #panier_vide,
+html.mode_sombre #panier_redirect_texte,
+html.mode_sombre #panier_erreur_msg{
+color:#E8D5B0;
+}
+
+html.mode_sombre #bouton_vider_panier{
+color:#E8D5B0;
+border-color:#E8D5B0;
+}
+
+html.mode_sombre #bouton_vider_panier:hover{
+background-color:#3D2A1A;
+color:#E8D5B0;
+}
+
+/* Livraison */
+html.mode_sombre #livraison_container{
+background-color:#2A1E14;
+}
+
+html.mode_sombre #livraison_vide{
+color:#E8D5B0;
+}
+.erreur_champ{
+display:block;
+color:#C0392B;
+font-size:12px;
+margin-top:3px;
+}
+.btn_oeil{
+background:none;
+border:none;
+cursor:pointer;
+font-size:16px;
+padding:0 4px;
+margin-left:4px;
+vertical-align:middle;
+}
+
