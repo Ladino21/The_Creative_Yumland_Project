@@ -214,3 +214,4 @@ if($champ==="password"){
 }
 
 echo json_encode(["erreur"=>"Champ inconnu."]);
+?>
