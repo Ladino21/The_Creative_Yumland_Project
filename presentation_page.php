@@ -78,7 +78,9 @@ for($s=0; $s<count($cats_keys); $s++){
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<link rel="stylesheet" href="restaurant.css">
+<link rel="stylesheet" href="restaurant.css?v=3">
+<script src="theme.js?v=2"></script>
+<script src="filtres_produits.js" defer></script>
 <title>The Wonders of Svaneti | Nos Plats</title>
 </head>
 <body id="body_produits">
@@ -119,10 +121,12 @@ for($s=0; $s<count($cats_keys); $s++){
 				<?php if(!empty($allergene)){ ?>
 				<input type="hidden" name="allergene" value="<?php echo $allergene; ?>"/>
 				<?php } ?>
-				<input type="search" placeholder="Rechercher un plat..." id="search_bar_admin" name="search" value="<?php echo $search; ?>"/>
+				<input type="search" placeholder="Rechercher un plat..." id="search_bar_admin" name="search" value="<?php echo $search; ?>" autocomplete="off"/>
 				<button type="submit" id="admin_button">Rechercher</button>
+				<ul id="liste_suggestions"></ul>
 			</form>
 		</li>
+		<button type="button" id="theme_toggle" onclick="basculer_theme()">🌙</button>
 	</ul>
 </nav>
 </header>
@@ -137,22 +141,22 @@ for($s=0; $s<count($cats_keys); $s++){
 		<div class="filtre_bloc">
 			<h3 class="filtre_titre">Catégorie</h3>
 			<ul class="filtre_liste">
-				<a href="presentation_page.php<?php if(!empty($search)) echo "?search=".$search; ?>">
+				<a href="presentation_page.php<?php if(!empty($search)) echo "?search=".$search; ?>" data-champ="categorie" data-valeur="tous">
 					<li class="<?php if($categorie=="tous") echo "filtre_item_actif"; else echo "filtre_item"; ?>">Tous</li>
 				</a>
-				<a href="presentation_page.php?categorie=menus<?php if(!empty($search)) echo "&search=".$search; ?>">
+				<a href="presentation_page.php?categorie=menus<?php if(!empty($search)) echo "&search=".$search; ?>" data-champ="categorie" data-valeur="menus">
 					<li class="<?php if($categorie=="menus") echo "filtre_item_actif"; else echo "filtre_item"; ?>">Menus</li>
 				</a>
-				<a href="presentation_page.php?categorie=entrees<?php if(!empty($search)) echo "&search=".$search; ?>">
+				<a href="presentation_page.php?categorie=entrees<?php if(!empty($search)) echo "&search=".$search; ?>" data-champ="categorie" data-valeur="entrees">
 					<li class="<?php if($categorie=="entrees") echo "filtre_item_actif"; else echo "filtre_item"; ?>">Entrées</li>
 				</a>
-				<a href="presentation_page.php?categorie=plats<?php if(!empty($search)) echo "&search=".$search; ?>">
+				<a href="presentation_page.php?categorie=plats<?php if(!empty($search)) echo "&search=".$search; ?>" data-champ="categorie" data-valeur="plats">
 					<li class="<?php if($categorie=="plats") echo "filtre_item_actif"; else echo "filtre_item"; ?>">Plats</li>
 				</a>
-				<a href="presentation_page.php?categorie=desserts<?php if(!empty($search)) echo "&search=".$search; ?>">
+				<a href="presentation_page.php?categorie=desserts<?php if(!empty($search)) echo "&search=".$search; ?>" data-champ="categorie" data-valeur="desserts">
 					<li class="<?php if($categorie=="desserts") echo "filtre_item_actif"; else echo "filtre_item"; ?>">Desserts</li>
 				</a>
-				<a href="presentation_page.php?categorie=boissons<?php if(!empty($search)) echo "&search=".$search; ?>">
+				<a href="presentation_page.php?categorie=boissons<?php if(!empty($search)) echo "&search=".$search; ?>" data-champ="categorie" data-valeur="boissons">
 					<li class="<?php if($categorie=="boissons") echo "filtre_item_actif"; else echo "filtre_item"; ?>">Boissons</li>
 				</a>
 			</ul>
@@ -160,19 +164,19 @@ for($s=0; $s<count($cats_keys); $s++){
 		<div class="filtre_bloc">
 			<h3 class="filtre_titre">Saveurs</h3>
 			<ul class="filtre_liste">
-				<a href="presentation_page.php?saveur=epice<?php if(!empty($search)) echo "&search=".$search; ?>">
+				<a href="presentation_page.php?saveur=epice<?php if(!empty($search)) echo "&search=".$search; ?>" data-champ="saveur" data-valeur="epice">
 					<li class="<?php if($saveur=="epice") echo "filtre_item_actif"; else echo "filtre_item"; ?>">Épicé</li>
 				</a>
-				<a href="presentation_page.php?saveur=fume<?php if(!empty($search)) echo "&search=".$search; ?>">
+				<a href="presentation_page.php?saveur=fume<?php if(!empty($search)) echo "&search=".$search; ?>" data-champ="saveur" data-valeur="fume">
 					<li class="<?php if($saveur=="fume") echo "filtre_item_actif"; else echo "filtre_item"; ?>">Fumé</li>
 				</a>
-				<a href="presentation_page.php?saveur=vegetarien<?php if(!empty($search)) echo "&search=".$search; ?>">
+				<a href="presentation_page.php?saveur=vegetarien<?php if(!empty($search)) echo "&search=".$search; ?>" data-champ="saveur" data-valeur="vegetarien">
 					<li class="<?php if($saveur=="vegetarien") echo "filtre_item_actif"; else echo "filtre_item"; ?>">Végétarien</li>
 				</a>
-				<a href="presentation_page.php?saveur=fruite<?php if(!empty($search)) echo "&search=".$search; ?>">
+				<a href="presentation_page.php?saveur=fruite<?php if(!empty($search)) echo "&search=".$search; ?>" data-champ="saveur" data-valeur="fruite">
 					<li class="<?php if($saveur=="fruite") echo "filtre_item_actif"; else echo "filtre_item"; ?>">Fruité</li>
 				</a>
-				<a href="presentation_page.php?saveur=grille<?php if(!empty($search)) echo "&search=".$search; ?>">
+				<a href="presentation_page.php?saveur=grille<?php if(!empty($search)) echo "&search=".$search; ?>" data-champ="saveur" data-valeur="grille">
 					<li class="<?php if($saveur=="grille") echo "filtre_item_actif"; else echo "filtre_item"; ?>">Grillé</li>
 				</a>
 			</ul>
@@ -180,16 +184,16 @@ for($s=0; $s<count($cats_keys); $s++){
 		<div class="filtre_bloc">
 			<h3 class="filtre_titre">Allergènes</h3>
 			<ul class="filtre_liste">
-				<a href="presentation_page.php?allergene=noix<?php if(!empty($search)) echo "&search=".$search; ?>">
+				<a href="presentation_page.php?allergene=noix<?php if(!empty($search)) echo "&search=".$search; ?>" data-champ="allergene" data-valeur="noix">
 					<li class="<?php if($allergene=="noix") echo "filtre_item_actif"; else echo "filtre_item"; ?>">Sans noix</li>
 				</a>
-				<a href="presentation_page.php?allergene=gluten<?php if(!empty($search)) echo "&search=".$search; ?>">
+				<a href="presentation_page.php?allergene=gluten<?php if(!empty($search)) echo "&search=".$search; ?>" data-champ="allergene" data-valeur="gluten">
 					<li class="<?php if($allergene=="gluten") echo "filtre_item_actif"; else echo "filtre_item"; ?>">Sans gluten</li>
 				</a>
-				<a href="presentation_page.php?allergene=lactose<?php if(!empty($search)) echo "&search=".$search; ?>">
+				<a href="presentation_page.php?allergene=lactose<?php if(!empty($search)) echo "&search=".$search; ?>" data-champ="allergene" data-valeur="lactose">
 					<li class="<?php if($allergene=="lactose") echo "filtre_item_actif"; else echo "filtre_item"; ?>">Sans lactose</li>
 				</a>
-				<a href="presentation_page.php?allergene=oeuf<?php if(!empty($search)) echo "&search=".$search; ?>">
+				<a href="presentation_page.php?allergene=oeuf<?php if(!empty($search)) echo "&search=".$search; ?>" data-champ="allergene" data-valeur="oeuf">
 					<li class="<?php if($allergene=="oeuf") echo "filtre_item_actif"; else echo "filtre_item"; ?>">Sans œuf</li>
 				</a>
 			</ul>
@@ -207,7 +211,10 @@ for($s=0; $s<count($cats_keys); $s++){
 			<div class="cards_container">
 				<?php for($i=0; $i<count($section["items"]); $i++){
 					$item=$section["items"][$i];
-					$img_id=isset($image_ids[$item["id"]]) ? $image_ids[$item["id"]] : "img_default";
+					$img_id="img_default";
+					if(isset($image_ids[$item["id"]])){
+						$img_id=$image_ids[$item["id"]];
+					}
 				?>
 				<div class="card_plat">
 					<div class="card_img" id="<?php echo $img_id; ?>">Image Not Available</div>
