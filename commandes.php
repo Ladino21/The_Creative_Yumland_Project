@@ -8,10 +8,18 @@ $commandes=lire_json("data/commandes.json");
 $utilisateurs=lire_json("data/inscription.json");
 
 $a_preparer=[];
+$en_preparation=[];
+$prete=[];
 $en_livraison=[];
 for($i=0; $i<count($commandes); $i++){
     if($commandes[$i]["statut"]=="a_preparer"){
         $a_preparer[]=$commandes[$i];
+    }
+    if($commandes[$i]["statut"]=="en_preparation"){
+        $en_preparation[]=$commandes[$i];
+    }
+    if($commandes[$i]["statut"]=="prete"){
+        $prete[]=$commandes[$i];
     }
     if($commandes[$i]["statut"]=="en_livraison"){
         $en_livraison[]=$commandes[$i];
@@ -49,7 +57,10 @@ for($i=0; $i<count($utilisateurs); $i++){
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<link rel="stylesheet" href="restaurant.css">
+<link rel="stylesheet" href="restaurant.css?v=3">
+<script src="theme.js?v=2"></script>
+<script>var livreurs_data=<?php echo json_encode($livreurs, JSON_UNESCAPED_UNICODE); ?>;</script>
+<script src="commandes_actions.js" defer></script>
 <title>The Wonders of Svaneti | Commandes</title>
 </head>
 <body id="body_commandes">
@@ -63,27 +74,31 @@ for($i=0; $i<count($utilisateurs); $i++){
     </div>
     <div id="commandes_header_right">
         <div class="commandes_compteur">
-            <span class="compteur_valeur"><?php echo count($a_preparer); ?></span>
+            <span class="compteur_valeur" id="compteur_a_preparer"><?php echo count($a_preparer); ?></span>
             <span class="compteur_label">À préparer</span>
+        </div>
+        <div class="commandes_compteur">
+            <span class="compteur_valeur" id="compteur_en_preparation"><?php echo count($en_preparation); ?></span>
+            <span class="compteur_label">En préparation</span>
         </div>
         <div class="commandes_compteur">
             <span class="compteur_valeur"><?php echo count($en_livraison); ?></span>
             <span class="compteur_label">En livraison</span>
         </div>
+        <button type="button" id="theme_toggle" onclick="basculer_theme()">🌙</button>
         <a href="deconnexion.php" id="deconnexion_button">Se déconnecter</a>
     </div>
 </header>
 <div id="commandes_container">
     <section class="commandes_section">
         <h2 class="commandes_section_titre">🍳 Commandes à préparer</h2>
-        <table class="tab_commandes">
+        <table class="tab_commandes" id="table_a_preparer">
             <tr class="tab_commandes_header">
                 <th>N° commande</th>
                 <th>Client</th>
                 <th>Plats commandés</th>
                 <th>Heure</th>
                 <th>Total</th>
-                <th>Livreur</th>
                 <th>Action</th>
             </tr>
             <?php
@@ -91,8 +106,6 @@ for($i=0; $i<count($utilisateurs); $i++){
                 $c=$a_preparer[$i];
                 $nom_client=get_nom_client($c["client_email"], $utilisateurs);
                 $heure=date("H\hi", strtotime($c["date_commande"]));
-
-                // Construire la liste des plats
                 $liste_plats="";
                 for($j=0; $j<count($c["items"]); $j++){
                     if($j>0){
@@ -100,13 +113,82 @@ for($i=0; $i<count($utilisateurs); $i++){
                     }
                     $liste_plats=$liste_plats.$c["items"][$j]["nom"]." x".$c["items"][$j]["quantite"];
                 }
-
                 $prevue="";
                 if(!empty($c["date_livraison_prevue"])){
                     $prevue=' <span class="commande_planifiee">⏰ '.date("d/m H\hi", strtotime($c["date_livraison_prevue"])).'</span>';
                 }
-                echo '<tr>';
+                echo '<tr id="row_ap_'.$c["id"].'">';
                 echo '<td>'.$c["id"].$prevue.'</td>';
+                echo '<td>'.$nom_client.'</td>';
+                echo '<td>'.$liste_plats.'</td>';
+                echo '<td>'.$heure.'</td>';
+                echo '<td>'.$c["total"].' €</td>';
+                echo '<td><button type="button" class="btn_statut btn_en_preparation" data-id="'.$c["id"].'" data-statut="en_preparation" data-row="row_ap_'.$c["id"].'" data-compteur="compteur_a_preparer">En préparation</button></td>';
+                echo '</tr>';
+            }
+            ?>
+        </table>
+    </section>
+    <section class="commandes_section">
+        <h2 class="commandes_section_titre">👨‍🍳 En préparation</h2>
+        <table class="tab_commandes" id="table_en_preparation">
+            <tr class="tab_commandes_header">
+                <th>N° commande</th>
+                <th>Client</th>
+                <th>Plats commandés</th>
+                <th>Heure</th>
+                <th>Total</th>
+                <th>Action</th>
+            </tr>
+            <?php
+            for($i=0; $i<count($en_preparation); $i++){
+                $c=$en_preparation[$i];
+                $nom_client=get_nom_client($c["client_email"], $utilisateurs);
+                $heure=date("H\hi", strtotime($c["date_commande"]));
+                $liste_plats="";
+                for($j=0; $j<count($c["items"]); $j++){
+                    if($j>0){
+                        $liste_plats=$liste_plats.", ";
+                    }
+                    $liste_plats=$liste_plats.$c["items"][$j]["nom"]." x".$c["items"][$j]["quantite"];
+                }
+                echo '<tr id="row_ep_'.$c["id"].'">';
+                echo '<td>'.$c["id"].'</td>';
+                echo '<td>'.$nom_client.'</td>';
+                echo '<td>'.$liste_plats.'</td>';
+                echo '<td>'.$heure.'</td>';
+                echo '<td>'.$c["total"].' €</td>';
+                echo '<td><button type="button" class="btn_statut btn_prete" data-id="'.$c["id"].'" data-statut="prete" data-row="row_ep_'.$c["id"].'" data-compteur="compteur_en_preparation">Prête</button></td>';
+                echo '</tr>';
+            }
+            ?>
+        </table>
+    </section>
+    <section class="commandes_section">
+        <h2 class="commandes_section_titre">✅ Prêtes à livrer</h2>
+        <table class="tab_commandes" id="table_prete">
+            <tr class="tab_commandes_header">
+                <th>N° commande</th>
+                <th>Client</th>
+                <th>Plats commandés</th>
+                <th>Heure</th>
+                <th>Total</th>
+                <th colspan="2">Livreur</th>
+            </tr>
+            <?php
+            for($i=0; $i<count($prete); $i++){
+                $c=$prete[$i];
+                $nom_client=get_nom_client($c["client_email"], $utilisateurs);
+                $heure=date("H\hi", strtotime($c["date_commande"]));
+                $liste_plats="";
+                for($j=0; $j<count($c["items"]); $j++){
+                    if($j>0){
+                        $liste_plats=$liste_plats.", ";
+                    }
+                    $liste_plats=$liste_plats.$c["items"][$j]["nom"]." x".$c["items"][$j]["quantite"];
+                }
+                echo '<tr>';
+                echo '<td>'.$c["id"].'</td>';
                 echo '<td>'.$nom_client.'</td>';
                 echo '<td>'.$liste_plats.'</td>';
                 echo '<td>'.$heure.'</td>';
@@ -145,7 +227,6 @@ for($i=0; $i<count($utilisateurs); $i++){
                 $c=$en_livraison[$i];
                 $nom_client=get_nom_client($c["client_email"], $utilisateurs);
                 $heure=date("H\hi", strtotime($c["date_commande"]));
-
                 $liste_plats="";
                 for($j=0; $j<count($c["items"]); $j++){
                     if($j>0){
@@ -153,9 +234,7 @@ for($i=0; $i<count($utilisateurs); $i++){
                     }
                     $liste_plats=$liste_plats.$c["items"][$j]["nom"]." x".$c["items"][$j]["quantite"];
                 }
-
                 $nom_livreur=get_nom_client($c["livreur_email"], $utilisateurs);
-
                 echo '<tr>';
                 echo '<td>'.$c["id"].'</td>';
                 echo '<td>'.$nom_client.'</td>';
@@ -172,4 +251,3 @@ for($i=0; $i<count($utilisateurs); $i++){
 </div>
 </body>
 </html>
-
