@@ -148,7 +148,8 @@ if(!empty($_POST["action"])){
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<link rel="stylesheet" href="restaurant.css">
+<link rel="stylesheet" href="restaurant.css?v=2">
+<script src="theme.js?v=2"></script>
 <title>The Wonders of Svaneti | Paiement</title>
 </head>
 <body id="body_panier">
@@ -166,6 +167,7 @@ if(!empty($_POST["action"])){
         <a href="inscription.php" target="_self"><li class="nav_item" id="indentation_right">Inscription</li></a>
         <a href="connexion.php" target="_self"><li class="nav_item">Connexion</li></a>
         <?php } ?>
+        <button type="button" id="theme_toggle" onclick="basculer_theme()">🌙</button>
     </ul>
 </nav>
 </header>
@@ -195,7 +197,7 @@ for($i=0; $i<count($_SESSION["panier"]); $i++){
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<link rel="stylesheet" href="restaurant.css">
+<link rel="stylesheet" href="restaurant.css?v=2">
 <title>The Wonders of Svaneti | Panier</title>
 </head>
 <body id="body_panier">
