@@ -109,7 +109,8 @@ if(empty($erreur)){
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<link rel="stylesheet" href="restaurant.css">
+<link rel="stylesheet" href="restaurant.css?v=2">
+<script src="theme.js?v=2"></script>
 <title>The Wonders of Svaneti | Erreur paiement</title>
 </head>
 <body id="body_panier">
@@ -126,6 +127,7 @@ if(empty($erreur)){
         <?php }else{ ?>
         <a href="connexion.php" target="_self"><li class="nav_item" id="indentation_right">Connexion</li></a>
         <?php } ?>
+        <button type="button" id="theme_toggle" onclick="basculer_theme()">🌙</button>
     </ul>
 </nav>
 </header>
@@ -138,3 +140,4 @@ if(empty($erreur)){
 </div>
 </body>
 </html>
+
