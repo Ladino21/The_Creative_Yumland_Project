@@ -12,6 +12,8 @@ Phase 1 — Retour
 
 Stack technique
 - Phase 1: HTML5/CSS3
+- Phase 2: PHP
+- Phase 3: JS/Async
 
 Lancer le projet
 - Telecharger le dossier puis ouvrer home_page.html dans le navigateur de votre choix. Telecharger de préférence le dossier avec la commande: "git clone https://github.com/Ladino21/The_Creative_Yumland_Project Supmeca_project" !!
