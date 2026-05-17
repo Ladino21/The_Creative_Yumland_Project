@@ -54,7 +54,9 @@ if(!empty($_GET["filtre"])){
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<link rel="stylesheet" href="restaurant.css">
+<link rel="stylesheet" href="restaurant.css?v=3">
+<script src="theme.js?v=2"></script>
+<script src="admin_actions.js" defer></script>
 <title>The Wonders of Svaneti | Administration</title>
 </head>
 <body id="body_admin">
@@ -64,6 +66,7 @@ if(!empty($_GET["filtre"])){
         <p id="admin_undertitle">Gestion des utilisateurs</p>
     </div>
     <div id="admin_header_right">
+        <button type="button" id="theme_toggle" onclick="basculer_theme()">🌙</button>
         <a href="home_page.php" id="admin_retour">← Retour à l'accueil</a>
         <a href="deconnexion.php" id="deconnexion_button">Se déconnecter</a>
     </div>
@@ -150,10 +153,18 @@ if(!empty($_GET["filtre"])){
                 echo '<td>'.$u["email"].'</td>';
                 echo '<td>'.$u["phone"].'</td>';
                 echo '<td>'.$u["role"].'</td>';
-                echo '<td>'.(!empty($u["date_inscription"]) ? date("d/m/Y", strtotime($u["date_inscription"])) : "—").'</td>';
+                $date_inscription="—";
+                if(!empty($u["date_inscription"])){
+                    $date_inscription=date("d/m/Y", strtotime($u["date_inscription"]));
+                }
+                echo '<td>'.$date_inscription.'</td>';
                 echo '<td><a href="profil.php?email='.$u["email"].'" class="redirection_profil">Voir</a></td>';
                 echo '<td>';
-                echo '<button type="button" class="bouton_admin_action">Bloquer</button>';
+                if(isset($u["bloque"]) && $u["bloque"]){
+                    echo '<button type="button" class="bouton_admin_action btn_bloquer btn_bloque_actif" data-email="'.$u["email"].'" data-action="debloquer">Débloquer</button>';
+                }else{
+                    echo '<button type="button" class="bouton_admin_action btn_bloquer" data-email="'.$u["email"].'" data-action="bloquer">Bloquer</button>';
+                }
                 echo '<button type="button" class="bouton_admin_action">Premium</button>';
                 echo '</td>';
                 echo '</tr>';
@@ -164,3 +175,4 @@ if(!empty($_GET["filtre"])){
 </div>
 </body>
 </html>
+
