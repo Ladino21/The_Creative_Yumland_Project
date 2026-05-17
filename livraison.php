@@ -44,7 +44,8 @@ if($commande!=null){
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<link rel="stylesheet" href="restaurant.css">
+<link rel="stylesheet" href="restaurant.css?v=2">
+<script src="theme.js?v=2"></script>
 <title>The Wonders of Svaneti | Livraison</title>
 </head>
 <body id="body_livraison">
@@ -57,6 +58,7 @@ if($commande!=null){
 	</div>
 	<?php } ?>
 	<div id="livraison_header_right">
+		<button type="button" id="theme_toggle" onclick="basculer_theme()">🌙</button>
 		<a href="home_page.php" id="livraison_retour">← Accueil</a>
 		<a href="deconnexion.php" id="deconnexion_button">Se déconnecter</a>
 	</div>
