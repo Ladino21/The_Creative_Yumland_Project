@@ -57,6 +57,8 @@ if(!empty($_POST)){
 
 		if($utilisateur_trouve==null || !password_verify($password, $utilisateur_trouve["password"])){
 			$erreur="Email ou mot de passe incorrect !!";
+		}elseif(!empty($utilisateur_trouve["bloque"]) && $utilisateur_trouve["bloque"]){
+			$erreur="Votre compte a été bloqué. Contactez l'administrateur.";
 		}else{
 			$_SESSION["email"]=$utilisateur_trouve["email"];
 			$_SESSION["name"]=$utilisateur_trouve["name"];
@@ -98,10 +100,13 @@ if(!empty($_POST)){
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<link rel="stylesheet" href="restaurant.css">
+<link rel="stylesheet" href="restaurant.css?v=3">
+<script src="theme.js?v=2"></script>
+<script src="validation_connexion.js" defer></script>
 <title>The Wonders of Svaneti | Formulaire de connexion</title>
 </head>
 <body id="body_connexion">
+<button type="button" id="theme_toggle" class="theme_toggle_flottant" onclick="basculer_theme()">🌙</button>
 <section id="section_form">
 	<div id="container">
 		<h2>Formulaire de connexion</h2>
@@ -112,11 +117,18 @@ if(!empty($_POST)){
 		<table id="tab_connexion">
 			<tr>
 				<td><label for="Email">Email</label></td>
-				<td><input type="email" placeholder="Email" name="email" id="Email" value="<?php echo $email_cookie; ?>"/></td>
+				<td>
+					<input type="email" placeholder="Email" name="email" id="Email" value="<?php echo $email_cookie; ?>"/>
+					<span class="erreur_champ" id="erreur_email"></span>
+				</td>
 			</tr>
 			<tr>
 				<td><label for="password">Mot de passe</label></td>
-				<td><input type="password" placeholder="Mot de passe" name="password" id="password"/></td>
+				<td>
+					<input type="password" placeholder="Mot de passe" name="password" id="password"/>
+					<button type="button" id="oeil" class="btn_oeil">👁</button>
+					<span class="erreur_champ" id="erreur_password"></span>
+				</td>
 			</tr>
 			<tr>
 				<td><label for="remind_me">Se souvenir de moi</label></td>
@@ -138,5 +150,4 @@ if(!empty($_POST)){
 </section>
 </body>
 </html>
-
 
