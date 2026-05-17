@@ -215,7 +215,9 @@ if(!empty($_POST)){
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<link rel="stylesheet" href="restaurant.css">
+<link rel="stylesheet" href="restaurant.css?v=3">
+<script src="theme.js?v=2"></script>
+<script src="validation_inscription.js" defer></script>
 <title>The Wonders of Svaneti | Formulaire d'inscription</title>
 
 <?php if($erreur=="Inscription réussie !!"){ ?>
@@ -224,6 +226,7 @@ if(!empty($_POST)){
 
 </head>
 <body id="body_inscription">
+<button type="button" id="theme_toggle" class="theme_toggle_flottant" onclick="basculer_theme()">🌙</button>
 <section id="section_inscription">
 	<div id="container_form">
 		<h2>Formulaire d'inscription</h2>
@@ -234,47 +237,82 @@ if(!empty($_POST)){
 		<table id="tab_inscription">
 			<tr>
 				<td><label for="name">Prénom</label></td>
-				<td><input type="text" placeholder="Prénom" name="name" id="name"/></td>
+				<td>
+					<input type="text" placeholder="Prénom" name="name" id="name"/>
+					<span class="erreur_champ" id="erreur_name"></span>
+				</td>
 			</tr>
 			<tr>
 				<td><label for="surname">Nom de famille</label></td>
-				<td><input type="text" placeholder="Nom de famille" name="surname" id="surname"/></td>
+				<td>
+					<input type="text" placeholder="Nom de famille" name="surname" id="surname"/>
+					<span class="erreur_champ" id="erreur_surname"></span>
+				</td>
 			</tr>
 			<tr>
 				<td><label for="Email2">Email</label></td>
-				<td><input type="email" placeholder="Email" name="email" id="Email2"/></td>
+				<td>
+					<input type="email" placeholder="Email" name="email" id="Email2"/>
+					<span class="erreur_champ" id="erreur_email"></span>
+				</td>
 			</tr>
 			<tr>
 				<td><label for="password1">Mot de passe</label></td>
-				<td><input type="password" placeholder="Mot de passe" name="password1" id="password1"/></td>
+				<td>
+					<input type="password" placeholder="Mot de passe" name="password1" id="password1"/>
+					<button type="button" id="oeil1" class="btn_oeil">👁</button>
+					<span class="erreur_champ" id="erreur_password1"></span>
+				</td>
 			</tr>
 			<tr>
 				<td><label for="password2">Confirmation mot de passe</label></td>
-				<td><input type="password" placeholder="Confirmer mot de passe" name="password2" id="password2"/></td>
+				<td>
+					<input type="password" placeholder="Confirmer mot de passe" name="password2" id="password2"/>
+					<button type="button" id="oeil2" class="btn_oeil">👁</button>
+					<span class="erreur_champ" id="erreur_password2"></span>
+				</td>
 			</tr>
 			<tr>
 				<td><label for="numero">Numéro de rue</label></td>
-				<td><input type="text" name="numero" id="numero" placeholder="12"/></td>
+				<td>
+					<input type="text" name="numero" id="numero" placeholder="12"/>
+					<span class="erreur_champ" id="erreur_numero"></span>
+				</td>
 			</tr>
 			<tr>
 				<td><label for="rue">Rue</label></td>
-				<td><input type="text" name="rue" id="rue" placeholder="Entrez la rue"/></td>
+				<td>
+					<input type="text" name="rue" id="rue" placeholder="Entrez la rue"/>
+					<span class="erreur_champ" id="erreur_rue"></span>
+				</td>
 			</tr>
 			<tr>
 				<td><label for="ville">Ville</label></td>
-				<td><input type="text" name="ville" id="ville" placeholder="Ville"/></td>
+				<td>
+					<input type="text" name="ville" id="ville" placeholder="Ville"/>
+					<span class="erreur_champ" id="erreur_ville"></span>
+				</td>
 			</tr>
 			<tr>
 				<td><label for="code_postal">Code postal</label></td>
-				<td><input type="text" name="code_postal" id="code_postal" placeholder="95000"/></td>
+				<td>
+					<input type="text" name="code_postal" id="code_postal" placeholder="95000"/>
+					<span class="erreur_champ" id="erreur_code_postal"></span>
+				</td>
 			</tr>
 			<tr>
 				<td><label for="phone">Téléphone</label></td>
-				<td><input type="tel" placeholder="0612345678" name="phone" id="phone"/></td>
+				<td>
+					<input type="tel" placeholder="0612345678" name="phone" id="phone"/>
+					<span class="erreur_champ" id="erreur_phone"></span>
+				</td>
 			</tr>
 			<tr>
 				<td><label for="birthday">Date d'anniversaire</label></td>
-				<td><input type="date" name="birthday" id="birthday"/></td>
+				<td>
+					<input type="date" name="birthday" id="birthday"/>
+					<span class="erreur_champ" id="erreur_birthday"></span>
+				</td>
 			</tr>
 			<tr>
 				<td colspan="2">
@@ -287,3 +325,4 @@ if(!empty($_POST)){
 </section>
 </body>
 </html>
+
