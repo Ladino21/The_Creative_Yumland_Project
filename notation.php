@@ -77,12 +77,14 @@ if($commande!=null){
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<link rel="stylesheet" href="restaurant.css">
+<link rel="stylesheet" href="restaurant.css?v=2">
+<script src="theme.js?v=2"></script>
 <title>The Wonders of Svaneti | Notation</title>
 </head>
 <body id="body_notation">
 <header id="header-notation">
 	<a href="home_page.php" target="_self"><div class="restaurant_name">The Wonders of Svaneti</div></a>
+	<button type="button" id="theme_toggle" onclick="basculer_theme()">🌙</button>
 </header>
 <section id="section_notation">
 	<div id="container_notation">
