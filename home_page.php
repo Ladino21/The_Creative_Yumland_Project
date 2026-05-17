@@ -3,7 +3,8 @@
 <html lang="fr">
 <head>
 <title>The wonders of Svaneti | page d'accueil</title>
-<link rel="stylesheet" href="restaurant.css">
+<link rel="stylesheet" href="restaurant.css?v=2">
+<script src="theme.js?v=2"></script>
 </head>
 <body id="home_page">
 <header>
@@ -38,6 +39,7 @@
 				<button type="submit" id="admin_button">Rechercher</button>
 			</form>
 		</li>
+		<button type="button" id="theme_toggle" onclick="basculer_theme()">🌙</button>
 	</ul>
 </nav>
 </header>
