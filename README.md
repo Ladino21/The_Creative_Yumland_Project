@@ -18,3 +18,6 @@ Lancer le projet
 
 Identité visuelle
 - Palette autour des tons chauds du Caucase — brun foncé #2C1A0E, terracotta #C4622D, crème #E8D5B0, ivoire #F5ECD7. Polices : Algerian (titres), Poppins (interface), Constantia (contenu).
+
+Support de Travail
+- Visual Studio Code
