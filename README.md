@@ -16,7 +16,7 @@ Stack technique
 - Phase 3: JS/Async
 
 Lancer le projet
-- Telecharger le dossier puis ouvrer home_page.html dans le navigateur de votre choix. Telecharger de préférence le dossier avec la commande: "git clone https://github.com/Ladino21/The_Creative_Yumland_Project Supmeca_project" !!
+- Telecharger le dossier puis ouvrer home_page.php dans le navigateur de votre choix. Telecharger de préférence le dossier avec la commande: "git clone https://github.com/Ladino21/The_Creative_Yumland_Project Supmeca_project" !!
 
 Identité visuelle
 - Palette autour des tons chauds du Caucase — brun foncé #2C1A0E, terracotta #C4622D, crème #E8D5B0, ivoire #F5ECD7. Polices : Algerian (titres), Poppins (interface), Constantia (contenu).
