@@ -1085,6 +1085,10 @@ background-size:cover;
 background-position:center;
 }
 
+#img_pkhali{
+    background-image:url('image/Pkhali.jpg');
+}
+
 .card_body{
 padding:16px;
 display:flex;
