@@ -1085,6 +1085,9 @@ background-size:cover;
 background-position:center;
 }
 
+#img_tamada{
+    background-image:url('image/tamada.jpg');
+}
 #img_pkhali{
     background-image:url('image/Pkhali.jpg');
 }
@@ -1096,6 +1099,45 @@ background-position:center;
 }
 #img_cornichons{
     background-image:url('image/Cornichons_Georgiens.jpg');
+}
+#img_khinkali{
+    background-image:url('image/Khinkali.jpg');
+}
+#img_mtsvadi{
+    background-image:url('image/Mtsvadi.png');
+}
+#img_soko{
+    background-image:url('image/Soko Kecze.avif');
+}
+#img_satsivi{
+    background-image:url('image/satsivi.webp');
+}
+#img_churchkhela{
+    background-image:url('image/Churchkhela.jpg');
+}
+#img_pelamushi{
+    background-image:url('image/Pelamushi.webp');
+}
+#img_nazuki{
+    background-image:url('image/Nazuki.webp');
+}
+#img_rkatsiteli{
+    background-image:url('image/Rkatsiteli_Ambre.webp');
+}
+#img_limonade{
+    background-image:url('image/Limonade_Lagidze.jpg');
+}
+#img_tan{
+    background-image:url('image/Tan.webp');
+}
+#img_khachapuri{
+    background-image:url('image/khachapuri.webp');
+}
+#img_veggie{
+    background-image:url('image/Vegetarien.avif');
+}
+#img_svanetie{
+    background-image:url('image/svaneti.jpg');
 }
 
 
