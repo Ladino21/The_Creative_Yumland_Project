@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function(){
             for(var i=0; i<section.items.length; i++){
                 var item=section.items[i];
                 html=html+'<div class="card_plat">';
-                html=html+'<div class="card_img" id="'+item.img_id+'">Image Not Available</div>';
+                html=html+'<div class="card_img" id="'+item.img_id+'"></div>';
                 html=html+'<div class="card_body">';
                 html=html+'<h3 class="card_nom">'+item.nom+'</h3>';
                 html=html+'<p class="card_origine">🇬🇪 '+item.origine+'</p>';
