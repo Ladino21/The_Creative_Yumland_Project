@@ -1088,6 +1088,16 @@ background-position:center;
 #img_pkhali{
     background-image:url('image/Pkhali.jpg');
 }
+#img_badrijani{
+    background-image:url('image/Badrijani.webp');
+}
+#img_salade{
+    background-image:url('image/salade_georgienne.webp');
+}
+#img_cornichons{
+    background-image:url('image/Cornichons_Georgiens.jpg');
+}
+
 
 .card_body{
 padding:16px;
