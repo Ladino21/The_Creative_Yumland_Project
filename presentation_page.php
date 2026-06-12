@@ -217,7 +217,7 @@ for($s=0; $s<count($cats_keys); $s++){
 					}
 				?>
 				<div class="card_plat">
-					<div class="card_img" id="<?php echo $img_id; ?>"></div>
+					<div class="card_img" title="Un tamada (géorgien : თამადა) est un toastmaster géorgien lors d'un supra (fête) géorgien ou lors d'un mariage"id="<?php echo $img_id; ?>"></div>
 					<div class="card_body">
 						<h3 class="card_nom"><?php echo $item["nom"]; ?></h3>
 						<p class="card_origine">🇬🇪 <?php echo $item["origine"]; ?></p>
