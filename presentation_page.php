@@ -219,7 +219,7 @@ for($s=0; $s<count($cats_keys); $s++){
 				<div class="card_plat" <?php if($img_id=="img_tamada"){ echo 'title="Dans ce menu, nous rendons honneur au Tamada, un toastmaster géorgien qui supervise un supra (fête) géorgien ou bien un mariage"'; } ?>>
 					<div class="card_img" id="<?php echo $img_id; ?>"></div>
 					<div class="card_body">
-						<h3 class="card_nom"><?php echo $item["nom"]; ?></h3>
+						<h3 class="card_nom"><?php echo $item["nom"]; ?><span class="favoris">☆</span></h3>
 						<p class="card_origine">🇬🇪 <?php echo $item["origine"]; ?></p>
 						<p class="card_desc"><?php echo $item["description"]; ?></p>
 						<div class="card_footer">
