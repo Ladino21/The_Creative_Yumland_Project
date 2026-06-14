@@ -3,6 +3,18 @@ session_start();
 require_once "includes/json.php";
 
 $data=lire_json("data/menus.json");
+$favoris_user=[];
+if(!empty($_SESSION["email"])){
+    $utilisateurs=lire_json("data/inscription.json");
+    for($i=0; $i<count($utilisateurs); $i++){
+        if($utilisateurs[$i]["email"]===$_SESSION["email"]){
+            if(!empty($utilisateurs[$i]["favoris"])){
+                $favoris_user=$utilisateurs[$i]["favoris"];
+            }
+            break;
+        }
+    }
+}
 
 $search="";
 if(!empty($_GET["search"])){
