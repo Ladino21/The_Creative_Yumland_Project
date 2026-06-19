@@ -1,5 +1,20 @@
 [
     {
+        "name": " Amar ",
+        "surname": "ALI ",
+        "email": "ali@gmail.com",
+        "phone": "0709090909",
+        "birthday": "0002-09-12",
+        "numero": "48",
+        "rue": "les-poteries",
+        "ville": "marly-le-Roi",
+        "code_postal": "78160",
+        "password": "$2y$10$H1omxK3V.eH0UJfTwELCfu5uxeiy0FpEjE6EUdzRnrB1siIXpCOKu",
+        "role": "client",
+        "statut": "actif",
+        "date_inscription": "2026-06-19"
+    }
+    {
         "name":"Adam",
         "surname":"ADEL GHANNY",
         "email":"adam.adel@hotmail.com",
