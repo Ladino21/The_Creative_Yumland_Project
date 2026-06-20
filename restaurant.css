@@ -1152,11 +1152,14 @@ font-family:Algerian,serif;
 font-size:16px;
 color:#E8D5B0;
 margin-bottom:4px;
+display:flex;
+align-items:center;
+justify-content:space-between;
 }
 
 .favoris{
-font-size:24px;
-margin-left:70px;
+font-size:20px;
+margin-left:8px;
 cursor:pointer;
 color:#C4622D;
 user-select:none;
