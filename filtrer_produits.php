@@ -21,6 +21,23 @@ $allergene="";
 if(!empty($_GET["allergene"])){
     $allergene=$_GET["allergene"];
 }
+$filtre_favoris=false;
+if(!empty($_GET["favoris"])){
+    $filtre_favoris=true;
+}
+
+$favoris_user=[];
+if(!empty($_SESSION["email"])){
+    $utilisateurs=lire_json("data/inscription.json");
+    for($i=0; $i<count($utilisateurs); $i++){
+        if($utilisateurs[$i]["email"]===$_SESSION["email"]){
+            if(!empty($utilisateurs[$i]["favoris"])){
+                $favoris_user=$utilisateurs[$i]["favoris"];
+            }
+            break;
+        }
+    }
+}
 
 $image_ids=[
     "m01"=>"img_tamada","m02"=>"img_khachapuri",
@@ -69,6 +86,11 @@ for($s=0; $s<count($cats_keys); $s++){
                 continue;
             }
         }
+        if($filtre_favoris){
+            if(!in_array($item["id"], $favoris_user)){
+                continue;
+            }
+        }
         $img_id="img_default";
         if(isset($image_ids[$item["id"]])){
             $img_id=$image_ids[$item["id"]];
@@ -79,7 +101,8 @@ for($s=0; $s<count($cats_keys); $s++){
             "origine"=>$item["origine"],
             "description"=>$item["description"],
             "prix"=>$item["prix"],
-            "img_id"=>$img_id
+            "img_id"=>$img_id,
+            "est_favori"=>in_array($item["id"], $favoris_user)
         ];
     }
     if(count($items_filtres)>0){
