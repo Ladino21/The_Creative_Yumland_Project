@@ -3,6 +3,7 @@ session_start();
 require_once "includes/json.php";
 
 $data=lire_json("data/menus.json");
+
 $favoris_user=[];
 if(!empty($_SESSION["email"])){
     $utilisateurs=lire_json("data/inscription.json");
@@ -60,7 +61,7 @@ for($s=0; $s<count($cats_keys); $s++){
     if($categorie!="tous" && $categorie!=$cat_key){
         continue;
     }
-    $items_bruts=$data[$cat_key];
+    $items_bruts=$data[$cat_key]; 
     $items_filtres=[];
     for($i=0; $i<count($items_bruts); $i++){
         $item=$items_bruts[$i];
@@ -151,6 +152,16 @@ for($s=0; $s<count($cats_keys); $s++){
 </div>
 <div id="produits_container">
 	<aside id="colone_gauche">
+		<?php if(!empty($_SESSION["email"]) && $_SESSION["role"]==="client"){ ?>
+		<div class="filtre_bloc">
+			<h3 class="filtre_titre">Mes favoris</h3>
+			<ul class="filtre_liste">
+				<a href="#" data-champ="favoris" data-valeur="1">
+					<li class="filtre_item">★ Mes favoris</li>
+				</a>
+			</ul>
+		</div>
+		<?php } ?>
 		<div class="filtre_bloc">
 			<h3 class="filtre_titre">Catégorie</h3>
 			<ul class="filtre_liste">
@@ -229,12 +240,12 @@ for($s=0; $s<count($cats_keys); $s++){
 						$img_id=$image_ids[$item["id"]];
 					}
 				?>
-				<div class="card_plat" <?php if($img_id=="img_tamada"){ echo 'title="Dans ce menu, nous rendons honneur au Tamada, un toastmaster géorgien qui supervise un supra (fête) géorgien ou bien un mariage"'; } ?>>
+				<div class="card_plat">
 					<div class="card_img" id="<?php echo $img_id; ?>"></div>
 					<div class="card_body">
 						<h3 class="card_nom"><?php echo $item["nom"]; ?>
 						<?php if(!empty($_SESSION["email"]) && $_SESSION["role"]==="client"){ ?>
-						<span class="favoris" data-id="<?php echo $item["id"]; ?>"><?php echo in_array($item["id"], $favoris_user) ? "★" : "☆"; ?></span>
+						<span class="favoris" data-id="<?php echo $item["id"]; ?>"><?php if(in_array($item["id"], $favoris_user)){ echo "★"; }else{ echo "☆"; } ?></span>
 						<?php } ?></h3>
 						<p class="card_origine">🇬🇪 <?php echo $item["origine"]; ?></p>
 						<p class="card_desc"><?php echo $item["description"]; ?></p>
