@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function(){
     var saveur_courante="";
     var allergene_courante="";
     var search_courant="";
+    var favoris_courant=false;
 
     var liens_filtre=document.querySelectorAll("[data-champ]");
     for(var i=0; i<liens_filtre.length; i++){
@@ -44,6 +45,9 @@ document.addEventListener("DOMContentLoaded", function(){
                 }else{
                     allergene_courante=valeur;
                 }
+            }
+            if(champ==="favoris"){
+                favoris_courant=!favoris_courant;
             }
             charger_produits();
         });
@@ -110,6 +114,9 @@ document.addEventListener("DOMContentLoaded", function(){
         if(search_courant.length>0){
             url=url+"&search="+encodeURIComponent(search_courant);
         }
+        if(favoris_courant){
+            url=url+"&favoris=1";
+        }
         fetch(url)
         .then(function(reponse){
             return reponse.json();
@@ -137,7 +144,15 @@ document.addEventListener("DOMContentLoaded", function(){
                 html=html+'<div class="card_plat">';
                 html=html+'<div class="card_img" id="'+item.img_id+'"></div>';
                 html=html+'<div class="card_body">';
-                html=html+'<h3 class="card_nom">'+item.nom+'</h3>';
+                var etoile="";
+                if(item.est_favori!==undefined){
+                    if(item.est_favori){
+                        etoile='<span class="favoris" data-id="'+item.id+'">★</span>';
+                    }else{
+                        etoile='<span class="favoris" data-id="'+item.id+'">☆</span>';
+                    }
+                }
+                html=html+'<h3 class="card_nom">'+item.nom+etoile+'</h3>';
                 html=html+'<p class="card_origine">🇬🇪 '+item.origine+'</p>';
                 html=html+'<p class="card_desc">'+item.description+'</p>';
                 html=html+'<div class="card_footer">';
@@ -170,6 +185,9 @@ document.addEventListener("DOMContentLoaded", function(){
                 actif=true;
             }
             if(champ==="allergene" && valeur===allergene_courante){
+                actif=true;
+            }
+            if(champ==="favoris" && favoris_courant){
                 actif=true;
             }
             if(actif){
