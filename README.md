@@ -28,3 +28,6 @@ Projet Creative-Yumland • CY Tech préING2 • 2025-2026
 **Support de Travail**
 - Visual Studio Code
 - Xampp
+
+**Remarques**
+- Design doit être re-visité pour les interfaces de moins de 1900px en largeur (telephone / ipad / petit ecran ordi)
